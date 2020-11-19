@@ -12,7 +12,8 @@ class Landing extends React.Component {
                 LOGIN OR REGISTER TO JOIN/CREATE A STUDY GROUP!
               </Header>
               <Header as='h4' textAlign='center' inverted>
-                EARN POINTS BY ATTENDING STUDY SESSIONS. MAKE YOUR WAY TO THE TOP.
+                EARN POINTS BY ATTENDING STUDY SESSIONS.<br />
+                MAKE YOUR WAY TO THE TOP.
               </Header>
             </Grid.Column>
             <Grid.Column width={4}>
