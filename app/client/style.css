@@ -1,9 +1,13 @@
-.study-ext-green{
+.study-ext-green {
   color: #658076;
 }
 
-.landing-green-background{
+.landing-green-background {
   background-color: #658076;
   color: #CDC7C7;
   padding-top: 20px;
+}
+
+.profile-background {
+    background-color: white;
 }
