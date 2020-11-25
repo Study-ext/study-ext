@@ -14,5 +14,326 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultUsers": [
+    { "name": "Lena Holden",
+      "email": "lenaholden@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "takenClasses": [
+
+      ],
+      "bio": "I am a freshman and new to computer science. I'm ready to learn and work with new people!"
+    },
+    { "name": "Bobbi Ward",
+      "email": "bobbiward@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "takenClasses": [
+
+      ],
+      "bio": "I am a freshman, I have a little background in Computer Science and Java."
+    },
+    { "name": "Aldrey Rambayon",
+      "email": "aldreyRambayon@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 111"
+      ],
+      "takenClasses": [
+
+      ],
+      "bio": "I am majoring in Civil Engineering, but I want to learn more about Computer Science."
+    },
+    { "name": "Bryanna Kemp",
+      "email": "bryannakemp@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 111"
+      ],
+      "takenClasses": [
+
+      ],
+      "bio": "I am new to Computer Science and I enjoy playing video games on my free time."
+    },
+    { "name": "Robert Welsh",
+      "email": "robertwelsh@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "takenClasses": [
+
+      ],
+      "bio": "Open minded and ready to learn."
+    },
+    { "name": "Sejong Takenaka",
+      "email": "sejongtakenaka@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 141"
+      ],
+      "takenClasses": [
+        "ICS 111"
+      ],
+      "bio": "New to this, but I am excited to create usable programs!"
+    },
+    { "name": "Kyle Walt",
+      "email": "kylewalt@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "takenClasses": [
+
+      ],
+      "bio": "Have experience in coding, looking to go into Video Game development."
+    },
+    { "name": "Gigi Good",
+      "email": "gigigood@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 141"
+      ],
+      "takenClasses": [
+        "ICS 111"
+      ],
+      "bio": "I enjoy graphic design and looking to go into web development. "
+    },
+    { "name": "Nick Kim",
+      "email": "nickkim@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "takenClasses": [
+
+      ],
+      "bio": "Freshman in ICS. Don't know what I want to do, but I enjoy working with computers."
+    },
+    { "name": "Jackie Cox",
+      "email": "jackiecox@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 211",
+        "ICS 241"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "bio": "Majoring in ICS, looking to go into Cyber Security."
+    },
+    { "name": "Jean Huff",
+      "email": "jeanhuff@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 211"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "bio": "Sophomore majoring in ICS, looking to go into web development."
+    },
+    { "name": "Trixie Michelle",
+      "email": "trixiemichelle@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 211",
+        "ICS 241"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "bio": "Sophomore with in ICS with a track in Data Science."
+    },
+    { "name": "Katya Zimbo",
+      "email": "katyazimbo@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 241",
+        "ICS 212"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211"
+      ],
+      "bio": "I'm a transfer, so new to the program here."
+    },
+    { "name": "Rob Zimmerman",
+      "email": "robzimmerman@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 212"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241"
+      ],
+      "bio": "I enjoy web design and creating useful programs."
+    },
+    { "name": "Andy Cooper",
+      "email": "andycooper@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 212",
+        "ICS 222"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241"
+      ],
+      "bio": "Sophomore majoring in ICS with a track in Cyber Security."
+    },
+    { "name": "Matty Sirois",
+      "email": "mattysirois@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 241",
+        "ICS 222"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 212"
+      ],
+      "bio": "I love coding and have been working towards working as a web developer."
+    },
+    { "name": "Riley Flynn",
+      "email": "rileyflynn@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 222",
+        "ICS 241"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211"
+      ],
+      "bio": "So far, I have been enjoying ICS and working towards becoming a Software Developer."
+    },
+    { "name": "Garrett Waters",
+      "email": "garrettwaters@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 241"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 212"
+      ],
+      "bio": "I enjoy creating and design new and working programs."
+    },
+    { "name": "Evan Keith",
+      "email": "evankeith@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "role": [
+        "Mentee"
+      ],
+      "rank": "john@foo.com",
+      "currClasses": [
+        "ICS 211",
+        "ICS 222"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "bio": "I am a sophomore and still figuring out what I want to do within ICS"
+    }
   ]
+
 }
