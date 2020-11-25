@@ -3,7 +3,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Contacts } from '../../api/contact/Contacts';
 import { Notes } from '../../api/note/Notes';
-import { Profiles } from '../../api/profile/Profiles';
+import { ProfileData } from '../../api/profile/ProfileData';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -31,10 +31,10 @@ Meteor.publish(Notes.userPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Profiles.userPublicationName, function () {
+Meteor.publish(ProfileData.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Profiles.collection.find({ owner: username });
+    return ProfileData.collection.find({ owner: username });
   }
   return this.ready();
 });
@@ -55,9 +55,9 @@ Meteor.publish(Contacts.adminPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Profiles.adminPublicationName, function () {
+Meteor.publish(ProfileData.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Profiles.collection.find();
+    return ProfileData.collection.find();
   }
   return this.ready();
 });

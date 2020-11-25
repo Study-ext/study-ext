@@ -1,5 +1,5 @@
 import React from 'react';
-import { Item, Image, Feed, Header } from 'semantic-ui-react';
+import { Item, Feed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import Note from './Note';
@@ -19,9 +19,11 @@ class Profile extends React.Component {
             <Item.Header>Name: {this.props.profile.firstName} {this.props.profile.lastName}</Item.Header>
             <Item.Meta>Address: {this.props.profile.address}</Item.Meta>
             <Item.Description>Description: {this.props.profile.description}</Item.Description>
-
             <Item.Extra>
-              <Link to={`/edit/${this.props.profile._id}`}>Edit</Link>
+              <Link to={`/createprofile/${this.props.profile._id}`}>Create Profile</Link>
+            </Item.Extra>
+            <Item.Extra>
+              <Link to={`/editprofile/${this.props.profile._id}`}>Edit Profile</Link>
             </Item.Extra>
             <Item.Extra>
               <Feed>

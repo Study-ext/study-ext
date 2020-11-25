@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Contacts } from '../../api/contact/Contacts';
-import { Profiles } from '../../api/profile/Profiles';
+import { ProfileData } from '../../api/profile/ProfileData';
 
 /* eslint-disable no-console */
 
@@ -33,16 +33,16 @@ if (Contacts.collection.find().count() === 0) {
   }
 }
 
-/* for Profiles collection */
-function addProfile(data) {
-  console.log(`  Adding: ${data.lastName} (${data.owner})`);
-  Profiles.collection.insert(data);
-}
-
-/** Initialize the collection if empty. */
-if (Profiles.collection.find().count() === 0) {
-  if (Meteor.settings.defaultProfiles) {
-    console.log('Creating default profiles.');
-    Meteor.settings.defaultProfiles.map(data => addProfile(data));
-  }
-}
+// /* for ProfileData collection */
+// function addProfile(data) {
+//   console.log(`  Adding: ${data.lastName} (${data.owner})`);
+//   ProfileData.collection.insert(data);
+// }
+//
+// /** Initialize the collection if empty. */
+// if (ProfileData.collection.find().count() === 0) {
+//   if (Meteor.settings.defaultProfiles) {
+//     console.log('Creating default profiles.');
+//     Meteor.settings.defaultProfiles.map(data => addProfile(data));
+//   }
+// }

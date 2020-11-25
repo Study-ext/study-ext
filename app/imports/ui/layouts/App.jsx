@@ -15,6 +15,7 @@ import AddStuff from '../pages/AddStuff';
 import ViewProfile from '../pages/ViewProfile';
 import CreateProfile from '../pages/CreateProfile';
 import EditStuff from '../pages/EditStuff';
+import EditProfile from '../pages/EditProfile';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -36,8 +37,9 @@ class App extends React.Component {
               <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/add" component={AddContact}/>
               <ProtectedRoute path="/profile" component={ViewProfile}/>
-              <ProtectedRoute path="/add" component={CreateProfile}/>
+              <ProtectedRoute path="/createprofile" component={CreateProfile}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>

@@ -1,41 +1,44 @@
 import React from 'react';
-import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
+import { Grid, Segment, Header, Form, Message } from 'semantic-ui-react';
+// Must use destructuring import to avoid https://github.com/vazco/uniforms/issues/433
+import { AutoForm, TextField, DateField, LongTextField, SelectField, SubmitField } from 'uniforms-semantic';
 import swal from 'sweetalert';
-import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import SimpleSchema from 'simpl-schema';
-import { Profiles } from '../../api/profile/Profiles';
-
-/** Create a schema to specify the structure of the data to appear in the form. */
-const formSchema = new SimpleSchema({
-  name: String,
-  quantity: Number,
-  condition: {
-    type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
-  },
-});
+import MultiSelectField from '../forms/controllers/MultiSelectField';
+import RadioField from '../forms/controllers/RadioField';
+import { ProfileFormSchema as formSchema, gpa2Number } from '../forms/ProfileFormInfo';
+import { ProfileData } from '../../api/profile/ProfileData';
+import { EnrollmentData } from '../../api/enrollmentdata/EnrollmentData';
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
 class CreateProfile extends React.Component {
 
-  /** On submit, insert the data. */
+  constructor(props) {
+    super(props);
+    this.state = { email: false };
+  }
+
+  /** On submit, try to insert the data. If successful, reset the form. */
   submit(data, formRef) {
-    const { name, quantity, condition } = data;
-    const owner = Meteor.user().username;
-    Profiles.collection.insert({ name, quantity, condition, owner },
-      (error) => {
-        if (error) {
-          swal('Error', error.message, 'error');
-        } else {
-          swal('Success', 'Item added successfully', 'success');
-          formRef.reset();
-        }
-      });
+    let insertError;
+    const { name, email, bio, level, gpa, enrolled, hobbies, major } = data;
+    ProfileData.insert({ name, email, image, bio, level, gpa: gpa2Number(gpa), hobbies, major },
+        (error) => { insertError = error; });
+    if (insertError) {
+      swal('Error', insertError.message, 'error');
+    } else {
+      EnrollmentData.insert({ email, enrolled },
+          (error) => { insertError = error; });
+      if (insertError) {
+        swal('Error', insertError.message, 'error');
+      } else {
+        swal('Success', 'The student record was created.', 'success');
+        this.setState({ email });
+        formRef.reset();
+      }
+    }
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -44,16 +47,26 @@ class CreateProfile extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Create Profile</Header>
-            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
+            <Header inverted as="h2" textAlign="center">Create Profile</Header>
+            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
-                <TextField name='name'/>
-                <NumField name='quantity' decimal={false}/>
-                <SelectField name='condition'/>
+                <Form.Group widths={'equal'}>
+                  <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
+                  <TextField name='email' showInlineError={true} placeholder={'Your email'}/>
+                  <TextField name='image' showInlineError={true} placeholder={'Image URL'}/>
+                </Form.Group>
+                <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
+                <Form.Group widths={'equal'}>
+                  <SelectField name='level' showInlineError={true} />
+                  <SelectField name='gpa' showInlineError={true} placeholder={'Select one'} />
+                  <DateField name='enrolled' showInlineError={true}/>
+                </Form.Group>
+                <MultiSelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies (optional)'}/>
+                <RadioField name='major' inline showInlineError={true}/>
                 <SubmitField value='Submit'/>
-                <ErrorsField/>
               </Segment>
             </AutoForm>
+            {this.state.email ? <Message>Edit <a href={`/#/student/${this.state.email}`}>this data</a></Message> : ''}
           </Grid.Column>
         </Grid>
     );
