@@ -1,9 +1,25 @@
 import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
+import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Contacts } from '../../api/contact/Contacts';
 import { ProfileData } from '../../api/profile/ProfileData';
 
 /* eslint-disable no-console */
+
+/** Define a user in the Meteor accounts package. This enables login. Username is the email address. */
+function createUser(email, password, role) {
+  console.log(`  Creating user ${email}.`);
+  const userID = Accounts.createUser({
+    username: email,
+    email: email,
+    password: password,
+  });
+  if (role === 'admin') {
+    Roles.createRole(role, { unlessExists: true });
+    Roles.addUsersToRoles(userID, 'admin');
+  }
+}
 
 /** Initialize the database with a default data document. */
 function addData(data) {
@@ -34,15 +50,32 @@ if (Contacts.collection.find().count() === 0) {
 }
 
 /* for ProfileData collection */
-function addProfile(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
-  ProfileData.insert(data);
+// function addProfile(data) {
+//   console.log(`  Adding: ${data.name} (${data.owner})`);
+//   ProfileData.insert(data);
+// }
+/** Defines a new user and associated profile. Error if user already exists. */
+function addProfile({ name, email, image, takenCourses, currentCourses, bio, level, gpa, major, role }) {
+  console.log(`Defining profile ${email}`);
+  // Define the user in the Meteor accounts package.
+  createUser(email, role);
+  // Create the profile.
+  ProfileData.insert({ name, email, image, takenCourses, currentCourses, bio, level, gpa, major });
 }
 
-/** Initialize the collection if empty. */
-if (ProfileData.find().count() === 0) {
+/** Initialize the DB if empty (no users defined.) */
+if (Meteor.users.find().count() === 0) {
   if (Meteor.settings.defaultProfiles) {
-    console.log('Creating default profiles.');
-    Meteor.settings.defaultProfiles.map(data => addProfile(data));
+    console.log('Creating default profiles');
+    Meteor.settings.defaultProfiles.map(profile => addProfile(profile));
+  } else {
+    console.log('Cannot initialize the database. Please invoke meteor with a settings file.');
   }
 }
+
+// if (ProfileData.find().count() === 0) {
+//   if (Meteor.settings.defaultProfiles) {
+//     console.log('Creating default profiles.');
+//     Meteor.settings.defaultProfiles.map(data => addProfile(data));
+//   }
+// }

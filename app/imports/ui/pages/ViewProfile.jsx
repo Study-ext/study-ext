@@ -21,7 +21,7 @@ class ViewProfile extends React.Component {
         <Container>
           <Header as="h2" textAlign="center" inverted>Profile</Header>
           <Card.Group centered>
-            {this.props.profiles.map((profile, index) => <Profile key={index}
+            {this.props.profiledata.map((profile, index) => <Profile key={index}
                                                                   profile={profile}
                                                                   notes={this.props.notes.filter(note => (note.profileId === profile._id))}/>)}
           </Card.Group>
@@ -30,20 +30,20 @@ class ViewProfile extends React.Component {
   }
 }
 
-/** Require an array of Stuff documents in the props. */
+/** Require an array of ProfileData documents in the props. */
 ViewProfile.propTypes = {
-  profiles: PropTypes.array.isRequired,
+  profiledata: PropTypes.array.isRequired,
   notes: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
-  // Get access to Stuff documents.
+  // Get access to ProfileData documents.
   const subscription = Meteor.subscribe(ProfileData.userPublicationName);
   const subscription2 = Meteor.subscribe(Notes.userPublicationName);
   return {
-    contacts: ProfileData.collection.find({}).fetch(),
+    profiledata: ProfileData.find({}).fetch(),
     notes: Notes.collection.find({}).fetch(),
     ready: subscription.ready() && subscription2.ready(),
   };

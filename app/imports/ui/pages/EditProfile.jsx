@@ -25,13 +25,29 @@ class EditProfile extends React.Component {
     const profileId = this.props.profileDoc._id;
     const enrollmentId = this.props.enrollmentDoc._id;
     const { name, email, image, takenCourses, currentCourses, bio, level, gpa, enrolled, major } = data;
-    ProfileData.update(profileId, { $set: { name, email, image, takenCourses, currentCourses, bio, level, gpa: gpa2Number(gpa), major } },
-        (error) => { updateError = error; });
+    ProfileData.update(profileId, {
+          $set: {
+            name,
+            email,
+            image,
+            takenCourses,
+            currentCourses,
+            bio,
+            level,
+            gpa: gpa2Number(gpa),
+            major
+          }
+        },
+        (error) => {
+          updateError = error;
+        });
     if (updateError) {
       swal('Error', updateError.message, 'error');
     } else {
       EnrollmentData.update(enrollmentId, { $set: { enrolled } },
-          (error) => { updateError = error; });
+          (error) => {
+            updateError = error;
+          });
       if (updateError) {
         swal('Error', updateError.message, 'error');
       } else {
@@ -61,12 +77,16 @@ class EditProfile extends React.Component {
                   <TextField name='email' showInlineError={true} placeholder={'Your email'}/>
                   <TextField name='image' showInlineError={true} placeholder={'Image URL'}/>
                 </Form.Group>
-                <MultiSelectField name='takenCourses' showInlineError={true} placeholder={'Select courses already taken'}/>
-                <MultiSelectField name='currentCourses' showInlineError={true} placeholder={'Select courses currently taking'}/>
+                <Form.Group widths={'equal'}>
+                  <MultiSelectField name='takenCourses' showInlineError={true}
+                                    placeholder={'Select courses already taken'}/>
+                  <MultiSelectField name='currentCourses' showInlineError={true}
+                                    placeholder={'Select courses currently taking'}/>
+                </Form.Group>
                 <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
                 <Form.Group widths={'equal'}>
-                  <SelectField name='level' showInlineError={true} />
-                  <SelectField name='gpa' showInlineError={true} placeholder={'Select one'} />
+                  <SelectField name='level' showInlineError={true}/>
+                  <SelectField name='gpa' showInlineError={true} placeholder={'Select one'}/>
                   <DateField name='enrolled' showInlineError={true}/>
                 </Form.Group>
                 <RadioField name='major' inline showInlineError={true}/>

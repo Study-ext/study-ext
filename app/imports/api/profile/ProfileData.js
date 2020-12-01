@@ -15,7 +15,7 @@ const ProfileDataValues = {
 /** Define a schema to specify the structure of each document in the collection. */
 const ProfileDataSchema = new SimpleSchema({
   name: String,
-  email: String,
+  // email: String,
   image: String,
   takenCourses: { type: Array, optional: false },
   'takenCourses.$': { type: String, allowedValues: ProfileDataValues.takenCourses },
