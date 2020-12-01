@@ -33,16 +33,16 @@ if (Contacts.collection.find().count() === 0) {
   }
 }
 
-// /* for ProfileData collection */
-// function addProfile(data) {
-//   console.log(`  Adding: ${data.lastName} (${data.owner})`);
-//   ProfileData.collection.insert(data);
-// }
-//
-// /** Initialize the collection if empty. */
-// if (ProfileData.collection.find().count() === 0) {
-//   if (Meteor.settings.defaultProfiles) {
-//     console.log('Creating default profiles.');
-//     Meteor.settings.defaultProfiles.map(data => addProfile(data));
-//   }
-// }
+/* for ProfileData collection */
+function addProfile(data) {
+  console.log(`  Adding: ${data.name} (${data.owner})`);
+  ProfileData.insert(data);
+}
+
+/** Initialize the collection if empty. */
+if (ProfileData.find().count() === 0) {
+  if (Meteor.settings.defaultProfiles) {
+    console.log('Creating default profiles.');
+    Meteor.settings.defaultProfiles.map(data => addProfile(data));
+  }
+}

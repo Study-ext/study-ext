@@ -6,7 +6,8 @@ import { Tracker } from 'meteor/tracker';
 const ProfileData = new Mongo.Collection('ProfileData');
 
 const ProfileDataValues = {
-  hobbies: ['Surfing', 'Running', 'Biking', 'Paddling'],
+  takenCourses: ['ICS111', 'ICS141', 'ICS211', 'ICS212', 'ICS241', 'ICS311'],
+  currentCourses: ['ICS111', 'ICS141', 'ICS211', 'ICS212', 'ICS241', 'ICS311'],
   levels: ['Freshman', 'Sophomore', 'Junior', 'Senior'],
   majors: ['Physics', 'Math', 'Chemistry', 'Computer Science'],
 };
@@ -16,9 +17,11 @@ const ProfileDataSchema = new SimpleSchema({
   name: String,
   email: String,
   image: String,
+  takenCourses: { type: Array, optional: false },
+  'takenCourses.$': { type: String, allowedValues: ProfileDataValues.takenCourses },
+  currentCourses: { type: Array, optional: false },
+  'currentCourses.$': { type: String, allowedValues: ProfileDataValues.currentCourses },
   bio: { type: String, optional: true, defaultValue: '' },
-  hobbies: { type: Array, optional: true },
-  'hobbies.$': { type: String, allowedValues: ProfileDataValues.hobbies },
   level: { type: String, allowedValues: ProfileDataValues.levels },
   gpa: Number,
   major: String,
