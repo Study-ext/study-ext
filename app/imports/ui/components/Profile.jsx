@@ -1,40 +1,34 @@
 import React from 'react';
-import { Item, Feed } from 'semantic-ui-react';
+import { Card, Image, Feed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import Note from './Note';
-import AddNote from './AddNote';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Profile extends React.Component {
   render() {
     return (
-        <Item>
-          <Item.Image
-              src={this.props.profile.image}
-              size='small'
-          />
-
-          <Item.Content floated='right'>
-            <Item.Header>Name: {this.props.profile.firstName} {this.props.profile.lastName}</Item.Header>
-            <Item.Meta>Address: {this.props.profile.address}</Item.Meta>
-            <Item.Description>Description: {this.props.profile.description}</Item.Description>
-            <Item.Extra>
-              <Link to={`/createprofile/${this.props.profile._id}`}>Create Profile</Link>
-            </Item.Extra>
-            <Item.Extra>
-              <Link to={`/editprofile/${this.props.profile._id}`}>Edit Profile</Link>
-            </Item.Extra>
-            <Item.Extra>
-              <Feed>
-                {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
-              </Feed>
-            </Item.Extra>
-            <Item.Extra>
-              <AddNote owner={this.props.profile.owner} profileId={this.props.profile._id}/>
-            </Item.Extra>
-          </Item.Content>
-        </Item>
+        <Card>
+          <Card.Content>
+            <Image
+                floated='right'
+                size='mini'
+                src={this.props.profile.image}
+            />
+            <Card.Header>{this.props.profile.name}</Card.Header>
+            <Card.Description>
+              {this.props.profile.bio}
+            </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <Link to={`/editprofile/${this.state.email}`}>Edit Profile</Link>
+          </Card.Content>
+          <Card.Content extra>
+            <Feed>
+              {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
+            </Feed>
+          </Card.Content>
+        </Card>
     );
   }
 }
@@ -45,6 +39,5 @@ Profile.propTypes = {
   notes: PropTypes.array.isRequired,
 };
 
-/** Wrap this component in withRouter since we use the
- <Link> React Router element. */
+/** Wrap this component in withRouter since we use the <Link> React Router element. */
 export default withRouter(Profile);

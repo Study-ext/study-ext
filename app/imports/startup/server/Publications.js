@@ -4,6 +4,7 @@ import { Stuffs } from '../../api/stuff/Stuff';
 import { Contacts } from '../../api/contact/Contacts';
 import { Notes } from '../../api/note/Notes';
 import { ProfileData } from '../../api/profile/ProfileData';
+import { EnrollmentData } from '../../api/enrollmentdata/EnrollmentData';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -69,4 +70,12 @@ Meteor.publish(null, function () {
     return Meteor.roleAssignment.find({ 'user._id': this.userId });
   }
   return this.ready();
+});
+
+Meteor.publish('ProfileData', function publishProfileData() {
+  return ProfileData.find();
+});
+
+Meteor.publish('EnrollmentData', function publishEnrollmentData() {
+  return EnrollmentData.find();
 });

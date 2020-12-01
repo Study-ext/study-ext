@@ -23,7 +23,7 @@ class CreateProfile extends React.Component {
   /** On submit, try to insert the data. If successful, reset the form. */
   submit(data, formRef) {
     let insertError;
-    const { name, email, bio, level, gpa, enrolled, hobbies, major } = data;
+    const { name, email, image, bio, level, gpa, enrolled, hobbies, major } = data;
     ProfileData.insert({ name, email, image, bio, level, gpa: gpa2Number(gpa), hobbies, major },
         (error) => { insertError = error; });
     if (insertError) {
@@ -34,7 +34,7 @@ class CreateProfile extends React.Component {
       if (insertError) {
         swal('Error', insertError.message, 'error');
       } else {
-        swal('Success', 'The student record was created.', 'success');
+        swal('Success', 'Your profile was created.', 'success');
         this.setState({ email });
         formRef.reset();
       }
@@ -66,7 +66,7 @@ class CreateProfile extends React.Component {
                 <SubmitField value='Submit'/>
               </Segment>
             </AutoForm>
-            {this.state.email ? <Message>Edit <a href={`/#/student/${this.state.email}`}>this data</a></Message> : ''}
+            {this.state.email ? <Message>Edit <a href={`/#/editprofile/${this.state.email}`}>your profile</a></Message> : ''}
           </Grid.Column>
         </Grid>
     );

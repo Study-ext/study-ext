@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Item, Header, Loader } from 'semantic-ui-react';
+import { Container, Card, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Profile from '../components/Profile';
@@ -19,16 +19,12 @@ class ViewProfile extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center" inverted>
-            Profile
-          </Header>
-          <div className='profile-background'>
-            <Item centered>
-              {this.props.profiles.map((profile, index) => <Profile key={index}
-                                                                    profile={profile}
-                                                                    notes={this.props.notes.filter(note => (note.profileId === profile._id))}/>)}
-            </Item>
-          </div>
+          <Header as="h2" textAlign="center" inverted>Profile</Header>
+          <Card.Group centered>
+            {this.props.profiles.map((profile, index) => <Profile key={index}
+                                                                  profile={profile}
+                                                                  notes={this.props.notes.filter(note => (note.profileId === profile._id))}/>)}
+          </Card.Group>
         </Container>
     );
   }
@@ -47,7 +43,7 @@ export default withTracker(() => {
   const subscription = Meteor.subscribe(ProfileData.userPublicationName);
   const subscription2 = Meteor.subscribe(Notes.userPublicationName);
   return {
-    profiles: ProfileData.collection.find({}).fetch(),
+    contacts: ProfileData.collection.find({}).fetch(),
     notes: Notes.collection.find({}).fetch(),
     ready: subscription.ready() && subscription2.ready(),
   };
