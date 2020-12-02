@@ -9,16 +9,16 @@ import { Roles } from 'meteor/alanning:roles';
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
   render() {
-    const menuStyle = { marginBottom: '10px' };
+    const menuStyle = { marginBottom: '10px', backgroundColor: '#585C67' };
     return (
-      <Menu style={menuStyle} attached="top" borderless inverted color='dark grey'>
+      <Menu style={menuStyle} attached="top" borderless inverted>
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
           <Header inverted as='h1'>Study-ext</Header>
         </Menu.Item>
         {this.props.currentUser ? (
-            [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Calender</Menu.Item>,
+            [<Menu.Item id='nav-bar-calendar' as={NavLink} activeClassName="active" exact to="/calendar" key='calendar'>Calendar</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Leaderboard</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/createprofile" key='createprofile'>Profile</Menu.Item>]
+            ]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
             <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Create Session</Menu.Item>
@@ -34,7 +34,6 @@ class NavBar extends React.Component {
           ) : (
             <Dropdown id="navbar-current-user" text={this.props.currentUser} pointing="top right" icon={'user'}>
               <Dropdown.Menu>
-                <Dropdown.Item id="navbar-profile" icon="user" text="Profile" as={NavLink} exact to="/viewprofile" key='viewprofile'/>
                 <Dropdown.Item id="navbar-sign-out" icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
               </Dropdown.Menu>
             </Dropdown>

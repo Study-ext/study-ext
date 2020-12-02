@@ -1,13 +1,23 @@
-.study-ext-green {
+.study-ext-green{
   color: #658076;
 }
 
-.landing-green-background {
-  background-color: #658076;
+.landing-green-background{
+  background-color: #83A79A;
   color: #CDC7C7;
   padding-top: 20px;
 }
 
-.profile-background {
-    background-color: white;
+.focus-header{
+  font-size: 2.5em;
+  font-weight: 900;
+  font-family: "Trebuchet MS", fantasy;
+}
+
+#root {
+  height: 100vh;
+}
+
+#inner-root {
+  height: 100vh;
 }
