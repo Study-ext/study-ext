@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Image, Grid } from 'semantic-ui-react';
+import { Header, Grid } from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
 class QuickGuide extends React.Component {
