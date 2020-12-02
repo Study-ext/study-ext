@@ -20,7 +20,6 @@ class CreateProfile extends React.Component {
     this.state = { email: '' };
   }
 
-
   /** On submit, try to insert the data. If successful, reset the form. */
   submit(data) {
     let insertError;
