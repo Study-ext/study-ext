@@ -1,4 +1,4 @@
-name: ci-study-ex
+name: ci-study-ext
 
 on:
   push:
