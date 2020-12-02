@@ -18,6 +18,7 @@ class NavBar extends React.Component {
         {this.props.currentUser ? (
             [<Menu.Item id='nav-bar-calendar' as={NavLink} activeClassName="active" exact to="/calendar" key='calendar'>Calendar</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Leaderboard</Menu.Item>,
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/createSession" key='createSession'>Create Session</Menu.Item>,
             ]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
