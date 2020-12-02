@@ -6,7 +6,7 @@ class Landing extends React.Component {
   render() {
     return (
         <div>
-          <Grid textAlign='center' verticalAlign='middle' container>
+          <Grid id = 'landing-page' textAlign='center' verticalAlign='middle' container>
             <Grid.Column width={8}>
               <Header as='h2' textAlign='center' inverted>
                 LOGIN OR REGISTER TO JOIN/CREATE A STUDY GROUP!
