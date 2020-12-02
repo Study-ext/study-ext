@@ -13,7 +13,7 @@ class Landing extends React.Component {
 
         const sessions = [0, 1, 2];
         return (
-            <div>
+            <div id='landing-page'>
                 {Meteor.userId() === null ?
                     <Grid textAlign='center' verticalAlign='middle' container style={landingStyle}>
                         <Grid.Column width={8}>
