@@ -9,6 +9,7 @@ import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
+import CreateProfile from '../pages/CreateProfile';
 import CalendarPage from '../pages/CalendarPage';
 import CreateSession from '../pages/CreateSession';
 import EditStuff from '../pages/EditStuff';
@@ -29,6 +30,7 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
+              <ProtectedRoute path="/profile" component={CreateProfile}/>
               <ProtectedRoute path="/calendar" component={CalendarPage}/>
               <ProtectedRoute path="/createSession" component={CreateSession}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
