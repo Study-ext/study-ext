@@ -79,7 +79,7 @@ class CreateProfile extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
     let fRef = null;
-    const { from } = this.props.location.state || { from: { pathname: '/viewprofile' } };
+    const { from } = this.props.location.state || { from: { pathname: '/quickguide' } };
     // if correct authentication, redirect to from: page instead of signup screen
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
