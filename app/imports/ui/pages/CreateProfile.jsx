@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { Grid, Segment, Header, Form } from 'semantic-ui-react';
 import { AutoForm, TextField, LongTextField, ErrorsField, SubmitField } from 'uniforms-semantic';
 import swal from 'sweetalert';
@@ -48,9 +50,19 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
 class CreateProfile extends React.Component {
+  /** Initialize state fields. */
+  constructor(props) {
+    super(props);
+    this.state = { name: '', email: '', picture: '', currentClasses: '', takenClasses: '', error: '', redirectToReferer: false };
+  }
+
+  /** Update the form controls each time the user interacts with them. */
+  handleChange= (e, { name, value }) => {
+    this.setState({ [name]: value });
+  }
 
   /** On submit, insert the data. */
-  submit(data, formRef) {
+  submit(data) {
     const { name, email, picture, currentClasses, takenClasses, bio } = data;
     const owner = Meteor.user().username;
     Profiles.collection.insert({ name, email, picture, currentClasses, takenClasses, bio, owner },
@@ -59,7 +71,7 @@ class CreateProfile extends React.Component {
             swal('Error', error.message, 'error');
           } else {
             swal('Success', 'Profile created successfully', 'success');
-            formRef.reset();
+            this.setState({ redirectToReferer: true });
           }
         });
   }
@@ -67,6 +79,11 @@ class CreateProfile extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
     let fRef = null;
+    const { from } = this.props.location.state || { from: { pathname: '/viewprofile' } };
+    // if correct authentication, redirect to from: page instead of signup screen
+    if (this.state.redirectToReferer) {
+      return <Redirect to={from}/>;
+    }
     return (
         <Grid container centered>
           <Grid.Column>
@@ -98,5 +115,10 @@ class CreateProfile extends React.Component {
     );
   }
 }
+
+/** Ensure that the React Router location object is available in case we need to redirect. */
+CreateProfile.propTypes = {
+  location: PropTypes.object,
+};
 
 export default CreateProfile;
