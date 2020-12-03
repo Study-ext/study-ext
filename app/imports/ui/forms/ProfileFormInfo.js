@@ -1,6 +1,6 @@
 import SimpleSchema from 'simpl-schema';
 import { Meteor } from 'meteor/meteor';
-import { ProfileDataValues as DataValues } from '../../api/profile/ProfileData';
+import { ProfileDataValues as DataValues } from '../../api/profile/Profiles';
 
 const gpaValues = ['0.0-0.9', '1.0-1.9', '2.0-2.9', '3.0-3.9', '4.0+'];
 

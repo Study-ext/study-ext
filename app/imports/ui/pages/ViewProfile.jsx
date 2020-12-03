@@ -4,8 +4,7 @@ import { Container, Card, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Profile from '../components/Profile';
-import { ProfileData } from '../../api/profile/ProfileData';
-import { Notes } from '../../api/note/Notes';
+import { Profiles } from '../../api/profile/Profiles';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ViewProfile extends React.Component {
@@ -21,30 +20,26 @@ class ViewProfile extends React.Component {
         <Container>
           <Header as="h2" textAlign="center" inverted>Profile</Header>
           <Card.Group centered>
-            {this.props.profiledata.map((profile, index) => <Profile key={index}
-                                                                  profile={profile}
-                                                                  notes={this.props.notes.filter(note => (note.profileId === profile._id))}/>)}
+            {this.props.profiles.map((profile, index) => <Profile key={index}
+                                                                  profile={profile}/>)}
           </Card.Group>
         </Container>
     );
   }
 }
 
-/** Require an array of ProfileData documents in the props. */
+/** Require an array of Profiles documents in the props. */
 ViewProfile.propTypes = {
-  profiledata: PropTypes.array.isRequired,
-  notes: PropTypes.array.isRequired,
+  profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
-  // Get access to ProfileData documents.
-  const subscription = Meteor.subscribe(ProfileData.userPublicationName);
-  const subscription2 = Meteor.subscribe(Notes.userPublicationName);
+  // Get access to Profiles documents.
+  const subscription = Meteor.subscribe(Profiles.userPublicationName);
   return {
-    profiledata: ProfileData.find({}).fetch(),
-    notes: Notes.collection.find({}).fetch(),
-    ready: subscription.ready() && subscription2.ready(),
+    profiles: Profiles.collection.find({}).fetch(),
+    ready: subscription.ready(),
   };
 })(ViewProfile);

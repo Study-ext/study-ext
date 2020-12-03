@@ -6,7 +6,8 @@
 
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme" },
+    { "email": "bennyfinn@hawaii.edu", "password": "changeme" }
   ],
 
   "defaultData": [
@@ -627,7 +628,8 @@
         "ICS 222",
         "ICS 241"
       ],
-      "bio": "Junior at UHM in ICS. My goal is to work with AI development for video games and computer applications."
+      "bio": "Junior at UHM in ICS. My goal is to work with AI development for video games and computer applications.",
+      "owner": "bennyfinn@hawaii.edu"
     }
   ]
 

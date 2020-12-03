@@ -5,13 +5,13 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { ProfileData } from '../../api/profile/ProfileData';
+import { Profiles } from '../../api/profile/Profiles';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
   name: String,
-  email: { type: String, optional: true},
+  email: { type: String, optional: true },
   picture: String,
   currentClasses: { type: Array },
   'currentClasses.$': { type: String,
@@ -47,22 +47,16 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 /** Renders the Page for adding a document. */
 class CreateProfile extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { email: false };
-  }
-
   /** On submit, insert the data. */
   submit(data, formRef) {
     const { name, email, picture, currentClasses, takenClasses, bio } = data;
     const owner = Meteor.user().username;
-    ProfileData.collection.insert({ name, email, picture, currentClasses, takenClasses, bio, owner },
+    Profiles.collection.insert({ name, email, picture, currentClasses, takenClasses, bio, owner },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
           } else {
-            swal('Success', 'Profile created successfully', 'success');
-            this.setState({ email });
+            swal('Success', 'Profiles created successfully', 'success');
             formRef.reset();
           }
         });
@@ -80,20 +74,20 @@ class CreateProfile extends React.Component {
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <Form.Group widths={'equal'}>
-                <TextField name='name'/>
-                <TextField name='email' disabled/>
-                <TextField name='picture'/>
+                <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
+                <TextField name='email' showInlineError={true} placeholder={'Your email'}disabled/>
+                <TextField name='picture' showInlineError={true} placeholder={'Picture URL'}/>
                 </Form.Group>
                 <Form.Group widths={'equal'}>
-                <MultiSelectField name='currentClasses'/>
-                <MultiSelectField name ='takenClasses'/>
+                <MultiSelectField name='currentClasses' showInlineError={true} placeholder={'Select current classes'}/>
+                <MultiSelectField name ='takenClasses' showInlineError={true} placeholder={'Select classes already taken'}/>
                 </Form.Group>
-                <LongTextField name='bio'/>
+                <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>
             </AutoForm>
-            {this.state.email ? <Message>Edit <a href={`/#/profile${this.state.email}`}>your profile</a></Message> : '' }
+            <Message>Edit <a href={`/#/createprofile${this.props._id}`}>your profile</a></Message>
           </Grid.Column>
         </Grid>
     );
