@@ -17,7 +17,7 @@ class ViewProfile extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
+        <Container id='viewprofile-page'>
           <Header as="h2" textAlign="center" inverted>Profile</Header>
           <Card.Group centered>
             {this.props.profiles.map((profile, index) => <Profile key={index}

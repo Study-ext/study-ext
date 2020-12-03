@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Form, Message } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form } from 'semantic-ui-react';
 import { AutoForm, TextField, LongTextField, ErrorsField, SubmitField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -14,7 +14,8 @@ const formSchema = new SimpleSchema({
   email: { type: String, optional: true },
   picture: String,
   currentClasses: { type: Array },
-  'currentClasses.$': { type: String,
+  'currentClasses.$': {
+    type: String,
     allowedValues: [
       'ICS 111',
       'ICS 141',
@@ -27,7 +28,8 @@ const formSchema = new SimpleSchema({
     ],
   },
   takenClasses: { type: Array },
-  'takenClasses.$': { type: String,
+  'takenClasses.$': {
+    type: String,
     allowedValues: [
       'ICS 111',
       'ICS 141',
@@ -56,7 +58,7 @@ class CreateProfile extends React.Component {
           if (error) {
             swal('Error', error.message, 'error');
           } else {
-            swal('Success', 'Profiles created successfully', 'success');
+            swal('Success', 'Profile created successfully', 'success');
             formRef.reset();
           }
         });
@@ -71,23 +73,26 @@ class CreateProfile extends React.Component {
             <Header style={{ fontSize: '5vh', color: 'white', fontFamily: 'Courier' }}>
               CREATE YOUR PROFILE
             </Header>
-            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
+            <AutoForm ref={ref => {
+              fRef = ref;
+            }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
                 <Form.Group widths={'equal'}>
-                <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
-                <TextField name='email' showInlineError={true} placeholder={'Your email'}disabled/>
-                <TextField name='picture' showInlineError={true} placeholder={'Picture URL'}/>
+                  <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
+                  <TextField name='email' showInlineError={true} placeholder={'Your email'} disabled/>
+                  <TextField name='picture' showInlineError={true} placeholder={'Picture URL'}/>
                 </Form.Group>
                 <Form.Group widths={'equal'}>
-                <MultiSelectField name='currentClasses' showInlineError={true} placeholder={'Select current classes'}/>
-                <MultiSelectField name ='takenClasses' showInlineError={true} placeholder={'Select classes already taken'}/>
+                  <MultiSelectField name='currentClasses' showInlineError={true}
+                                    placeholder={'Select current classes'}/>
+                  <MultiSelectField name='takenClasses' showInlineError={true}
+                                    placeholder={'Select classes already taken'}/>
                 </Form.Group>
                 <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>
             </AutoForm>
-            <Message>Edit <a href={`/#/createprofile${this.props._id}`}>your profile</a></Message>
           </Grid.Column>
         </Grid>
     );
