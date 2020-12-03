@@ -6,7 +6,8 @@
 
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme" },
+    { "email": "bennyfinn@hawaii.edu", "password": "changeme" }
   ],
 
   "defaultData": [
@@ -24,7 +25,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 111",
         "ICS 141"
       ],
@@ -40,7 +41,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 111",
         "ICS 141"
       ],
@@ -56,7 +57,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 111"
       ],
       "takenClasses": [
@@ -71,7 +72,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 111"
       ],
       "takenClasses": [
@@ -86,7 +87,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 111",
         "ICS 141"
       ],
@@ -102,7 +103,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 141"
       ],
       "takenClasses": [
@@ -117,7 +118,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 111",
         "ICS 141"
       ],
@@ -133,7 +134,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 141"
       ],
       "takenClasses": [
@@ -148,7 +149,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 111",
         "ICS 141"
       ],
@@ -164,7 +165,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 211",
         "ICS 241"
       ],
@@ -181,7 +182,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 211"
       ],
       "takenClasses": [
@@ -197,7 +198,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 211",
         "ICS 241"
       ],
@@ -214,7 +215,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 241",
         "ICS 212"
       ],
@@ -232,7 +233,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 212"
       ],
       "takenClasses": [
@@ -250,7 +251,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 212",
         "ICS 222"
       ],
@@ -269,7 +270,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 241",
         "ICS 222"
       ],
@@ -288,7 +289,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 222",
         "ICS 241"
       ],
@@ -306,7 +307,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 241"
       ],
       "takenClasses": [
@@ -324,7 +325,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 211",
         "ICS 222"
       ],
@@ -341,7 +342,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 311",
         "ICS 314"
       ],
@@ -361,7 +362,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 311",
         "ICS 314"
       ],
@@ -381,7 +382,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 311",
         "ICS 212"
       ],
@@ -400,7 +401,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 311"
       ],
       "takenClasses": [
@@ -419,7 +420,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 314"
       ],
       "takenClasses": [
@@ -439,7 +440,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 314"
       ],
       "takenClasses": [
@@ -459,7 +460,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 311"
       ],
       "takenClasses": [
@@ -479,7 +480,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 311",
         "ICS 314"
       ],
@@ -499,7 +500,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 311",
         "ICS 314"
       ],
@@ -519,7 +520,7 @@
         "Mentee"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 314"
       ],
       "takenClasses": [
@@ -539,7 +540,7 @@
         "Mentor"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 311"
       ],
       "takenClasses": [
@@ -559,7 +560,7 @@
         "Mentor"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 311",
         "ICS 314"
       ],
@@ -580,7 +581,7 @@
         "Mentor"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 211",
         "ICS 241"
       ],
@@ -598,7 +599,7 @@
         "Mentor"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 222"
       ],
       "takenClasses": [
@@ -617,7 +618,7 @@
         "Mentor"
       ],
       "rank": "john@foo.com",
-      "currClasses": [
+      "currentClasses": [
         "ICS 314"
       ],
       "takenClasses": [
@@ -627,7 +628,8 @@
         "ICS 222",
         "ICS 241"
       ],
-      "bio": "Junior at UHM in ICS. My goal is to work with AI development for video games and computer applications."
+      "bio": "Junior at UHM in ICS. My goal is to work with AI development for video games and computer applications.",
+      "owner": "bennyfinn@hawaii.edu"
     }
   ]
 
