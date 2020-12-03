@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Feed } from 'semantic-ui-react';
+import { Item, Image, Feed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import Note from './Note';
@@ -8,18 +8,14 @@ import Note from './Note';
 class Profile extends React.Component {
   render() {
     return (
-        <Card>
-          <Card.Content>
-            <Image
-                floated='right'
-                size='mini'
-                src={this.props.profile.image}
-            />
+        <Item>
+          <Item.Image size='small' src='this.props.profile.picture' />
+          <Item.Content>
             <Card.Header>{this.props.profile.name}</Card.Header>
             <Card.Description>
               {this.props.profile.bio}
             </Card.Description>
-          </Card.Content>
+          </Item.Content>
           <Card.Content extra>
             <Link to={`/editprofile/${this.state.email}`}>Edit Profile</Link>
           </Card.Content>
@@ -28,7 +24,7 @@ class Profile extends React.Component {
               {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
             </Feed>
           </Card.Content>
-        </Card>
+        </Item>
     );
   }
 }
