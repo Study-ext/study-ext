@@ -17,6 +17,7 @@ class NavBar extends React.Component {
         </Menu.Item>
         {this.props.currentUser ? (
 <<<<<<< HEAD
+<<<<<<< HEAD
             [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Calender</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Leaderboard</Menu.Item>,
 =======
@@ -24,6 +25,10 @@ class NavBar extends React.Component {
               <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Leaderboard</Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/createSession" key='createSession'>Create Session</Menu.Item>,
 >>>>>>> parent of 4436113... Merge branch 'create-profile-page'
+=======
+            [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Calender</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Leaderboard</Menu.Item>,
+>>>>>>> parent of f77afe2... Merge branch 'master' of https://github.com/Study-ext/study-ext
             ]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
