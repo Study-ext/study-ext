@@ -10,7 +10,7 @@ class QuickGuide extends React.Component {
                     <Grid verticalAlign='middle' container style={landingStyle}>
                         <Grid.Row textAlign='center'>
                             <Grid.Column>
-                                <Header as='h2' style={{ color: '#585C67' }}>
+                                <Header as='h2' style={{ color: 'white' }}>
                                     <b className='focus-header'>Welcome to study-ext!</b>
                                     <br/>
                                     Here is a quick guide to help you get started.
@@ -24,7 +24,7 @@ class QuickGuide extends React.Component {
                                     sessions,
                                     request for quick study help, along with the Top 10 Leaderboard.
                                 </Header>
-                                <Header>
+                                <Header style={{ color: 'white' }}>
                                     The calender page shows all the upcoming sessions.
                                     There you can look at the different topics, time, and members to see if you want to join a session!
                                 </Header>
