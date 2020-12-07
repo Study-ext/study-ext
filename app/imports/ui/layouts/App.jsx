@@ -9,7 +9,11 @@ import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
+<<<<<<< HEAD
 import AddStuff from '../pages/AddStuff';
+=======
+import CalendarPage from '../pages/CalendarPage';
+>>>>>>> parent of 4436113... Merge branch 'create-profile-page'
 import CreateSession from '../pages/CreateSession';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
@@ -29,7 +33,11 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
+<<<<<<< HEAD
               <ProtectedRoute path="/add" component={AddStuff}/>
+=======
+              <ProtectedRoute path="/calendar" component={CalendarPage}/>
+>>>>>>> parent of 4436113... Merge branch 'create-profile-page'
               <ProtectedRoute path="/createSession" component={CreateSession}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
