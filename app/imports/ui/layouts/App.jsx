@@ -15,6 +15,7 @@ import ViewProfile from '../pages/ViewProfile';
 import EditProfile from '../pages/EditProfile';
 import CalendarPage from '../pages/CalendarPage';
 import CreateSession from '../pages/CreateSession';
+import ListClasses from '../pages/ListClasses';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
@@ -39,6 +40,7 @@ class App extends React.Component {
               <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
               <ProtectedRoute path="/calendar" component={CalendarPage}/>
               <ProtectedRoute path="/createSession" component={CreateSession}/>
+              <ProtectedRoute path="/listClasses" component={ListClasses}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>

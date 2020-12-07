@@ -14,7 +14,7 @@ class ProfilesCollection {
       name: String,
       email: { type: String, optional: true },
       picture: String,
-      rank: String,
+      rank: { type: String, optional: true },
       currentClasses: { type: Array },
       'currentClasses.$': { type: String,
         allowedValues: [

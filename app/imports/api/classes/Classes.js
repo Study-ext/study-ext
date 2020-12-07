@@ -3,22 +3,28 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /** Encapsulates state and variable values for this collection. */
-class ContactsCollection {
+class ClassesCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'ContactsCollection';
+    this.name = 'ClassesCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      firstName: String,
-      lastName: String,
-      address: String,
-      image: String,
-      description: String,
-      owner: String,
-    }, { tracker: Tracker });
-    // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
+      name: { type: Array },
+      'name.$': { type: String,
+        allowedValues: [
+          'ICS 111',
+          'ICS 141',
+          'ICS 211',
+          'ICS 212',
+          'ICS 222',
+          'ICS 241',
+          'ICS 311',
+          'ICS 314',
+        ] },
+      }, { tracker: Tracker });
+    // Ensure collection documents obey schema.
     this.collection.attachSchema(this.schema);
     // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
@@ -26,4 +32,4 @@ class ContactsCollection {
   }
 }
 
-export const Contacts = new ContactsCollection();
+export const Classes = new ClassesCollection();

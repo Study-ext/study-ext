@@ -1,7 +1,8 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Image, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
+import { _ } from 'meteor/underscore';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Profile extends React.Component {
@@ -16,17 +17,17 @@ class Profile extends React.Component {
                 src={this.props.profile.picture}
             />
             <Card.Description>
-              Rank:
-              <br/>
-              Bio: {this.props.profile.bio}
+              <Header as='h5'>Rank:</Header>
+              {this.props.profile.rank}
+              <Header as='h5'>Bio:</Header>
+              {this.props.profile.bio}
             </Card.Description>
           </Card.Content>
-            <Card.Content>
-              Current Classes:
-              {this.props.profile.currentClasses}
-              <br/>
-              Taken Classes:
-              {this.props.profile.takenClasses}
+          <Card.Content>
+            <Header as='h5'>Current Classes:</Header>
+            {_.map(this.props.profile.currentClasses, (currentClasses, index) => <Label key={index} size='tiny' color='teal'>{currentClasses}</Label>)}
+            <Header as='h5'>Taken Classes:</Header>
+            {_.map(this.props.profile.takenClasses, (takenClasses, index) => <Label key={index} size='tiny' color='teal'>{takenClasses}</Label>)}
           </Card.Content>
           <Card.Content extra>
             <Link to={`/editprofile/${this.props.profile._id}`}>Edit Profile</Link>
