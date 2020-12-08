@@ -1,24 +1,9 @@
 import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base';
-import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Profiles } from '../../api/profile/Profiles';
+import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
 
 /* eslint-disable no-console */
-
-/** Define a user in the Meteor accounts package. This enables login. Username is the email address. */
-function createUser(email, password, role) {
-  console.log(`  Creating user ${email}.`);
-  const userID = Accounts.createUser({
-    username: email,
-    email: email,
-    password: password,
-  });
-  if (role === 'admin') {
-    Roles.createRole(role, { unlessExists: true });
-    Roles.addUsersToRoles(userID, 'admin');
-  }
-}
 
 /** Initialize the database with a default data document. */
 function addData(data) {
@@ -35,12 +20,28 @@ if (Stuffs.collection.find().count() === 0) {
 }
 
 /** Defines a new user and associated profile. Error if user already exists. */
-function addProfile({ name, email, picture, currentClasses, takenClasses, bio, rank, role, owner }) {
-  console.log(`Defining profile ${email}`);
-  // Define the user in the Meteor accounts package.
-  createUser(email, role);
-  // Create the profile.
-  Profiles.collection.insert({ name, email, picture, currentClasses, takenClasses, bio, rank, owner });
+function addProfile(data) {
+  console.log(`Defining profile ${data.email}`);
+  Profiles.collection.insert(data);
+}
+
+function addLeaderboard(data) {
+  console.log(`Adding leaderboard: ${data.name} (${data.owner})`);
+  LeaderboardData.collection.insert(data);
+}
+
+if (Profiles.collection.find().count() === 0) {
+  if (Meteor.settings.defaultProfiles) {
+    console.log('Creating default profiles.');
+    Meteor.settings.defaultProfiles.map(data => addProfile(data));
+  }
+}
+
+if (LeaderboardData.collection.find().count() === 0) {
+  if (Meteor.settings.defaultLeaderboard) {
+    console.log('Creating default leaderboard.');
+    Meteor.settings.defaultLeaderboard.map(data => addLeaderboard(data));
+  }
 }
 
 /** Initialize the DB if empty (no users defined.) */

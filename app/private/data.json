@@ -10,7 +10,8 @@
       "takenClasses": [
 
       ],
-      "bio": "I am new to Computer Science and I enjoy playing video games on my free time."
+      "bio": "I am new to Computer Science and I enjoy playing video games on my free time.",
+      "owner": "bryannakemp@hawaii.edu"
     },
     { "name": "Robert Welsh",
       "email": "robertwelsh@hawaii.edu",
@@ -23,7 +24,8 @@
       "takenClasses": [
 
       ],
-      "bio": "Open minded and ready to learn."
+      "bio": "Open minded and ready to learn.",
+      "owner": "robertwelsh@hawaii.edu"
     },
     { "name": "Sejong Takenaka",
       "email": "sejongtakenaka@hawaii.edu",
@@ -35,7 +37,8 @@
       "takenClasses": [
         "ICS 111"
       ],
-      "bio": "New to this, but I am excited to create usable programs!"
+      "bio": "New to this, but I am excited to create usable programs!",
+      "owner": "sejongtakenaka@hawaii.edu"
     },
     { "name": "Kyle Walt",
       "email": "kylewalt@hawaii.edu",
@@ -48,7 +51,8 @@
       "takenClasses": [
 
       ],
-      "bio": "Have experience in coding, looking to go into Video Game development."
+      "bio": "Have experience in coding, looking to go into Video Game development.",
+      "owner": "kylewalt@hawaii.edu"
     },
     { "name": "Gigi Good",
       "email": "gigigood@hawaii.edu",
@@ -60,7 +64,8 @@
       "takenClasses": [
         "ICS 111"
       ],
-      "bio": "I enjoy graphic design and looking to go into web development. "
+      "bio": "I enjoy graphic design and looking to go into web development. ",
+      "owner": "gigigood@hawaii.edu"
     },
     { "name": "Nick Kim",
       "email": "nickkim@hawaii.edu",
@@ -73,7 +78,8 @@
       "takenClasses": [
 
       ],
-      "bio": "Freshman in ICS. Don't know what I want to do, but I enjoy working with computers."
+      "bio": "Freshman in ICS. Don't know what I want to do, but I enjoy working with computers.",
+      "owner": "nickkim@hawaii.edu"
     },
     { "name": "Jackie Cox",
       "email": "jackiecox@hawaii.edu",
@@ -87,7 +93,8 @@
         "ICS 111",
         "ICS 141"
       ],
-      "bio": "Majoring in ICS, looking to go into Cyber Security."
+      "bio": "Majoring in ICS, looking to go into Cyber Security.",
+      "owner": "jackiecox@hawaii.edu"
     },
     { "name": "Jean Huff",
       "email": "jeanhuff@hawaii.edu",
@@ -100,7 +107,8 @@
         "ICS 111",
         "ICS 141"
       ],
-      "bio": "Sophomore majoring in ICS, looking to go into web development."
+      "bio": "Sophomore majoring in ICS, looking to go into web development.",
+      "owner": "jeanhuff@hawaii.edu"
     },
     { "name": "Trixie Michelle",
       "email": "trixiemichelle@hawaii.edu",
@@ -114,7 +122,8 @@
         "ICS 111",
         "ICS 141"
       ],
-      "bio": "Sophomore with in ICS with a track in Data Science."
+      "bio": "Sophomore with in ICS with a track in Data Science.",
+      "owner": "trixiemichelle@hawaii.edu"
     },
     { "name": "Katya Zimbo",
       "email": "katyazimbo@hawaii.edu",
@@ -129,7 +138,8 @@
         "ICS 141",
         "ICS 211"
       ],
-      "bio": "I'm a transfer, so new to the program here."
+      "bio": "I'm a transfer, so new to the program here.",
+      "owner": "katyazimbo@hawaii.edu"
     },
     { "name": "Rob Zimmerman",
       "email": "robzimmerman@hawaii.edu",
@@ -144,7 +154,8 @@
         "ICS 211",
         "ICS 241"
       ],
-      "bio": "I enjoy web design and creating useful programs."
+      "bio": "I enjoy web design and creating useful programs.",
+      "owner": "robzimmerman@hawaii.edu"
     },
     { "name": "Andy Cooper",
       "email": "andycooper@hawaii.edu",
@@ -160,7 +171,8 @@
         "ICS 211",
         "ICS 241"
       ],
-      "bio": "Sophomore majoring in ICS with a track in Cyber Security."
+      "bio": "Sophomore majoring in ICS with a track in Cyber Security.",
+      "owner": "andycooper@hawaii.edu"
     },
     { "name": "Matty Sirois",
       "email": "mattysirois@hawaii.edu",
@@ -176,7 +188,8 @@
         "ICS 211",
         "ICS 212"
       ],
-      "bio": "I love coding and have been working towards working as a web developer."
+      "bio": "I love coding and have been working towards working as a web developer.",
+      "owner": "mattysirois@hawaii.edu"
     },
     { "name": "Riley Flynn",
       "email": "rileyflynn@hawaii.edu",
@@ -191,7 +204,8 @@
         "ICS 141",
         "ICS 211"
       ],
-      "bio": "So far, I have been enjoying ICS and working towards becoming a Software Developer."
+      "bio": "So far, I have been enjoying ICS and working towards becoming a Software Developer.",
+      "owner": "rileyflynn@hawaii.edu"
     },
     { "name": "Garrett Waters",
       "email": "garrettwaters@hawaii.edu",
@@ -206,7 +220,8 @@
         "ICS 211",
         "ICS 212"
       ],
-      "bio": "I enjoy creating and design new and working programs."
+      "bio": "I enjoy creating and design new and working programs.",
+      "owner": "garrettwaters@hawaii.edu"
     },
     { "name": "Evan Keith",
       "email": "evankeith@hawaii.edu",
@@ -220,7 +235,8 @@
         "ICS 111",
         "ICS 141"
       ],
-      "bio": "I am a sophomore and still figuring out what I want to do within ICS"
+      "bio": "I am a sophomore and still figuring out what I want to do within ICS",
+      "owner": "evankeith@hawaii.edu"
     },
     { "name": "Janice Marshall",
       "email": "janicemarshall@hawaii.edu",
@@ -237,7 +253,8 @@
         "ICS 241",
         "ICS 212"
       ],
-      "bio": "Junior at UHM, working towards a BS in ICS Cyber Security."
+      "bio": "Junior at UHM, working towards a BS in ICS Cyber Security.",
+      "owner": "janicemarshall@hawaii.edu"
     },
     { "name": "Larissa Corpuz",
       "email": "larissacorpuz@hawaii.edu",
@@ -254,7 +271,8 @@
         "ICS 241",
         "ICS 212"
       ],
-      "bio": "Looking to go into Cyber Security under the US military."
+      "bio": "Looking to go into Cyber Security under the US military.",
+      "owner": "larissacorpuz@hawaii.edu"
     },
     { "name": "Alana Tamashiro",
       "email": "alanatamashiro@hawaii.edu",
@@ -270,7 +288,8 @@
         "ICS 211",
         "ICS 241"
       ],
-      "bio": "Junior in ICS, I enjoy Web and Graphic Design."
+      "bio": "Junior in ICS, I enjoy Web and Graphic Design.",
+      "owner": "alanatamashiro@hawaii.edu"
     },
     { "name": "Loren Weiner",
       "email": "lorenweiner@hawaii.edu",
@@ -286,7 +305,8 @@
         "ICS 241",
         "ICS 212"
       ],
-      "bio": "I want to go into software engineering and design to be able to create web applications."
+      "bio": "I want to go into software engineering and design to be able to create web applications.",
+      "owner": "lorenweiner@hawaii.edu"
     },
     { "name": "Hershel Evans",
       "email": "hershelevans@hawaii.edu",
@@ -303,7 +323,8 @@
         "ICS 212",
         "ICS 311"
       ],
-      "bio": "I enjoy playing video games and hope to go into game developemnt."
+      "bio": "I enjoy playing video games and hope to go into game developemnt.",
+      "owner": "hershelevans@hawaii.edu"
     },
     { "name": "Charlie Duncan",
       "email": "charlieduncan@hawaii.edu",
@@ -320,7 +341,8 @@
         "ICS 212",
         "ICS 311"
       ],
-      "bio": "Interested in AI development and how it can change out daily lives."
+      "bio": "Interested in AI development and how it can change out daily lives.",
+      "owner": "charlieduncan@hawaii.edu"
     },
     { "name": "Peter Stump",
       "email": "peterstump@hawaii.edu",
@@ -337,7 +359,8 @@
         "ICS 212",
         "ICS 314"
       ],
-      "bio": "Looking to work with web development for fashion/creative media companies."
+      "bio": "Looking to work with web development for fashion/creative media companies.",
+      "owner": "peterstump@hawaii.edu"
     },
     { "name": "Jaida Hall",
       "email": "jaidahall@hawaii.edu",
@@ -354,7 +377,8 @@
         "ICS 241",
         "ICS 212"
       ],
-      "bio": "I want to get into teaching ICS to future generations since tech will only become more intertwined in our daily lives with time."
+      "bio": "I want to get into teaching ICS to future generations since tech will only become more intertwined in our daily lives with time.",
+      "owner": "jaidahall@hawaii.edu"
     },
     { "name": "Alex King",
       "email": "alexking@hawaii.edu",
@@ -371,7 +395,8 @@
         "ICS 241",
         "ICS 212"
       ],
-      "bio": "Junior at UHM in ICS, I enjoy AI development and video game design."
+      "bio": "Junior at UHM in ICS, I enjoy AI development and video game design.",
+      "owner": "alexking@hawaii.edu"
     },
     { "name": "Brandon Grigorian",
       "email": "brandongrigorian@hawaii.edu",
@@ -387,7 +412,8 @@
         "ICS 241",
         "ICS 212"
       ],
-      "bio": "I want to get in to web design to improve and create more effective web programs."
+      "bio": "I want to get in to web design to improve and create more effective web programs.",
+      "owner": "brandongrigorian@hawaii.edu"
     },
     { "name": "Connor Austin",
       "email": "connoraustin@hawaii.edu",
@@ -403,7 +429,8 @@
         "ICS 241",
         "ICS 212"
       ],
-      "bio": "Currently a junior in ICS, not fully decided in what I want to do, but I enjoy most aspects of ICS so far."
+      "bio": "Currently a junior in ICS, not fully decided in what I want to do, but I enjoy most aspects of ICS so far.",
+      "owner": "connoraustin@hawaii.edu"
     },
     { "name": "Joe Wegner",
       "email": "joeweegner@hawaii.edu",
@@ -420,7 +447,8 @@
         "ICS 241",
         "ICS 212"
       ],
-      "bio": "I love the creating and problem solving aspects of ICS, looking to work with smaller local businesses and brands. "
+      "bio": "I love the creating and problem solving aspects of ICS, looking to work with smaller local businesses and brands. ",
+      "owner": "joeweegner@hawaii.edu"
     },
     { "name": "Chris Finchum",
       "email": "chrisfinchum@hawaii.edu",
@@ -434,7 +462,8 @@
         "ICS 111",
         "ICS 141"
       ],
-      "bio": "Sophomore in ICS, looking to work towards app development."
+      "bio": "Sophomore in ICS, looking to work towards app development.",
+      "owner": "chrisfinchum@hawaii.edu"
     },
     { "name": "Arnaldo Ruster",
       "email": "warnaldoruster@hawaii.edu",
@@ -449,7 +478,8 @@
         "ICS 211",
         "ICS 241"
       ],
-      "bio": "Sophomore in ICS, I enjoy video games and solving problems."
+      "bio": "Sophomore in ICS, I enjoy video games and solving problems.",
+      "owner": "warnaldoruster@hawaii.edu"
     },
     { "name": "Benny Finn",
       "email": "bennyfinn@hawaii.edu",
@@ -467,6 +497,16 @@
       ],
       "bio": "Junior at UHM in ICS. My goal is to work with AI development for video games and computer applications.",
       "owner": "bennyfinn@hawaii.edu"
+    }
+  ],
+
+  "leaderboard": [
+    {
+      "name": "Bryanna Kemp",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": 6,
+      "points": 10,
+      "owner": "bryannakemp@hawaii.edu"
     }
   ]
 }

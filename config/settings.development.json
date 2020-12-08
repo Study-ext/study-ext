@@ -36,7 +36,8 @@
       "takenClasses": [
 
       ],
-      "bio": "I am a freshman, I have a little background in Computer Science and Java."
+      "bio": "I am a freshman, I have a little background in Computer Science and Java.",
+      "owner": "bobbiward@hawaii.edu"
     },
     { "name": "Aldrey Rambayon",
       "email": "aldreyRambayon@hawaii.edu",
@@ -51,5 +52,23 @@
       "bio": "I am majoring in Civil Engineering, but I want to learn more about Computer Science."
     }
   ],
+
+  "defaultLeaderboard": [
+    {
+      "name": "Lena Holden",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": 1,
+      "points": 10,
+      "owner": "lenaholden@hawaii.edu"
+    },
+    {
+      "name": "Bobbi Ward",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": 2,
+      "points": 5,
+      "owner": "bobbiward@hawaii.edu"
+    }
+  ],
+
   "LoadAssetsFile": true
 }

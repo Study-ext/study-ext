@@ -1,27 +1,13 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Card, Loader, Image } from 'semantic-ui-react';
+import { Container, Card, Loader, Header } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '../../api/profile/Profiles';
 import { Classes } from '../../api/classes/Classes';
-
-/** Component for layout out a Class Card. */
-const MakeCard = (props) => (
-    <Card>
-      <Card.Content>
-        <Card.Header style={{ marginTop: '0px' }}>{props.class.name}</Card.Header>
-      </Card.Content>
-      <Card.Content extra>
-        {_.map(props.class.profiles, (p, index) => <Image key={index} circular size='mini' src={p}/>)}
-      </Card.Content>
-    </Card>
-);
-
-MakeCard.propTypes = {
-  class: PropTypes.object.isRequired,
-};
+import { ProfilesClasses } from '../../api/profile/ProfilesClasses';
+import Profile from '../components/Profile';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListClasses extends React.Component {
@@ -35,8 +21,10 @@ class ListClasses extends React.Component {
   renderPage() {
     return (
         <Container id='list-classes-page'>
+          <Header as='h2' textAlign="center" inverted>Classes</Header>
           <Card.Group>
-            {this.props.class.name}
+            {this.props.profiles.map((profile, index) => <Profile key={index}
+                                                                  profile={profile}/>)}
           </Card.Group>
         </Container>
     );
@@ -45,6 +33,7 @@ class ListClasses extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 ListClasses.propTypes = {
+  profiles: PropTypes.bool.isRequired,
   class: PropTypes.bool.isRequired,
   ready: PropTypes.bool.isRequired,
 };
