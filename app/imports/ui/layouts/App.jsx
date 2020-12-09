@@ -9,15 +9,8 @@ import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import AddStuff from '../pages/AddStuff';
-=======
 import CalendarPage from '../pages/CalendarPage';
->>>>>>> parent of 4436113... Merge branch 'create-profile-page'
-=======
-import AddStuff from '../pages/AddStuff';
->>>>>>> parent of f77afe2... Merge branch 'master' of https://github.com/Study-ext/study-ext
 import CreateSession from '../pages/CreateSession';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
@@ -37,15 +30,8 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
-<<<<<<< HEAD
-<<<<<<< HEAD
               <ProtectedRoute path="/add" component={AddStuff}/>
-=======
               <ProtectedRoute path="/calendar" component={CalendarPage}/>
->>>>>>> parent of 4436113... Merge branch 'create-profile-page'
-=======
-              <ProtectedRoute path="/add" component={AddStuff}/>
->>>>>>> parent of f77afe2... Merge branch 'master' of https://github.com/Study-ext/study-ext
               <ProtectedRoute path="/createSession" component={CreateSession}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
