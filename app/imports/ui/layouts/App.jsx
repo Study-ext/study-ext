@@ -32,7 +32,6 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
-              <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/createprofile" component={CreateProfile}/>
               <ProtectedRoute path="/quickguide" component={QuickGuide}/>
               <ProtectedRoute path="/viewprofile" component={ViewProfile}/>
