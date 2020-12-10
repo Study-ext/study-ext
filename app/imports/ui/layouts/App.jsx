@@ -11,7 +11,7 @@ import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import CreateProfile from '../pages/CreateProfile';
 import QuickGuide from '../pages/QuickGuide';
-import ViewProfile from '../pages/ViewProfile';
+import UserProfile from '../pages/UserProfile';
 import EditProfile from '../pages/EditProfile';
 import CalendarPage from '../pages/CalendarPage';
 import CreateSession from '../pages/CreateSession';
@@ -37,7 +37,7 @@ class App extends React.Component {
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/createprofile" component={CreateProfile}/>
               <ProtectedRoute path="/quickguide" component={QuickGuide}/>
-              <ProtectedRoute path="/viewprofile" component={ViewProfile}/>
+              <ProtectedRoute path="/userprofile" component={UserProfile}/>
               <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
               <ProtectedRoute path="/calendar" component={CalendarPage}/>
               <ProtectedRoute path="/leaderboard" component={ViewLeaderboard}/>

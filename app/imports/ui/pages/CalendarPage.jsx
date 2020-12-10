@@ -17,12 +17,12 @@ class CalendarPage extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <div id='calendar-page'>
-          <Header as="h2" textAlign="center" style={{ fontSize: '5vh', color: 'white', fontFamily: 'Courier' }}>Calendar</Header>
+        <Container id='calendar-page'>
+          <Header style={{ fontSize: '4vh', color: 'white', fontFamily: 'Courier' }}>CALENDAR</Header>
           <Container style={{ marginBottom: '1vh', backgroundColor: 'white' }}>
             <Calendar style={{ backgroundColor: 'white', height: '50vh' }}/>
           </Container>
-        </div>
+        </Container>
     );
   }
 }

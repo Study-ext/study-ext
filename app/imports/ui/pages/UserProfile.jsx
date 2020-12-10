@@ -15,7 +15,7 @@ function getData(email) {
 }
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ViewProfile extends React.Component {
+class UserProfile extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -24,11 +24,12 @@ class ViewProfile extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const currentUser = _.pluck(Profiles.collection.find().fetch(), 'name');
     const emails = _.pluck(Profiles.collection.find().fetch(), 'email');
     const profileData = emails.map(email => getData(email));
     return (
         <Container id='view-profile-page'>
-          <Header style={{ fontSize: '5vh', color: 'white', fontFamily: 'Courier' }}inverted>PROFILE</Header>
+          <Header style={{ fontSize: '4vh', color: 'white', fontFamily: 'Courier' }}inverted>Hello, {currentUser}</Header>
           <Card.Group centered>
             {_.map(profileData, (profile, index) => <Profile key={index} profile={profile}/>)}
           </Card.Group>
@@ -38,7 +39,7 @@ class ViewProfile extends React.Component {
 }
 
 /** Require an array of Profiles documents in the props. */
-ViewProfile.propTypes = {
+UserProfile.propTypes = {
   profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -53,4 +54,4 @@ export default withTracker(() => {
     leaderboard: LeaderboardData.collection.find({}).fetch(),
     ready: subscription.ready() && subscription2.ready(),
   };
-})(ViewProfile);
+})(UserProfile);

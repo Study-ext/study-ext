@@ -19,7 +19,7 @@ class ViewLeaderboard extends React.Component {
 
     return (
         <Container id='view-leaderboard-page'>
-          <Header inverted style={{ fontSize: '5vh', fontFamily: 'Courier' }}>LEADERBOARD</Header>
+          <Header inverted style={{ fontSize: '4vh', fontFamily: 'Courier' }}>LEADERBOARD</Header>
           <Table basic='very' striped>
             <Table.Header>
               <Table.Row>
