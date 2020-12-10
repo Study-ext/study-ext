@@ -40,7 +40,7 @@ class App extends React.Component {
               <ProtectedRoute path="/viewprofile" component={ViewProfile}/>
               <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
               <ProtectedRoute path="/calendar" component={CalendarPage}/>
-              <ProtectedRoute path="/viewleaderboard" component={ViewLeaderboard}/>
+              <ProtectedRoute path="/leaderboard" component={ViewLeaderboard}/>
               <ProtectedRoute path="/createSession" component={CreateSession}/>
               <ProtectedRoute path="/listClasses" component={ListClasses}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>

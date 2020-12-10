@@ -3,11 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { _ } from 'meteor/underscore';
 import Leaderboard from '../components/Leaderboard';
 import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
-
-// eslint-disable-next-line no-console
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ViewLeaderboard extends React.Component {
@@ -21,9 +18,9 @@ class ViewLeaderboard extends React.Component {
   renderPage() {
 
     return (
-        <Container>
-          <Header inverted as="h2" textAlign="center">Leaderboard</Header>
-          <Table basic='very'>
+        <Container id='view-leaderboard-page'>
+          <Header inverted style={{ fontSize: '5vh', fontFamily: 'Courier' }}>LEADERBOARD</Header>
+          <Table basic='very' striped>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Name</Table.HeaderCell>

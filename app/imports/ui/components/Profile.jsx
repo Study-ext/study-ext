@@ -3,8 +3,9 @@ import { Card, Image, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { _ } from 'meteor/underscore';
+import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
+import Leaderboard from '../components/Leaderboard';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Profile extends React.Component {
   render() {
     return (
@@ -40,6 +41,7 @@ class Profile extends React.Component {
 /** Require a document to be passed to this component. */
 Profile.propTypes = {
   profile: PropTypes.object.isRequired,
+  leaderboard: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the

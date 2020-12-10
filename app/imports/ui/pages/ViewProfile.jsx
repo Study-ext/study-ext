@@ -3,8 +3,16 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Card, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { _ } from 'meteor/underscore';
 import Profile from '../components/Profile';
 import { Profiles } from '../../api/profile/Profiles';
+import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
+
+function getData(email) {
+  const data = Profiles.collection.findOne({ email });
+  const rank = _.pluck(LeaderboardData.collection.find({ owner: email }).fetch(), 'rank');
+  return _.extend({ }, data, { rank });
+}
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ViewProfile extends React.Component {
@@ -16,12 +24,13 @@ class ViewProfile extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const emails = _.pluck(Profiles.collection.find().fetch(), 'email');
+    const profileData = emails.map(email => getData(email));
     return (
-        <Container id='viewprofile-page'>
-          <Header as="h2" textAlign="center" inverted>Profile</Header>
+        <Container id='view-profile-page'>
+          <Header style={{ fontSize: '5vh', color: 'white', fontFamily: 'Courier' }}inverted>PROFILE</Header>
           <Card.Group centered>
-            {this.props.profiles.map((profile, index) => <Profile key={index}
-                                                                  profile={profile}/>)}
+            {_.map(profileData, (profile, index) => <Profile key={index} profile={profile}/>)}
           </Card.Group>
         </Container>
     );
@@ -38,8 +47,10 @@ ViewProfile.propTypes = {
 export default withTracker(() => {
   // Get access to Profiles documents.
   const subscription = Meteor.subscribe(Profiles.userPublicationName);
+  const subscription2 = Meteor.subscribe(LeaderboardData.userPublicationName);
   return {
     profiles: Profiles.collection.find({}).fetch(),
-    ready: subscription.ready(),
+    leaderboard: LeaderboardData.collection.find({}).fetch(),
+    ready: subscription.ready() && subscription2.ready(),
   };
 })(ViewProfile);

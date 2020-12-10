@@ -2,16 +2,6 @@ import React from 'react';
 import { Table, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { _ } from 'meteor/underscore';
-import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
-
-// function sortLeaderboard() {
-// const usersPoints = _.pluck(LeaderboardData.collection.find({}, { sort: { points: -1 } }).fetch(), 'points');
-//   console.log(usersPoints);
-//   _.sortBy(usersPoints, function (num) { return -num; });
-// }
-//
-// console.log(sortLeaderboard());
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Leaderboard extends React.Component {
