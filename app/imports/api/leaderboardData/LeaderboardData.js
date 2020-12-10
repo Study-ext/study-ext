@@ -13,7 +13,7 @@ class LeaderboardDataCollection {
     this.schema = new SimpleSchema({
       name: String,
       picture: String,
-      rank: Number,
+      rank: { type: Number, index: true },
       points: { type: Number, index: true },
       owner: String,
     }, { tracker: Tracker });

@@ -18,9 +18,9 @@ class ViewLeaderboard extends React.Component {
   renderPage() {
 
     return (
-        <Container>
-          <Header inverted as="h2" textAlign="center">Leaderboard</Header>
-          <Table basic='very'>
+        <Container id='view-leaderboard-page'>
+          <Header inverted style={{ fontSize: '5vh', fontFamily: 'Courier' }}>LEADERBOARD</Header>
+          <Table basic='very' striped>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Name</Table.HeaderCell>
