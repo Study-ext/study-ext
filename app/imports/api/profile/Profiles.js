@@ -14,8 +14,8 @@ class ProfilesCollection {
       name: String,
       email: { type: String, optional: true },
       picture: String,
-      rank: String,
-      currentClasses: { type: Array },
+      rank: { type: String, optional: true },
+      currentClasses: { type: Array, optional: true },
       'currentClasses.$': { type: String,
         allowedValues: [
           'ICS 111',
@@ -28,7 +28,7 @@ class ProfilesCollection {
           'ICS 314',
         ],
       },
-      takenClasses: { type: Array },
+      takenClasses: { type: Array, optional: true },
       'takenClasses.$': { type: String,
         allowedValues: [
           'ICS 111',

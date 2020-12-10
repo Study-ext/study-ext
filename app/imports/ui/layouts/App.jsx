@@ -14,6 +14,8 @@ import ViewProfile from '../pages/ViewProfile';
 import EditProfile from '../pages/EditProfile';
 import CalendarPage from '../pages/CalendarPage';
 import CreateSession from '../pages/CreateSession';
+import ViewLeaderboard from '../pages/ViewLeaderboard';
+import ListClasses from '../pages/ListClasses';
 import EditStuff from '../pages/EditStuff';
 import LeaderboardPage from '../pages/LeaderboardPage';
 import NotFound from '../pages/NotFound';
@@ -38,7 +40,9 @@ class App extends React.Component {
               <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
               <ProtectedRoute path="/leaderboard" component={LeaderboardPage}/>
               <ProtectedRoute path="/calendar" component={CalendarPage}/>
+              <ProtectedRoute path="/viewleaderboard" component={ViewLeaderboard}/>
               <ProtectedRoute path="/createSession" component={CreateSession}/>
+              <ProtectedRoute path="/listClasses" component={ListClasses}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>

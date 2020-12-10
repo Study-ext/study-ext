@@ -1,8 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
-import { Contacts } from '../../api/contact/Contacts';
 import { Profiles } from '../../api/profile/Profiles';
+import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
+import { Classes } from '../../api/classes/Classes';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -10,14 +11,6 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Stuffs.collection.find({ owner: username });
-  }
-  return this.ready();
-});
-
-Meteor.publish(Contacts.userPublicationName, function () {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Contacts.collection.find({ owner: username });
   }
   return this.ready();
 });
@@ -30,6 +23,30 @@ Meteor.publish(Profiles.userPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish(Classes.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Profiles.collection.find({ owner: username });
+  }
+  return this.ready();
+});
+
+Meteor.publish(LeaderboardData.userPublicationName, function () {
+  if (this.userId) {
+    return LeaderboardData.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish('allUsers', function allUsers() {
+  return Meteor.users.find({}, {
+    fields: {
+      username: 1,
+      profile: 1,
+    },
+  });
+});
+
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.
 Meteor.publish(Stuffs.adminPublicationName, function () {
@@ -39,16 +56,23 @@ Meteor.publish(Stuffs.adminPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Contacts.adminPublicationName, function () {
+Meteor.publish(Profiles.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Contacts.collection.find();
+    return Profiles.collection.find();
   }
   return this.ready();
 });
 
-Meteor.publish(Profiles.adminPublicationName, function () {
+Meteor.publish(LeaderboardData.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Profiles.collection.find();
+    return LeaderboardData.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Classes.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Classes.collection.find();
   }
   return this.ready();
 });

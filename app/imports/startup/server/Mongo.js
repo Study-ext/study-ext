@@ -1,25 +1,10 @@
 import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base';
-import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff.js';
-import { Contacts } from '../../api/contact/Contacts';
 import { Profiles } from '../../api/profile/Profiles';
+import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
+import { Classes } from '../../api/classes/Classes';
 
 /* eslint-disable no-console */
-
-/** Define a user in the Meteor accounts package. This enables login. Username is the email address. */
-function createUser(email, password, role) {
-  console.log(`  Creating user ${email}.`);
-  const userID = Accounts.createUser({
-    username: email,
-    email: email,
-    password: password,
-  });
-  if (role === 'admin') {
-    Roles.createRole(role, { unlessExists: true });
-    Roles.addUsersToRoles(userID, 'admin');
-  }
-}
 
 /** Initialize the database with a default data document. */
 function addData(data) {
@@ -35,40 +20,64 @@ if (Stuffs.collection.find().count() === 0) {
   }
 }
 
-/* for Contacts collection */
-function addContact(data) {
-  console.log(`  Adding: ${data.lastName} (${data.owner})`);
-  Contacts.collection.insert(data);
+/** Defines a new user and associated profile. Error if user already exists. */
+function addProfile(data) {
+  console.log(`Defining profile ${data.owner}`);
+  Profiles.collection.insert(data);
 }
 
-/** Initialize the collection if empty. */
-if (Contacts.collection.find().count() === 0) {
-  if (Meteor.settings.defaultContacts) {
-    console.log('Creating default contacts.');
-    Meteor.settings.defaultContacts.map(data => addContact(data));
+function addLeaderboard(data) {
+  console.log(`Adding leaderboard: ${data.name} (${data.owner})`);
+  LeaderboardData.collection.insert(data);
+}
+
+function addClass(data) {
+  console.log(`Adding class: ${data.name} (${data.owner})`);
+  Classes.collection.insert(data);
+}
+
+if (Profiles.collection.find().count() === 0) {
+  if (Meteor.settings.defaultProfiles) {
+    console.log('Creating default profiles.');
+    Meteor.settings.defaultProfiles.map(data => addProfile(data));
   }
 }
 
-/* for Profiles collection */
-// function addProfile(data) {
-//   console.log(`  Adding: ${data.name} (${data.owner})`);
-//   Profiles.insert(data);
-// }
-/** Defines a new user and associated profile. Error if user already exists. */
-function addProfile({ name, email, picture, currentClasses, takenClasses, bio, role }) {
-  console.log(`Defining profile ${email}`);
-  // Define the user in the Meteor accounts package.
-  createUser(email, role);
-  // Create the profile.
-  Profiles.insert({ name, email, picture, currentClasses, takenClasses, bio });
+if (LeaderboardData.collection.find().count() === 0) {
+  if (Meteor.settings.defaultLeaderboard) {
+    console.log('Creating default leaderboard.');
+    Meteor.settings.defaultLeaderboard.map(data => addLeaderboard(data));
+  }
+}
+
+if (Classes.collection.find().count() === 0) {
+  if (Meteor.settings.defaultClasses) {
+    console.log('Creating default classes.');
+    Meteor.settings.defaultClasses.map(data => addClass(data));
+  }
 }
 
 /** Initialize the DB if empty (no users defined.) */
 if (Meteor.users.find().count() === 0) {
-  if (Meteor.settings.defaultUsers) {
+  if (Meteor.settings.defaultProfiles) {
     console.log('Creating default profiles');
-    Meteor.settings.defaultUsers.map(profile => addProfile(profile));
+    Meteor.settings.defaultProfiles.map(profile => addProfile(profile));
   } else {
     console.log('Cannot initialize the database. Please invoke meteor with a settings file.');
   }
+}
+
+/**
+ * If the loadAssetsFile field in settings.development.json is true, then load the data in private/data.json.
+ * This approach allows you to initialize your system with large amounts of data.
+ * Note that settings.development.json is limited to 64,000 characters.
+ * We use the "Assets" capability in Meteor.
+ * For more info on assets, see https://docs.meteor.com/api/assets.html
+ * User count check is to make sure we don't load the file twice, which would generate errors due to duplicate info.
+ */
+if ((Meteor.settings.loadAssetsFile) && (Meteor.users.find().count() < 7)) {
+  const assetsFileName = 'data.json';
+  console.log(`Loading data from private/${assetsFileName}`);
+  const jsonData = JSON.parse(Assets.getText(assetsFileName));
+  jsonData.profiles.map(profile => addProfile(profile));
 }
