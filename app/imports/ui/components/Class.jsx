@@ -10,7 +10,7 @@ class Class extends React.Component {
         <Card centered fluid>
           <Card.Content>
             <Card.Header>
-              {this.props.class.name}
+              {this.props.course.name}
             </Card.Header>
           </Card.Content>
         </Card>
@@ -20,7 +20,7 @@ class Class extends React.Component {
 
 /** Require a document to be passed to this component. */
 Class.propTypes = {
-  class: PropTypes.object.isRequired,
+  course: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
 };
 
