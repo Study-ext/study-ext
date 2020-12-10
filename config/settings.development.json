@@ -8,7 +8,8 @@
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" },
     { "email": "lenaholden@hawaii.edu", "password": "changeme" },
-    { "email": "bobbiward@hawaii.edu", "password": "changeme" }
+    { "email": "bobbiward@hawaii.edu", "password": "changeme" },
+    { "email": "aldreyRambayon@hawaii.edu", "password": "changeme" }
   ],
 
   "defaultProfiles": [
@@ -50,7 +51,8 @@
       "takenClasses": [
 
       ],
-      "bio": "I am majoring in Civil Engineering, but I want to learn more about Computer Science."
+      "bio": "I am majoring in Civil Engineering, but I want to learn more about Computer Science.",
+      "owner": "aldreyRambayon@hawaii.edu"
     }
   ],
 
@@ -59,15 +61,22 @@
       "name": "Lena Holden",
       "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
       "rank": 1,
-      "points": 10,
+      "points": 20,
       "owner": "lenaholden@hawaii.edu"
     },
     {
       "name": "Bobbi Ward",
       "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
-      "rank": 2,
+      "rank": 3,
       "points": 5,
       "owner": "bobbiward@hawaii.edu"
+    },
+    {
+      "name": "Aldrey Rambayon",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": 2,
+      "points": 10,
+      "owner": "aldreyRambayon@hawaii.edu"
     }
   ],
 

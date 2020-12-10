@@ -14,7 +14,7 @@ class LeaderboardDataCollection {
       name: String,
       picture: String,
       rank: Number,
-      points: Number,
+      points: { type: Number, index: true },
       owner: String,
     }, { tracker: Tracker });
     // Ensure collection documents obey schema.
