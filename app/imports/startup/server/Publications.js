@@ -3,6 +3,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Profiles } from '../../api/profile/Profiles';
 import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
+import { Classes } from '../../api/classes/Classes';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -22,12 +23,28 @@ Meteor.publish(Profiles.userPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(LeaderboardData.userPublicationName, function () {
+Meteor.publish(Classes.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return LeaderboardData.collection.find({ owner: username });
+    return Profiles.collection.find({ owner: username });
   }
   return this.ready();
+});
+
+Meteor.publish(LeaderboardData.userPublicationName, function () {
+  if (this.userId) {
+    return LeaderboardData.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish('allUsers', function allUsers() {
+  return Meteor.users.find({}, {
+    fields: {
+      username: 1,
+      profile: 1,
+    },
+  });
 });
 
 // Admin-level publication.
@@ -49,6 +66,13 @@ Meteor.publish(Profiles.adminPublicationName, function () {
 Meteor.publish(LeaderboardData.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return LeaderboardData.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Classes.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Classes.collection.find();
   }
   return this.ready();
 });

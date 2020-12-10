@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Profiles } from '../../api/profile/Profiles';
 import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
+import { Classes } from '../../api/classes/Classes';
 
 /* eslint-disable no-console */
 
@@ -21,13 +22,18 @@ if (Stuffs.collection.find().count() === 0) {
 
 /** Defines a new user and associated profile. Error if user already exists. */
 function addProfile(data) {
-  console.log(`Defining profile ${data.email}`);
+  console.log(`Defining profile ${data.owner}`);
   Profiles.collection.insert(data);
 }
 
 function addLeaderboard(data) {
   console.log(`Adding leaderboard: ${data.name} (${data.owner})`);
   LeaderboardData.collection.insert(data);
+}
+
+function addClass(data) {
+  console.log(`Adding class: ${data.name} (${data.owner})`);
+  Classes.collection.insert(data);
 }
 
 if (Profiles.collection.find().count() === 0) {
@@ -41,6 +47,13 @@ if (LeaderboardData.collection.find().count() === 0) {
   if (Meteor.settings.defaultLeaderboard) {
     console.log('Creating default leaderboard.');
     Meteor.settings.defaultLeaderboard.map(data => addLeaderboard(data));
+  }
+}
+
+if (Classes.collection.find().count() === 0) {
+  if (Meteor.settings.defaultClasses) {
+    console.log('Creating default classes.');
+    Meteor.settings.defaultClasses.map(data => addClass(data));
   }
 }
 

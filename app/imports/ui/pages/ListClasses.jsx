@@ -3,11 +3,10 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Card, Loader, Header } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { _ } from 'meteor/underscore';
 import { Profiles } from '../../api/profile/Profiles';
 import { Classes } from '../../api/classes/Classes';
 import { ProfilesClasses } from '../../api/profile/ProfilesClasses';
-import Profile from '../components/Profile';
+import Class from '../components/Class';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListClasses extends React.Component {
@@ -23,8 +22,8 @@ class ListClasses extends React.Component {
         <Container id='list-classes-page'>
           <Header as='h2' textAlign="center" inverted>Classes</Header>
           <Card.Group>
-            {this.props.profiles.map((profile, index) => <Profile key={index}
-                                                                  profile={profile}/>)}
+            {this.props.classes.map((name, index) => <Class key={index}
+                                                                  class={name}/>)}
           </Card.Group>
         </Container>
     );
@@ -34,7 +33,7 @@ class ListClasses extends React.Component {
 /** Require an array of Stuff documents in the props. */
 ListClasses.propTypes = {
   profiles: PropTypes.bool.isRequired,
-  class: PropTypes.bool.isRequired,
+  classes: PropTypes.bool.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -45,6 +44,7 @@ export default withTracker(() => {
   const sub2 = Meteor.subscribe(Profiles.userPublicationName);
   const sub3 = Meteor.subscribe(ProfilesClasses.userPublicationName);
   return {
+    classes: Classes.collection.find({}).fetch(),
     ready: sub1.ready() && sub2.ready() && sub3.ready(),
   };
 })(ListClasses);

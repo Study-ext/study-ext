@@ -7,7 +7,8 @@
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" },
-    { "email": "lenaholden@hawaii.edu", "password": "changeme" }
+    { "email": "lenaholden@hawaii.edu", "password": "changeme" },
+    { "email": "bobbiward@hawaii.edu", "password": "changeme" }
   ],
 
   "defaultProfiles": [
@@ -70,5 +71,20 @@
     }
   ],
 
-  "LoadAssetsFile": true
+  "defaultClasses": [
+    {
+      "name": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 212",
+        "ICS 222",
+        "ICS 241",
+        "ICS 311",
+        "ICS 314"
+      ]
+    }
+  ],
+
+  "loadAssetsFile": true
 }

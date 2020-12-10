@@ -10,7 +10,7 @@ class Class extends React.Component {
         <Card centered fluid>
           <Card.Content>
             <Card.Header>
-              {this.props.profile.takenClasses}
+              {this.props.class.name}
             </Card.Header>
           </Card.Content>
         </Card>

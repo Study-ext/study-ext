@@ -21,9 +21,9 @@ class ViewLeaderboard extends React.Component {
           <Table basic='very'>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell inverted>Name</Table.HeaderCell>
-                <Table.HeaderCell inverted>Rank</Table.HeaderCell>
-                <Table.HeaderCell inverted>Points</Table.HeaderCell>
+                <Table.HeaderCell>Name</Table.HeaderCell>
+                <Table.HeaderCell>Rank</Table.HeaderCell>
+                <Table.HeaderCell>Points</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>
@@ -44,8 +44,9 @@ ViewLeaderboard.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(LeaderboardData.userPublicationName);
+  const subscription2 = Meteor.subscribe('allUsers');
   return {
     leaderboarddata: LeaderboardData.collection.find({}).fetch(),
-    ready: subscription.ready(),
+    ready: subscription.ready() && subscription2.ready(),
   };
 })(ViewLeaderboard);
