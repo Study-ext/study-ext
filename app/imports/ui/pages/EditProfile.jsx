@@ -14,7 +14,6 @@ const bridge = new SimpleSchema2Bridge(Profiles.schema);
 
 /** Renders the Page for editing a document. */
 class EditProfile extends React.Component {
-
   /** On submit, try to insert the data. If successful, reset the form. */
   submit(data) {
     const { name, email, picture, currentClasses, takenClasses, bio, _id } = data;
