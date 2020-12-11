@@ -31,7 +31,7 @@ class UserProfile extends React.Component {
         <Container id='view-profile-page'>
           <Header style={{ fontSize: '4vh', color: 'white', fontFamily: 'Courier' }}inverted>Hello, {currentUser}</Header>
           <Card.Group centered>
-            {_.map(profileData, (profile, index) => <Profile key={index} profile={profile}/>)}
+            {_.map(profileData, (profile, index) => <Profile key={index} profile={profile} leaderboard={this.props.leaderboard}/>)}
           </Card.Group>
         </Container>
     );
@@ -42,6 +42,7 @@ class UserProfile extends React.Component {
 UserProfile.propTypes = {
   profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
+  leaderboard: PropTypes.array.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */

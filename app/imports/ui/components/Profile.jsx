@@ -39,7 +39,7 @@ class Profile extends React.Component {
 /** Require a document to be passed to this component. */
 Profile.propTypes = {
   profile: PropTypes.object.isRequired,
-  leaderboard: PropTypes.object.isRequired,
+  leaderboard: PropTypes.array.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the
