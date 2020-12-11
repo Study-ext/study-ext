@@ -8,7 +8,6 @@ import { Profiles } from '../../api/profile/Profiles';
 import { ProfilesCurrentClasses } from '../../api/profile/ProfilesCurrentClasses';
 import { ProfilesTakenClasses } from '../../api/profile/ProfilesTakenClasses';
 import { Classes } from '../../api/classes/Classes';
-import Profile from '../components/Profile';
 import Class from '../components/Class';
 
 function getClassData(name) {
