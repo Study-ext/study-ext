@@ -33,7 +33,7 @@ class ListClasses extends React.Component {
     const classData = classes.map(course => getClassData(course));
     return (
         <Container id='list-classes-page'>
-          <Header inverted style={{ fontSize: '4vh', fontFamily: 'Courier' }}>Classes</Header>
+          <Header inverted style={{ fontSize: '4vh', fontFamily: 'Courier' }}>CLASSES</Header>
           <Card.Group>
             {_.map(classData, (course, index) => <Class key={index} course={course}/>)}
           </Card.Group>
