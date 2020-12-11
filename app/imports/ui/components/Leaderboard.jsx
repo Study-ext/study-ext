@@ -1,8 +1,7 @@
 import React from 'react';
-import { Table, Image, Header, Dropdown } from 'semantic-ui-react';
+import { Table, Image, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, NavLink } from 'react-router-dom';
-import Profile from '../components/Profile';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Leaderboard extends React.Component {
@@ -11,18 +10,20 @@ class Leaderboard extends React.Component {
     return (
         <Table.Row>
           <Table.Cell>
-            <Header as='h4' image as={NavLink} exact to="/viewprofile/_id">
-                <Image
-                    size='tiny'
-                    rounded
-                    floated='left'
-                    src={this.props.leaderboard.picture}/>
-                <Header.Content>
-                  {this.props.leaderboard.name}
-                </Header.Content>
+            <Header as='h6' as={NavLink} activeClassName="active" exact to="/publicprofile/:_id" image>
+              <Image
+                  size='small'
+                  rounded
+                  floated='left'
+                  src={this.props.leaderboard.picture}/>
+              <Header.Content>
+                {this.props.leaderboard.name}
+              </Header.Content>
             </Header>
           </Table.Cell>
-          <Table.Cell>{this.props.leaderboard.rank}</Table.Cell>
+          <Table.Cell>
+            {this.props.leaderboard.rank}
+          </Table.Cell>
           <Table.Cell>
             {this.props.leaderboard.points}
           </Table.Cell>

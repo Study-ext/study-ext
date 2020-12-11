@@ -31,7 +31,7 @@ Meteor.publish('UserProfiles', function publishUserProfiles() {
   return this.ready();
 });
 
-Meteor.publish('ViewProfiles', function publishViewProfiles() {
+Meteor.publish('PublicProfiles', function publishPublicProfiles() {
   if (this.userId) {
     return Profiles.collection.find();
   }
@@ -40,7 +40,7 @@ Meteor.publish('ViewProfiles', function publishViewProfiles() {
 
 Meteor.publish(Classes.userPublicationName, function () {
   if (this.userId) {
-    return Profiles.collection.find();
+    return Classes.collection.find();
   }
   return this.ready();
 });

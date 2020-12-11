@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Card, Header, Loader } from 'semantic-ui-react';
+import { Container, Card, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -15,7 +15,7 @@ function getData(email) {
 }
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ViewProfile extends React.Component {
+class PublicProfile extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -29,7 +29,6 @@ class ViewProfile extends React.Component {
     const profileData = emails.map(email => getData(email));
     return (
         <Container id='view-profile-page'>
-          <Header style={{ fontSize: '4vh', color: 'white', fontFamily: 'Courier' }}inverted>Hello, {currentUser}</Header>
           <Card.Group centered>
             {_.map(profileData, (profile, index) => <Profile key={index} profile={profile}/>)}
           </Card.Group>
@@ -39,7 +38,7 @@ class ViewProfile extends React.Component {
 }
 
 /** Require an array of Profiles documents in the props. */
-ViewProfile.propTypes = {
+PublicProfile.propTypes = {
   profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -47,11 +46,11 @@ ViewProfile.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Profiles documents.
-  const subscription = Meteor.subscribe('ViewProfiles');
+  const subscription = Meteor.subscribe('PublicProfiles');
   const subscription2 = Meteor.subscribe(LeaderboardData.userPublicationName);
   return {
     profiles: Profiles.collection.find({}).fetch(),
     leaderboard: LeaderboardData.collection.find({}).fetch(),
     ready: subscription.ready() && subscription2.ready(),
   };
-})(ViewProfile);
+})(PublicProfile);

@@ -51,7 +51,7 @@ ViewLeaderboard.propTypes = {
 export default withTracker(() => {
   // Get access to Leaderboard documents.
   const sub1 = Meteor.subscribe(LeaderboardData.userPublicationName);
-  const sub2 = Meteor.subscribe('ViewProfiles');
+  const sub2 = Meteor.subscribe('PublicProfiles');
   return {
     leaderboarddata: LeaderboardData.collection.find({}, { sort: { points: -1 } }).fetch(),
     profiles: Profiles.collection.find({}).fetch(),

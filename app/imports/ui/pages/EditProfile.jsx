@@ -43,7 +43,7 @@ class EditProfile extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header inverted as="h2" textAlign="center">Edit Profile</Header>
+            <Header inverted style={{ fontSize: '4vh', fontFamily: 'Courier' }}>Edit Profile</Header>
             <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
               <Segment>
                 <Form.Group widths={'equal'}>
@@ -76,9 +76,8 @@ EditProfile.propTypes = {
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(({ match }) => {
-  // Get the email from the URL field. See imports/ui/layouts/App.jsx for the route containing :email.
   const documentId = match.params._id;
-  // Request StudentData and Enrollment docs. Won't be locally available until ready() returns true.
+  // Request Profiles docs. Won't be locally available until ready() returns true.
   const profilesSubscription = Meteor.subscribe('UserProfiles');
   return {
     doc: Profiles.collection.findOne(documentId),
