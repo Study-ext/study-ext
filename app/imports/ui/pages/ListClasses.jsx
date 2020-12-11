@@ -12,11 +12,11 @@ import Profile from '../components/Profile';
 import Class from '../components/Class';
 
 function getClassData(name) {
-  const profiles = Profiles.collection.findOne({ email });
-  const profilePictures = profiles.map(profile => Profiles.collection.findOne({ name: profile }).picture);
-  const currentClasses = _.pluck(Profiles.collection.find({ currentClass: name }).fetch(), 'currentClasses');
-  const takenClasses = _.pluck(Profiles.collection.find({ takenClass: name }).fetch(), 'takenClasses');
-  return _.extend({ }, { name, currentClasses, takenClasses, profiles: profilePictures });
+  const currentProfiles = _.pluck(ProfilesCurrentClasses.collection.find({ class: name }).fetch(), 'profile');
+  const takenProfiles = _.pluck(ProfilesTakenClasses.collection.find({ class: name }).fetch(), 'profile');
+  const currentProfilePictures = currentProfiles.map(profile => Profiles.collection.findOne({ email: profile }).picture);
+  const takenProfilePictures = takenProfiles.map(profile => Profiles.collection.findOne({ email: profile }).picture);
+  return _.extend({ }, { name, currentProfiles: currentProfilePictures, takenProfiles: takenProfilePictures });
 }
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -30,11 +30,12 @@ class ListClasses extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     const classes = _.pluck(Classes.collection.find().fetch(), 'name');
+    const classData = classes.map(course => getClassData(course));
     return (
         <Container id='list-classes-page'>
           <Header inverted style={{ fontSize: '4vh', fontFamily: 'Courier' }}>Classes</Header>
           <Card.Group>
-            {this.props.classes.map((course, index) => <Class key={index} course={course}/>)}
+            {_.map(classData, (course, index) => <Class key={index} course={course}/>)}
           </Card.Group>
         </Container>
     );
