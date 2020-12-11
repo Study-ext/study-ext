@@ -3,8 +3,6 @@ import { Card, Image, Label, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { _ } from 'meteor/underscore';
-import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
-import Leaderboard from '../components/Leaderboard';
 
 class Profile extends React.Component {
   render() {
