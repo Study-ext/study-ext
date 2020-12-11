@@ -15,7 +15,7 @@ function getData(email) {
 }
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class UserProfile extends React.Component {
+class ViewProfile extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -39,7 +39,7 @@ class UserProfile extends React.Component {
 }
 
 /** Require an array of Profiles documents in the props. */
-UserProfile.propTypes = {
+ViewProfile.propTypes = {
   profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -47,12 +47,11 @@ UserProfile.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Profiles documents.
-  const subscription = Meteor.subscribe('UserProfiles');
+  const subscription = Meteor.subscribe('ViewProfiles');
   const subscription2 = Meteor.subscribe(LeaderboardData.userPublicationName);
-
   return {
     profiles: Profiles.collection.find({}).fetch(),
     leaderboard: LeaderboardData.collection.find({}).fetch(),
     ready: subscription.ready() && subscription2.ready(),
   };
-})(UserProfile);
+})(ViewProfile);

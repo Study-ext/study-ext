@@ -5,6 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Leaderboard from '../components/Leaderboard';
 import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
+import { Profiles } from '../../api/profile/Profiles';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ViewLeaderboard extends React.Component {
@@ -42,17 +43,18 @@ class ViewLeaderboard extends React.Component {
 /** Require an array of Stuff documents in the props. */
 ViewLeaderboard.propTypes = {
   leaderboarddata: PropTypes.array.isRequired,
+  profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Leaderboard documents.
-  const subscription = Meteor.subscribe(LeaderboardData.userPublicationName);
-  const subscription2 = Meteor.subscribe('allUsers');
+  const sub1 = Meteor.subscribe(LeaderboardData.userPublicationName);
+  const sub2 = Meteor.subscribe('ViewProfiles');
   return {
     leaderboarddata: LeaderboardData.collection.find({}, { sort: { points: -1 } }).fetch(),
-
-    ready: subscription.ready() && subscription2.ready(),
+    profiles: Profiles.collection.find({}).fetch(),
+    ready: sub1.ready() && sub2.ready(),
   };
 })(ViewLeaderboard);

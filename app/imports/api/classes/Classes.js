@@ -11,18 +11,7 @@ class ClassesCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      name: { type: Array },
-      'name.$': { type: String,
-        allowedValues: [
-          'ICS 111',
-          'ICS 141',
-          'ICS 211',
-          'ICS 212',
-          'ICS 222',
-          'ICS 241',
-          'ICS 311',
-          'ICS 314',
-        ] },
+      name: { type: String, index: true, unique: true },
       }, { tracker: Tracker });
     // Ensure collection documents obey schema.
     this.collection.attachSchema(this.schema);

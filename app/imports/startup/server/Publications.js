@@ -15,7 +15,15 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Profiles.userPublicationName, function () {
+// Meteor.publish(Profiles.userPublicationName, function () {
+//   if (this.userId) {
+//     const username = Meteor.users.findOne(this.userId).username;
+//     return Profiles.collection.find({ owner: username });
+//   }
+//   return this.ready();
+// });
+
+Meteor.publish('UserProfiles', function publishUserProfiles() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Profiles.collection.find({ owner: username });
@@ -23,10 +31,16 @@ Meteor.publish(Profiles.userPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish('ViewProfiles', function publishViewProfiles() {
+  if (this.userId) {
+    return Profiles.collection.find();
+  }
+  return this.ready();
+});
+
 Meteor.publish(Classes.userPublicationName, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Profiles.collection.find({ owner: username });
+    return Profiles.collection.find();
   }
   return this.ready();
 });

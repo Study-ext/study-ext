@@ -39,12 +39,19 @@ ListClasses.propTypes = {
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
-  // Get access to Stuff documents.
+  // Get access to documents.
   const sub1 = Meteor.subscribe(Classes.userPublicationName);
   const sub2 = Meteor.subscribe(Profiles.userPublicationName);
+<<<<<<< Updated upstream
   const sub3 = Meteor.subscribe(ProfilesClasses.userPublicationName);
   return {
     classes: Classes.collection.find({}).fetch(),
+=======
+  const sub3 = Meteor.subscribe('allUsers');
+  return {
+    classes: Classes.collection.find({}).fetch(),
+    profiles: Profiles.collection.find({}).fetch(),
+>>>>>>> Stashed changes
     ready: sub1.ready() && sub2.ready() && sub3.ready(),
   };
 })(ListClasses);

@@ -79,7 +79,7 @@ export default withTracker(({ match }) => {
   // Get the email from the URL field. See imports/ui/layouts/App.jsx for the route containing :email.
   const documentId = match.params._id;
   // Request StudentData and Enrollment docs. Won't be locally available until ready() returns true.
-  const profilesSubscription = Meteor.subscribe(Profiles.userPublicationName);
+  const profilesSubscription = Meteor.subscribe('UserProfiles');
   return {
     doc: Profiles.collection.findOne(documentId),
     ready: profilesSubscription.ready(),
