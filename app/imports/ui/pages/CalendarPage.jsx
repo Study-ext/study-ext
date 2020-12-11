@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Sessions } from '../../api/session/Session'
 import Calendar from '../components/Calendar';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -29,7 +29,7 @@ class CalendarPage extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 CalendarPage.propTypes = {
-  stuffs: PropTypes.array.isRequired,
+  sessions: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -38,7 +38,7 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Stuffs.userPublicationName);
   return {
-    stuffs: Stuffs.collection.find({}).fetch(),
+    sessions: Sessions.collection.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(CalendarPage);
