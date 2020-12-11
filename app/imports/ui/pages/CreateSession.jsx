@@ -60,7 +60,7 @@ class CreateSession extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header style={{ fontSize: '5vh', color: 'white', fontFamily: 'Courier' }}>
+            <Header style={{ fontSize: '4vh', color: 'white', fontFamily: 'Courier' }}>
               CREATE A NEW SESSION
             </Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
