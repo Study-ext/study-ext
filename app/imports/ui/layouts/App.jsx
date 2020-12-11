@@ -8,6 +8,8 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
+import ListUsersAdmin from '../pages/ListUsersAdmin';
+import ListSessionsAdmin from '../pages/ListSessionsAdmin';
 import CreateProfile from '../pages/CreateProfile';
 import QuickGuide from '../pages/QuickGuide';
 import ViewProfile from '../pages/ViewProfile';
@@ -17,6 +19,7 @@ import CreateSession from '../pages/CreateSession';
 import ViewLeaderboard from '../pages/ViewLeaderboard';
 import ListClasses from '../pages/ListClasses';
 import EditStuff from '../pages/EditStuff';
+// eslint-disable-next-line no-unused-vars
 import LeaderboardPage from '../pages/LeaderboardPage';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
@@ -44,6 +47,8 @@ class App extends React.Component {
               <ProtectedRoute path="/listClasses" component={ListClasses}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+              <AdminProtectedRoute path="/listUsersAdmin" component={ListUsersAdmin}/>
+              <AdminProtectedRoute path="/listSessionsAdmin" component={ListSessionsAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>

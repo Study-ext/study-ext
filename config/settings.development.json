@@ -18,8 +18,8 @@
       "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
       "rank": "lenaholden@hawaii.edu",
       "currentClasses": [
-        "ICS 111",
-        "ICS 141"
+        "ICS 111 ",
+        "ICS 141 "
       ],
       "takenClasses": [
 
@@ -32,8 +32,8 @@
       "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
       "rank": "john@foo.com",
       "currentClasses": [
-        "ICS 111",
-        "ICS 141"
+        "ICS 111 ",
+        "ICS 141 "
       ],
       "takenClasses": [
 
@@ -46,7 +46,7 @@
       "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
       "rank": "john@foo.com",
       "currentClasses": [
-        "ICS 111"
+        "ICS 111 "
       ],
       "takenClasses": [
 
@@ -93,6 +93,144 @@
         "ICS 314"
       ]
     }
+  ],
+  "defaultSession": [
+    {
+      "name": "Study for ICS 111 Final",
+      "subject": "ICS 111",
+      "info": "Reviewing the last few chapters learned in class in preparation for final. ",
+      "time": "11:30 am",
+      "month": "December",
+      "day": "11",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 111 homework 13",
+      "subject": "ICS 111",
+      "info": "Group help on homework 13.",
+      "time": "9:10 am",
+      "month": "December",
+      "day": "3",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 111 final review",
+      "subject": "ICS 111",
+      "info": "Study sessions for harder general topics in ICS 111",
+      "time": "10:00 am",
+      "month": "December",
+      "day": "9",
+      "year": "2020"
+    },
+    {
+      "name": "Study for ICS 141 Final",
+      "subject": "ICS 141",
+      "info": "Go over practice problems for our final.",
+      "time": "7:00 pm",
+      "month": "December",
+      "day": "12",
+      "year": "2020"
+    },
+    {
+      "name": "Homework 9 for ICS 141",
+      "subject": "ICS 141",
+      "info": "Finished and discuss homework 9 after class",
+      "time": "2:45 pm",
+      "month": "December",
+      "day": "8",
+      "year": "2020"
+    },
+    {
+      "name": "Help on final project for ICS 211",
+      "subject": "ICS 211",
+      "info": "Work together on finishing final project.",
+      "time": "4:15 pm",
+      "month": "December",
+      "day": "13",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 211 final review",
+      "subject": "ICS 211",
+      "info": "Review data structures and sorts for final",
+      "time": "8:00 pm",
+      "month": "December",
+      "day": "12",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 211 Homework",
+      "subject": "ICS 211",
+      "info": "Having trouble implementing different sorts.",
+      "time": "5:30 pm",
+      "month": "December",
+      "day": "4",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 241 Study Session for Final",
+      "subject": "ICS 241",
+      "info": "Study for ICS 241 final",
+      "time": "5:15 pm",
+      "month": "December",
+      "day": "6",
+      "year": "2020"
+    },
+    {
+      "name": "Final Review ICS 241",
+      "subject": "ICS 241",
+      "info": "Review Harder topics in ICS 241 for final",
+      "time": "11:15 am",
+      "month": "December",
+      "day": "10",
+      "year": "2020"
+    },
+    {
+      "name": "Help on ICS 311 Homework 10",
+      "subject": "ICS 311",
+      "info": "Solving final homework problems.",
+      "time": "5:45 pm",
+      "month": "December",
+      "day": "7",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 311 Review for final",
+      "subject": "ICS 311",
+      "info": "Review for final, go over recent chapters in CLRS.",
+      "time": "6:15 pm",
+      "month": "December",
+      "day": "6",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 341 final project testing",
+      "subject": "ICS 314",
+      "info": "Check out and test other final project to find improvements",
+      "time": "5:000 pm",
+      "month": "December",
+      "day": "8",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 314 portfolio review",
+      "subject": "ICS 314",
+      "info": "Look over each others portfolios and suggest improvements.",
+      "time": "12:15 pm",
+      "month": "December",
+      "day": "6",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 311 Multithreading and Parallel Programing",
+      "subject": "ICS 311",
+      "info": "Review and practice multithreading and parallel programing.",
+      "time": "1:45 pm",
+      "month": "December",
+      "day": "1",
+      "year": "2020"
+    }
+
   ],
 
   "loadAssetsFile": true

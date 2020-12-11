@@ -4,6 +4,7 @@ import { Stuffs } from '../../api/stuff/Stuff';
 import { Profiles } from '../../api/profile/Profiles';
 import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
 import { Classes } from '../../api/classes/Classes';
+import { Sessions } from '../../api/session/Session';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -34,6 +35,13 @@ Meteor.publish(Classes.userPublicationName, function () {
 Meteor.publish(LeaderboardData.userPublicationName, function () {
   if (this.userId) {
     return LeaderboardData.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Sessions.userPublicationName, function () {
+  if (this.userId) {
+    return Sessions.collection.find();
   }
   return this.ready();
 });
@@ -73,6 +81,13 @@ Meteor.publish(LeaderboardData.adminPublicationName, function () {
 Meteor.publish(Classes.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Classes.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Sessions.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Sessions.collection.find();
   }
   return this.ready();
 });
