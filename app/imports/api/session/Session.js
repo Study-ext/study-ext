@@ -14,7 +14,7 @@ class SesssionsCollection {
       name: String,
       subject: {
         type: String,
-        allowedValues: ['ICS 111', 'ICS 141', 'ICS 211', 'ICS 212', 'ICS 222', 'ICS 241', 'ICS 311', 'ICS 314'   ]
+        allowedValues: ['ICS 111', 'ICS 141', 'ICS 211', 'ICS 212', 'ICS 222', 'ICS 241', 'ICS 311', 'ICS 314'],
       },
       info: String,
       time: String,
