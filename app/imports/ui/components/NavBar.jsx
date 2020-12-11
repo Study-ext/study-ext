@@ -11,46 +11,42 @@ class NavBar extends React.Component {
   render() {
     const menuStyle = { marginBottom: '10px', backgroundColor: '#585C67' };
     return (
-      <Menu style={menuStyle} attached="top" borderless inverted>
-        <Menu.Item as={NavLink} activeClassName="" exact to="/">
-          <Header inverted as='h1'>Study-ext</Header>
-        </Menu.Item>
-        {this.props.currentUser ? (
-<<<<<<< HEAD
-<<<<<<< HEAD
-            [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Calender</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Leaderboard</Menu.Item>,
-=======
-            [<Menu.Item id='nav-bar-calendar' as={NavLink} activeClassName="active" exact to="/calendar" key='calendar'>Calendar</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Leaderboard</Menu.Item>,
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/createSession" key='createSession'>Create Session</Menu.Item>,
->>>>>>> parent of 4436113... Merge branch 'create-profile-page'
-=======
-            [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Calender</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Leaderboard</Menu.Item>,
->>>>>>> parent of f77afe2... Merge branch 'master' of https://github.com/Study-ext/study-ext
-            ]
-        ) : ''}
-        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Create Session</Menu.Item>
-        ) : ''}
-        <Menu.Item position="right">
-          {this.props.currentUser === '' ? (
-            <Dropdown id="login-dropdown" text="Login" pointing="top right" icon={'user'}>
-              <Dropdown.Menu>
-                <Dropdown.Item id="login-dropdown-sign-in" icon="user" text="Sign In" as={NavLink} exact to="/signin"/>
-                <Dropdown.Item id="login-dropdown-sign-up" icon="add user" text="Sign Up" as={NavLink} exact to="/signup"/>
-              </Dropdown.Menu>
-            </Dropdown>
-          ) : (
-            <Dropdown id="navbar-current-user" text={this.props.currentUser} pointing="top right" icon={'user'}>
-              <Dropdown.Menu>
-                <Dropdown.Item id="navbar-sign-out" icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
-              </Dropdown.Menu>
-            </Dropdown>
-          )}
-        </Menu.Item>
-      </Menu>
+        <Menu style={menuStyle} attached="top" borderless inverted>
+          <Menu.Item as={NavLink} activeClassName="" exact to="/">
+            <Header inverted as='h1'>Study-ext</Header>
+          </Menu.Item>
+          {this.props.currentUser ? (
+              [<Menu.Item id='nav-bar-calendar' as={NavLink} activeClassName="active" exact to="/calendar"
+                          key='calendar'>Calendar</Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/leaderboard" key='leaderboard'>Leaderboard</Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/createSession" key='createSession'>Create
+                  Session</Menu.Item>,
+              ]
+          ) : ''}
+          {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Create Session</Menu.Item>
+          ) : ''}
+          <Menu.Item position="right">
+            {this.props.currentUser === '' ? (
+                <Dropdown id="login-dropdown" text="Login" pointing="top right" icon={'user'}>
+                  <Dropdown.Menu>
+                    <Dropdown.Item id="login-dropdown-sign-in" icon="user" text="Sign In" as={NavLink} exact
+                                   to="/signin"/>
+                    <Dropdown.Item id="login-dropdown-sign-up" icon="add user" text="Sign Up" as={NavLink} exact
+                                   to="/signup"/>
+                  </Dropdown.Menu>
+                </Dropdown>
+            ) : (
+                <Dropdown id="navbar-current-user" text={this.props.currentUser} pointing="top right" icon={'user'}>
+                  <Dropdown.Menu>
+                    <Dropdown.Item id="navbar-profile" icon="user" text="Profile" as={NavLink} exact to="/viewprofile"/>
+                    <Dropdown.Item id="navbar-sign-out" icon="sign out" text="Sign Out" as={NavLink} exact
+                                   to="/signout"/>
+                  </Dropdown.Menu>
+                </Dropdown>
+            )}
+          </Menu.Item>
+        </Menu>
     );
   }
 }
