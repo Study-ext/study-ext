@@ -35,7 +35,15 @@ class CreateSession extends React.Component {
 
     const newDate = new Date(newTime);
 
-    const timeStr = `${(`0${newDate.getHours()}`).slice(-2)}:${(`0${newDate.getMinutes()}`).slice(-2)}`;
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    hours %= 12;
+    hours = hours || 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? `0${minutes}` : minutes;
+    const timeStr = `${hours}:${minutes} ${ampm}`;
+
+    console.log(timeStr);
 
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', 'September', 'October', 'November', 'December',
