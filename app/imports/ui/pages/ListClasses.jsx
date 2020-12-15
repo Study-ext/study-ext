@@ -21,7 +21,7 @@ const MakeCurrentCard = (props) => (
     <Card centered>
       <Card.Content>
         <Card.Header style={{ marginTop: '0px', fontsize: '1vw', textAlign: 'center' }}>
-          Current: {props.currentClass.name}
+          {props.currentClass.name}
         </Card.Header>
       </Card.Content>
       <Card.Content extra>
@@ -45,7 +45,7 @@ const MakeTakenCard = (props) => (
     <Card centered>
       <Card.Content>
         <Card.Header style={{ marginTop: '0px', fontsize: '1vw', textAlign: 'center' }}>
-          Taken: {props.takenClass.name}
+          {props.takenClass.name}
         </Card.Header>
       </Card.Content>
       <Card.Content extra>
@@ -79,6 +79,9 @@ class ListClasses extends React.Component {
               <Header as='h2' inverted textAlign='center'>
                 Mentees
               </Header>
+              <p className='class-description'>
+                The mentees listed here are students who are currently taking these ICS courses.
+              </p>
               <Card.Group>
                 {_.map(currentClassData, (currentClass, index) => <MakeCurrentCard key={index}
                                                                                    currentClass={currentClass}/>)}
@@ -88,6 +91,9 @@ class ListClasses extends React.Component {
               <Header as='h2' inverted textAlign='center'>
                 Mentors
               </Header>
+              <p className='class-description'>
+                The mentors listed here are students who have previously taken these ICS courses.
+              </p>
               <Card.Group>
                 {_.map(takenClassData, (takenClass, index) => <MakeTakenCard key={index} takenClass={takenClass}/>)}
               </Card.Group>

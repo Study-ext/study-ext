@@ -22,4 +22,7 @@
   height: 100vh;
 }
 
-
+.class-description {
+  color: white;
+  text-align: center;
+}
