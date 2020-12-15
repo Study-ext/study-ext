@@ -4,7 +4,7 @@ import { Container, Card, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
-import Profile from '../components/Profile';
+import PublicProfile from '../components/PublicProfile';
 import { Profiles } from '../../api/profile/Profiles';
 import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
 
@@ -15,7 +15,7 @@ function getData(email) {
 }
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class PublicProfile extends React.Component {
+class PublicProfiles extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -24,13 +24,13 @@ class PublicProfile extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const currentUser = _.pluck(Profiles.collection.find().fetch(), 'name');
     const emails = _.pluck(Profiles.collection.find().fetch(), 'email');
     const profileData = emails.map(email => getData(email));
+    console.log(profileData);
     return (
         <Container id='view-profile-page'>
           <Card.Group centered>
-            {_.map(profileData, (profile, index) => <Profile key={index} profile={profile}/>)}
+             {_.map(profileData, (profile, index) => <PublicProfile key={index} profile={profile}/>)}
           </Card.Group>
         </Container>
     );
@@ -38,7 +38,7 @@ class PublicProfile extends React.Component {
 }
 
 /** Require an array of Profiles documents in the props. */
-PublicProfile.propTypes = {
+PublicProfiles.propTypes = {
   profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -53,4 +53,4 @@ export default withTracker(() => {
     leaderboard: LeaderboardData.collection.find({}).fetch(),
     ready: subscription.ready() && subscription2.ready(),
   };
-})(PublicProfile);
+})(PublicProfiles);

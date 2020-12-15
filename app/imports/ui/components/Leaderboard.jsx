@@ -6,7 +6,7 @@ import { withRouter, NavLink } from 'react-router-dom';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Leaderboard extends React.Component {
   render() {
-    const userID = this.props.leaderboard.email;
+    const userID = this.props.leaderboard.owner;
     console.log(userID);
 
     return (
