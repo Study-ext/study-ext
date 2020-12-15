@@ -50,12 +50,12 @@ if (LeaderboardData.collection.find().count() === 0) {
   }
 }
 
-if (Classes.collection.find().count() === 0) {
-  if (Meteor.settings.defaultClasses) {
-    console.log('Creating default classes.');
-    Meteor.settings.defaultClasses.map(data => addClass(data));
-  }
-}
+// if (Classes.collection.find().count() === 0) {
+//   if (Meteor.settings.defaultClasses) {
+//     console.log('Creating default classes.');
+//     Meteor.settings.defaultClasses.map(data => addClass(data));
+//   }
+// }
 
 /** Initialize the DB if empty (no users defined.) */
 if (Meteor.users.find().count() === 0) {

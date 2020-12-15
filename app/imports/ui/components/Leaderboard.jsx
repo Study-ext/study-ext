@@ -6,11 +6,13 @@ import { withRouter, NavLink } from 'react-router-dom';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Leaderboard extends React.Component {
   render() {
+    const userID = this.props.leaderboard.email;
+    console.log(userID);
 
     return (
         <Table.Row>
           <Table.Cell>
-            <Header as='h6' as={NavLink} activeClassName="active" exact to="/publicprofile/:_id" image>
+            <Header as='h6' as={NavLink} activeClassName="active" exact to="/publicprofile/userID" image>
               <Image
                   size='small'
                   rounded

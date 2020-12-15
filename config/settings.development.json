@@ -9,7 +9,8 @@
     { "email": "john@foo.com", "password": "changeme" },
     { "email": "lenaholden@hawaii.edu", "password": "changeme" },
     { "email": "bobbiward@hawaii.edu", "password": "changeme" },
-    { "email": "aldreyRambayon@hawaii.edu", "password": "changeme" }
+    { "email": "aldreyRambayon@hawaii.edu", "password": "changeme" },
+    { "email": "richmondlee@hawaii.edu", "password": "changeme" }
   ],
 
   "defaultProfiles": [
@@ -53,10 +54,32 @@
       ],
       "bio": "I am majoring in Civil Engineering, but I want to learn more about Computer Science.",
       "owner": "aldreyRambayon@hawaii.edu"
+    },
+    { "name": "Richmond Lee",
+      "email": "richmondlee@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "richmondlee@hawaii.edu",
+      "currentClasses": [
+        "ICS 211",
+        "ICS 241"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "bio": "I am a sophomore and I'm excited to build my programming skills!",
+      "owner": "richmondlee@hawaii.edu"
     }
   ],
 
   "defaultLeaderboard": [
+    {
+      "name": "Richmond Lee",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": 4,
+      "points": 0,
+      "owner": "richmondlee@hawaii.edu"
+    },
     {
       "name": "Lena Holden",
       "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
