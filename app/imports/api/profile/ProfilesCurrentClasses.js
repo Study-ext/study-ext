@@ -11,8 +11,8 @@ class ProfilesCurrentClassesCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      profile: String,
-      cClass: String,
+      profile: { type: String, optional: true },
+      currentClass: String,
     }, { tracker: Tracker });
     // Ensure collection documents obey schema.
     this.collection.attachSchema(this.schema);

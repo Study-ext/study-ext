@@ -24,9 +24,9 @@ class PublicProfile extends React.Component {
           </Card.Content>
           <Card.Content>
             <Header as='h5'>Current Classes:</Header>
-            {_.map(this.props.profile.currentClasses, (currentClasses, index) => <Label key={index} size='tiny' color='teal'>{currentClasses}</Label>)}
+            {_.map(this.props.profile.currentClasses, (currentClass, index) => <Label key={index} size='tiny' color='teal'>{currentClass}</Label>)}
             <Header as='h5'>Taken Classes:</Header>
-            {_.map(this.props.profile.takenClasses, (takenClasses, index) => <Label key={index} size='tiny' color='teal'>{takenClasses}</Label>)}
+            {_.map(this.props.profile.takenClasses, (takenClass, index) => <Label key={index} size='tiny' color='teal'>{takenClass}</Label>)}
           </Card.Content>
         </Card>
     );

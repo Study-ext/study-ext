@@ -3,7 +3,8 @@ import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Profiles } from '../../api/profile/Profiles';
 import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
-import { Classes } from '../../api/classes/Classes';
+import { CurrentClasses } from '../../api/classes/CurrentClasses';
+import { TakenClasses } from '../../api/classes/TakenClasses';
 import { ProfilesCurrentClasses } from '../../api/profile/ProfilesCurrentClasses';
 import { ProfilesTakenClasses } from '../../api/profile/ProfilesTakenClasses';
 import { Sessions } from '../../api/session/Session';
@@ -18,15 +19,7 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   return this.ready();
 });
 
-// Meteor.publish(Profiles.userPublicationName, function () {
-//   if (this.userId) {
-//     const username = Meteor.users.findOne(this.userId).username;
-//     return Profiles.collection.find({ owner: username });
-//   }
-//   return this.ready();
-// });
-
-Meteor.publish('UserProfiles', function publishUserProfiles() {
+Meteor.publish(Profiles.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Profiles.collection.find({ owner: username });
@@ -41,9 +34,16 @@ Meteor.publish('PublicProfiles', function publishPublicProfiles() {
   return this.ready();
 });
 
-Meteor.publish(Classes.userPublicationName, function () {
+Meteor.publish(CurrentClasses.userPublicationName, function () {
   if (this.userId) {
-    return Classes.collection.find();
+    return CurrentClasses.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(TakenClasses.userPublicationName, function () {
+  if (this.userId) {
+    return TakenClasses.collection.find();
   }
   return this.ready();
 });
@@ -62,9 +62,25 @@ Meteor.publish(ProfilesCurrentClasses.userPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish('ProfilesCurrentUser', function publishProfilesCurrentUser() {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return ProfilesCurrentClasses.collection.find({ owner: username });
+  }
+  return this.ready();
+});
+
 Meteor.publish(ProfilesTakenClasses.userPublicationName, function () {
   if (this.userId) {
     return ProfilesTakenClasses.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish('ProfilesTakenUser', function publishProfilesTakenUser() {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Profiles.collection.find({ owner: username });
   }
   return this.ready();
 });
@@ -108,9 +124,9 @@ Meteor.publish(LeaderboardData.adminPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Classes.adminPublicationName, function () {
+Meteor.publish(CurrentClasses.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Classes.collection.find();
+    return CurrentClasses.collection.find();
   }
   return this.ready();
 });

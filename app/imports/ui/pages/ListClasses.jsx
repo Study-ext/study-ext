@@ -4,7 +4,7 @@ import { Container, Card, Loader, Header } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Profiles } from '../../api/profile/Profiles';
-import { Classes } from '../../api/classes/Classes';
+import { CurrentClasses } from '../../api/classes/CurrentClasses';
 import Class from '../components/Class';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -39,11 +39,11 @@ ListClasses.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to documents.
-  const sub1 = Meteor.subscribe(Classes.userPublicationName);
+  const sub1 = Meteor.subscribe(CurrentClasses.userPublicationName);
   const sub2 = Meteor.subscribe(Profiles.userPublicationName);
 
   return {
-    classes: Classes.collection.find({}).fetch(),
+    classes: CurrentClasses.collection.find({}).fetch(),
     profiles: Profiles.collection.find({}).fetch(),
     ready: sub1.ready() && sub2.ready(),
   };

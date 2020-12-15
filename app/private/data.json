@@ -543,21 +543,6 @@
     }
   ],
 
-  "classes": [
-    {
-      "name": [
-        "ICS 111",
-        "ICS 141",
-        "ICS 211",
-        "ICS 212",
-        "ICS 222",
-        "ICS 241",
-        "ICS 311",
-        "ICS 314"
-      ]
-    }
-  ],
-
   "session": [
     {
       "name": "Study for ICS 111 Final",

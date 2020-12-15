@@ -20,8 +20,6 @@ import CreateSession from '../pages/CreateSession';
 import ViewLeaderboard from '../pages/ViewLeaderboard';
 import ListClasses from '../pages/ListClasses';
 import EditStuff from '../pages/EditStuff';
-// eslint-disable-next-line no-unused-vars
-import LeaderboardPage from '../pages/LeaderboardPage';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
