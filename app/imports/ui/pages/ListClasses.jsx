@@ -13,8 +13,8 @@ import { ProfilesTakenClasses } from '../../api/profile/ProfilesTakenClasses';
 function getCurrentClassData(name) {
   const currentClassProfiles = _.pluck(ProfilesCurrentClasses.collection.find({ currentClass: name }).fetch(), 'profile');
   const currentProfilePictures = currentClassProfiles.map(profile => Profiles.collection.findOne({ email: profile }).picture);
-  // const currentProfileNames = currentClassProfiles.map(profile => Profiles.collection.findOne({ email: profile }).name);
-  return _.extend({ }, { name, currentClassProfiles: currentProfilePictures });
+  const currentProfileNames = currentClassProfiles.map(profile => Profiles.collection.findOne({ email: profile }).name);
+  return _.extend({ }, { name, currentClassProfiles: currentProfilePictures, currentProfileNames });
 }
 
 // function getTakenClassData(name) {
@@ -27,12 +27,12 @@ function getCurrentClassData(name) {
 const MakeCard = (props) => (
     <Card centered fluid>
       <Card.Content>
-        <Card.Header style={{ fontsize: '2vh', marginTop: '0px' }}>
+        <Card.Header style={{ marginTop: '0px' }}>
           Current: {props.currentClass.name}
         </Card.Header>
       </Card.Content>
       <Card.Content extra>
-        {_.map(props.currentClass.profiles, (p, index) => <Image key={index} circular size='mini' src={p}/>)}
+        {_.map(props.currentClass.currentClassProfiles, (p, index) => <Image key={index} circular size='mini' src={p}/>)}
       </Card.Content>
       {/* <Card.Content> */}
       {/*  <Card.Header style={{ marginTop: '0px' }}> */}
@@ -76,7 +76,7 @@ class ListClasses extends React.Component {
   }
 }
 
-/** Require an array of documents in the props. */
+/** Require an array of Stuff documents in the props. */
 ListClasses.propTypes = {
   ready: PropTypes.bool.isRequired,
 };
