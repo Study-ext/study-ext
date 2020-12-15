@@ -92,15 +92,6 @@ Meteor.publish(Sessions.userPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish('allUsers', function allUsers() {
-  return Meteor.users.find({}, {
-    fields: {
-      username: 1,
-      profile: 1,
-    },
-  });
-});
-
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.
 Meteor.publish(Stuffs.adminPublicationName, function () {
@@ -117,16 +108,37 @@ Meteor.publish(Profiles.adminPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(LeaderboardData.adminPublicationName, function () {
+Meteor.publish(CurrentClasses.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return LeaderboardData.collection.find();
+    return CurrentClasses.collection.find();
   }
   return this.ready();
 });
 
-Meteor.publish(CurrentClasses.adminPublicationName, function () {
+Meteor.publish(TakenClasses.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return CurrentClasses.collection.find();
+    return TakenClasses.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(ProfilesCurrentClasses.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return ProfilesCurrentClasses.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(ProfilesTakenClasses.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return ProfilesTakenClasses.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(LeaderboardData.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return LeaderboardData.collection.find();
   }
   return this.ready();
 });
