@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Card, Loader, Header, Image } from 'semantic-ui-react';
+import { Container, Card, Loader, Header, Image, Grid } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -13,18 +13,11 @@ import { ProfilesTakenClasses } from '../../api/profile/ProfilesTakenClasses';
 function getCurrentClassData(name) {
   const currentClassProfiles = _.pluck(ProfilesCurrentClasses.collection.find({ currentClass: name }).fetch(), 'profile');
   const currentProfilePictures = currentClassProfiles.map(profile => Profiles.collection.findOne({ email: profile }).picture);
-  const currentProfileNames = currentClassProfiles.map(profile => Profiles.collection.findOne({ email: profile }).name);
-  return _.extend({ }, { name, currentClassProfiles: currentProfilePictures, currentProfileNames });
+  return _.extend({}, { name, currentClassProfiles: currentProfilePictures });
 }
 
-// function getTakenClassData(name) {
-//   const takenClassProfiles = _.pluck(ProfilesTakenClasses.collection.find({ takenClass: name }).fetch(), 'profile');
-//   const takenProfilePictures = takenClassProfiles.map(profile => Profiles.collection.findOne({ email: profile }).picture);
-//   return _.extend({ }, { name, takenClassProfiles: takenProfilePictures });
-// }
-
 /** Component for layout out a Class Card. */
-const MakeCard = (props) => (
+const MakeCurrentCard = (props) => (
     <Card centered fluid>
       <Card.Content>
         <Card.Header style={{ marginTop: '0px' }}>
@@ -34,20 +27,34 @@ const MakeCard = (props) => (
       <Card.Content extra>
         {_.map(props.currentClass.currentClassProfiles, (p, index) => <Image key={index} circular size='mini' src={p}/>)}
       </Card.Content>
-      {/* <Card.Content> */}
-      {/*  <Card.Header style={{ marginTop: '0px' }}> */}
-      {/*    Taken: {props.takenClass.name} */}
-      {/*  </Card.Header> */}
-      {/* </Card.Content> */}
-      {/* <Card.Content extra> */}
-      {/*  {_.map(props.takenClass.profiles, (p, index) => <Image key={index} circular size='mini' src={p}/>)} */}
-      {/* </Card.Content> */}
     </Card>
 );
 
-MakeCard.propTypes = {
+MakeCurrentCard.propTypes = {
   currentClass: PropTypes.object.isRequired,
-  // takenClass: PropTypes.object.isRequired,
+};
+
+function getTakenClassData(name) {
+  const takenClassProfiles = _.pluck(ProfilesTakenClasses.collection.find({ takenClass: name }).fetch(), 'profile');
+  const takenProfilePictures = takenClassProfiles.map(profile => Profiles.collection.findOne({ email: profile }).picture);
+  return _.extend({}, { name, takenClassProfiles: takenProfilePictures });
+}
+
+const MakeTakenCard = (props) => (
+    <Card centered fluid>
+      <Card.Content>
+        <Card.Header style={{ marginTop: '0px' }}>
+          Taken: {props.takenClass.name}
+        </Card.Header>
+      </Card.Content>
+      <Card.Content extra>
+        {_.map(props.takenClass.takenClassProfiles, (p, index) => <Image key={index} circular size='mini' src={p}/>)}
+      </Card.Content>
+    </Card>
+);
+
+MakeTakenCard.propTypes = {
+  takenClass: PropTypes.object.isRequired,
 };
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -61,16 +68,25 @@ class ListClasses extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     const currentClasses = _.uniq(_.pluck(CurrentClasses.collection.find().fetch(), 'name'));
-    // const takenClasses = _.pluck(TakenClasses.collection.find().fetch(), 'name');
+    const takenClasses = _.uniq(_.pluck(TakenClasses.collection.find().fetch(), 'name'));
     const currentClassData = currentClasses.map(currentClass => getCurrentClassData(currentClass));
-    // const takenClassData = takenClasses.map(takenClass => getTakenClassData(takenClass));
+    const takenClassData = takenClasses.map(takenClass => getTakenClassData(takenClass));
     return (
         <Container id='list-classes-page'>
-          <Header as='h2' textAlign="center" inverted>Classes</Header>
-          <Card.Group>
-            {_.map(currentClassData, (currentClass, index) => <MakeCard key={index} currentClass={currentClass}/>)}
-             {/* {_.map(takenClassData, (takenClass, index) => <MakeCard key={index} currentClass={takenClass}/>)} */}
-          </Card.Group>
+          <Header style={{ fontSize: '4vh', color: 'white', fontFamily: 'Courier' }}>Classes</Header>
+          <Grid columns='equal'>
+            <Grid.Column>
+              <Card.Group>
+                {_.map(currentClassData, (currentClass, index) => <MakeCurrentCard key={index}
+                                                                                   currentClass={currentClass}/>)}
+              </Card.Group>
+            </Grid.Column>
+            <Grid.Column>
+              <Card.Group>
+                {_.map(takenClassData, (takenClass, index) => <MakeTakenCard key={index} takenClass={takenClass}/>)}
+              </Card.Group>
+            </Grid.Column>
+          </Grid>
         </Container>
     );
   }
