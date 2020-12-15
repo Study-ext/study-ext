@@ -68,8 +68,8 @@ class ListClasses extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const currentClasses = _.uniq(_.pluck(CurrentClasses.collection.find().fetch(), 'name'));
-    const takenClasses = _.uniq(_.pluck(TakenClasses.collection.find().fetch(), 'name'));
+    const currentClasses = _.uniq(_.pluck(CurrentClasses.collection.find({}, { sort: { name: 1 } }).fetch(), 'name'));
+    const takenClasses = _.uniq(_.pluck(TakenClasses.collection.find({}, { sort: { name: 1 } }).fetch(), 'name'));
     const currentClassData = currentClasses.map(currentClass => getCurrentClassData(currentClass));
     const takenClassData = takenClasses.map(takenClass => getTakenClassData(takenClass));
     return (
