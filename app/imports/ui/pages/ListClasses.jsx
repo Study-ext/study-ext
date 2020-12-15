@@ -5,7 +5,6 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Profiles } from '../../api/profile/Profiles';
 import { Classes } from '../../api/classes/Classes';
-import { ProfilesClasses } from '../../api/profile/ProfilesClasses';
 import Class from '../components/Class';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
