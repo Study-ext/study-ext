@@ -17,9 +17,6 @@ class ViewLeaderboard extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const userID = this.props.leaderboarddata.email;
-    console.log(userID);
-
     return (
         <Container id='view-leaderboard-page'>
           <Header inverted style={{ fontSize: '4vh', fontFamily: 'Courier' }}>LEADERBOARD</Header>

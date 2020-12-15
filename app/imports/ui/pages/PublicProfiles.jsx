@@ -26,7 +26,7 @@ class PublicProfiles extends React.Component {
   renderPage() {
     const emails = _.pluck(Profiles.collection.find().fetch(), 'email');
     const profileData = emails.map(email => getData(email));
-    console.log(profileData);
+
     return (
         <Container id='view-profile-page'>
           <Card.Group centered>
