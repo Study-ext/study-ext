@@ -18,14 +18,15 @@ function getCurrentClassData(name) {
 
 /** Component for layout out a Class Card. */
 const MakeCurrentCard = (props) => (
-    <Card centered fluid>
+    <Card centered>
       <Card.Content>
-        <Card.Header style={{ marginTop: '0px' }}>
+        <Card.Header style={{ marginTop: '0px', fontsize: '1vw', textAlign: 'center' }}>
           Current: {props.currentClass.name}
         </Card.Header>
       </Card.Content>
       <Card.Content extra>
-        {_.map(props.currentClass.currentClassProfiles, (p, index) => <Image key={index} circular size='mini' src={p}/>)}
+        {_.map(props.currentClass.currentClassProfiles, (p, index) => <Image key={index} circular size='mini'
+                                                                             src={p}/>)}
       </Card.Content>
     </Card>
 );
@@ -41,9 +42,9 @@ function getTakenClassData(name) {
 }
 
 const MakeTakenCard = (props) => (
-    <Card centered fluid>
+    <Card centered>
       <Card.Content>
-        <Card.Header style={{ marginTop: '0px' }}>
+        <Card.Header style={{ marginTop: '0px', fontsize: '1vw', textAlign: 'center' }}>
           Taken: {props.takenClass.name}
         </Card.Header>
       </Card.Content>
@@ -73,15 +74,20 @@ class ListClasses extends React.Component {
     const takenClassData = takenClasses.map(takenClass => getTakenClassData(takenClass));
     return (
         <Container id='list-classes-page'>
-          <Header style={{ fontSize: '4vh', color: 'white', fontFamily: 'Courier' }}>Classes</Header>
           <Grid columns='equal'>
             <Grid.Column>
+              <Header as='h2' inverted textAlign='center'>
+                Mentees
+              </Header>
               <Card.Group>
                 {_.map(currentClassData, (currentClass, index) => <MakeCurrentCard key={index}
                                                                                    currentClass={currentClass}/>)}
               </Card.Group>
             </Grid.Column>
             <Grid.Column>
+              <Header as='h2' inverted textAlign='center'>
+                Mentors
+              </Header>
               <Card.Group>
                 {_.map(takenClassData, (takenClass, index) => <MakeTakenCard key={index} takenClass={takenClass}/>)}
               </Card.Group>
