@@ -3,6 +3,7 @@ import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Profiles } from '../../api/profile/Profiles';
 import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
 import { Classes } from '../../api/classes/Classes';
+import { Sessions } from '../../api/session/Session';
 
 /* eslint-disable no-console */
 
@@ -36,6 +37,11 @@ function addClass(data) {
   Classes.collection.insert(data);
 }
 
+function addSession(data) {
+  console.log(`Adding session: ${data.name}`);
+  Sessions.collection.insert(data);
+}
+
 if (Profiles.collection.find().count() === 0) {
   if (Meteor.settings.defaultProfiles) {
     console.log('Creating default profiles.');
@@ -56,6 +62,13 @@ if (LeaderboardData.collection.find().count() === 0) {
 //     Meteor.settings.defaultClasses.map(data => addClass(data));
 //   }
 // }
+
+if (Sessions.collection.find().count() === 0) {
+  if (Meteor.settings.defaultSession) {
+    console.log('Creating default sessions.');
+    Meteor.settings.defaultSession.map(data => addSession(data));
+  }
+}
 
 /** Initialize the DB if empty (no users defined.) */
 if (Meteor.users.find().count() === 0) {

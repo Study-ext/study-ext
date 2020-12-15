@@ -3,16 +3,16 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /** Encapsulates state and variable values for this collection. */
-class ProfilesClassesCollection {
+class ProfilesCurrentClassesCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'ProfilesClassesCollection';
+    this.name = 'ProfilesCurrentClassesCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       profile: String,
-      class: String,
+      cClass: String,
     }, { tracker: Tracker });
     // Ensure collection documents obey schema.
     this.collection.attachSchema(this.schema);
@@ -22,4 +22,4 @@ class ProfilesClassesCollection {
   }
 }
 
-export const ProfilesClasses = new ProfilesClassesCollection();
+export const ProfilesCurrentClasses = new ProfilesCurrentClassesCollection();
