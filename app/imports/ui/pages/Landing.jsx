@@ -15,12 +15,12 @@ class Landing extends React.Component {
 
   renderPage() {
     const landingStyle = { margin: '1vh 1vw 1vh 1vw' };
-    let currsessions = [];
-    let upsessions = [];
-    if(Meteor.userId() != null) {
+    const currsessions = [];
+    const upsessions = [];
+    if (Meteor.userId() != null) {
         const currDate = new Date();
         console.log(currDate);
-        this.props.sessions.forEach((value, index) => {
+        this.props.sessions.forEach((value) => {
             const months = {
                 January: '01',
                 February: '02',
@@ -36,18 +36,18 @@ class Landing extends React.Component {
                 December: '12' };
             const day = (`0${value.day}`).slice(-2);
             const time = value.time.match(/(\w+):(\w+)\s(am|pm)/);
-            const hour = (time[3] === 'pm' && parseInt(time[1], 10) < 12) ? (`0${(parseInt(time[1], 10)+12)}`).slice(-2) : 
-            (time[3] === 'am' && parseInt(time[1], 10) === 12) ? (`0${parseInt(time[1], 10)-12}`).slice(-2) : (`0${parseInt(time[1], 10)}`).slice(-2);
+            let hour = (time[3] === 'pm' && parseInt(time[1], 10) < 12) ? (`0${(parseInt(time[1], 10) + 12)}`).slice(-2) : 0;
+            hour = (time[3] === 'am' && parseInt(time[1], 10) === 12) ? (`0${parseInt(time[1], 10) - 12}`).slice(-2) : (`0${parseInt(time[1], 10)}`).slice(-2);
             const minute = (`0${time[2]}`).slice(-2);
             const date = new Date(`${value.year}-${months[value.month]}-${day}T${hour}:${minute}:00`);
-            date.setHours(0,0,0,0);
+            date.setHours(0, 0, 0, 0);
             currDate.setHours(0, 0, 0, 0);
 
-            if(date.getTime() === currDate.getTime()) {
+            if (date.getTime() === currDate.getTime()) {
                 currsessions.push(value);
             }
-            
-            if(date > currDate) {
+
+            if (date > currDate) {
                 upsessions.push(value);
             }
         });
@@ -55,7 +55,6 @@ class Landing extends React.Component {
         console.log('Upcoming', upsessions);
     }
 
-    let sessions = [0, 1, 2];
     return (
         <div id='landing-page'>
           {Meteor.userId() === null ?
@@ -111,18 +110,16 @@ Landing.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Sessions documents.
-  if(Meteor.userId() === null)
-  {
+  if (Meteor.userId() === null) {
       return {
           ready: true,
-      }
+      };
   }
-  else 
-  {
+
     const subscription = Meteor.subscribe(Sessions.userPublicationName);
     return {
         sessions: Sessions.collection.find({}).fetch(),
         ready: subscription.ready(),
-    }
-    }
+    };
+
 })(Landing);
