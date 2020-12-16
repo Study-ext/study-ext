@@ -15,8 +15,41 @@ class Landing extends React.Component {
 
   renderPage() {
     const landingStyle = { margin: '1vh 1vw 1vh 1vw' };
+    let currsessions = [];
+    let upsessions = [];
+    if(Meteor.userId() != null) {
+        const currDate = new Date();
+        console.log(currDate);
+        currsessions = this.props.sessions.filter((value, index) => {
+            const months = {
+                January: '01',
+                February: '02',
+                March: '03',
+                April: '04',
+                May: '05',
+                June: '06',
+                July: '07',
+                August: '08',
+                September: '09',
+                October: '10',
+                November: '11',
+                December: '12' };
+            const day = (`0${value.day}`).slice(-2);
+            const time = value.time.match(/(\w+):(\w+)\s(am|pm)/);
+            const hour = (time[3] === 'pm' && parseInt(time[1]) < 12) ? (`0${(parseInt(time[1])+12)}`).slice(-2) : 
+            (time[3] === 'am' && parseInt(time[1]) === 12) ? (`0${parseInt(time[1])-12}`).slice(-2) : (`0${parseInt(time[1])}`).slice(-2);
+            const minute = (`0${time[2]}`).slice(-2);
+            const date = new Date(`${value.year}-${months[value.month]}-${day}T${hour}:${minute}:00`);
+            console.log(date);
+            if(date > currDate) {
+                upsessions.push(value);
+            }
+        });
 
-    const sessions = [0, 1, 2];
+        console.log(upsessions);
+    }
+
+    let sessions = [0, 1, 2];
     return (
         <div id='landing-page'>
           {Meteor.userId() === null ?
@@ -72,9 +105,18 @@ Landing.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Sessions documents.
-  const subscription = Meteor.subscribe(Sessions.userPublicationName);
-  return {
-    sessions: Sessions.collection.find({}).fetch(),
-    ready: subscription.ready(),
-  };
+  if(Meteor.userId() === null)
+  {
+      return {
+          ready: true,
+      }
+  }
+  else 
+  {
+    const subscription = Meteor.subscribe(Sessions.userPublicationName);
+    return {
+        sessions: Sessions.collection.find({}).fetch(),
+        ready: subscription.ready(),
+    }
+    }
 })(Landing);
