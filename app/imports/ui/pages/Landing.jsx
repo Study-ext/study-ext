@@ -8,6 +8,34 @@ import { Sessions } from '../../api/session/Session';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currIndex: 0,
+      upIndex: 0,
+    };
+  }
+
+  incIndex = (value, index) => {
+    if (value + 3 < this.props.sessions.length) {
+      if (index === 'currIndex') {
+       this.setState({ currIndex: this.state.currIndex + 3 });
+      } else {
+        this.setState({ upIndex: this.state.upIndex + 3 });
+      }
+    }
+  }
+
+  decIndex = (value, index) => {
+    if (value - 3 >= 0) {
+      if (index === 'currIndex') {
+        this.setState({ currIndex: this.state.currIndex - 3 });
+      } else {
+        this.setState({ upIndex: this.state.upIndex - 3 });
+      }
+    }
+  }
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -15,11 +43,15 @@ class Landing extends React.Component {
 
   renderPage() {
     const landingStyle = { margin: '1vh 1vw 1vh 1vw' };
-    const currsessions = [];
-    const upsessions = [];
+    let currsessions = [];
+    let upsessions = [];
+    let currNext = false;
+    let currPrev = false;
+    let upNext = false;
+    let upPrev = false;
+
     if (Meteor.userId() != null) {
         const currDate = new Date();
-        console.log(currDate);
         this.props.sessions.forEach((value) => {
             const months = {
                 January: '01',
@@ -51,9 +83,26 @@ class Landing extends React.Component {
                 upsessions.push(value);
             }
         });
-        console.log(currsessions);
-        console.log('Upcoming', upsessions);
     }
+
+    if (this.state.currIndex + 3 >= currsessions.length) {
+      currNext = true;
+    }
+
+    if (this.state.currIndex === 0) {
+      currPrev = true;
+    }
+
+    if (this.state.upIndex + 3 >= upsessions.length) {
+      upNext = true;
+    }
+
+    if (this.state.upIndex === 0) {
+      upPrev = true;
+    }
+
+    currsessions = currsessions.slice(this.state.currIndex, this.state.currIndex + 3);
+    upsessions = upsessions.slice(this.state.upIndex, this.state.upIndex + 3);
 
     return (
         <div id='landing-page'>
@@ -74,25 +123,30 @@ class Landing extends React.Component {
               </Grid>
               :
               <Grid verticalAlign='middle' style={landingStyle}>
-                <Grid.Column width={10}>
+                <Grid.Column width={12}>
                   <Header style={{ fontSize: '5vh', color: 'white', fontFamily: 'Courier' }}>
                     TODAY SESSIONS
                   </Header>
+
                   <Card.Group>
+                    <Button icon='angle left' circular style={{ height: '3.5vh', alignSelf: 'center' }} onClick={this.decIndex.bind(this, this.state.currIndex, 'currIndex')} disabled={currPrev}/>
                     {currsessions.map((num, index) => <SessionCard key={index} sessions={num}/>)}
+                    <Button icon='angle right' circular style={{ height: '3.5vh', alignSelf: 'center' }} onClick={this.incIndex.bind(this, this.state.currIndex, 'currIndex')} disabled={currNext}/>
                   </Card.Group>
 
                   <Header style={{ fontSize: '5vh', color: 'white', fontFamily: 'Courier' }}>
                     UPCOMING SESSIONS
                   </Header>
                   <Card.Group>
+                    <Button icon='angle left' circular style={{ height: '3.5vh', alignSelf: 'center' }} onClick={this.decIndex.bind(this, this.state.upIndex, 'upIndex')} disabled={upPrev}/>
                     {upsessions.map((num, index) => <SessionCard key={index} sessions={num}/>)}
+                    <Button icon='angle right' circular style={{ height: '3.5vh', alignSelf: 'center' }} onClick={this.incIndex.bind(this, this.state.upIndex, 'upIndex')} disabled={upNext}/>
                   </Card.Group>
 
                   <Button style={{ marginTop: '3vh' }} color='grey'>REQUEST FOR QUICK HELP SESSION</Button>
                 </Grid.Column>
 
-                <Grid.Column width={6} verticalAlign='middle' textAlign='center'>
+                <Grid.Column width={4} verticalAlign='middle' textAlign='center'>
                   <Image size='medium' src="/images/temp-leaderboard.png" centered/>
                 </Grid.Column>
               </Grid>

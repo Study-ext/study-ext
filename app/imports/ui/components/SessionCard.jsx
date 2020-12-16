@@ -6,24 +6,25 @@ import { withRouter } from 'react-router-dom';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class SessionCard extends React.Component {
     render() {
+        const date = ` ${this.props.sessions.month} ${this.props.sessions.day} ${this.props.sessions.year}`;
         return (
             <Card>
                 <Card.Content>
-                    <Card.Header>ICS 314 Help</Card.Header>
+                    <Card.Header>{this.props.sessions.name}</Card.Header>
                 </Card.Content>
                 <Card.Content>
                     <Card.Description>
                         Date:
-                        {this.props.sessions.date}
+                        {date}
                         <br/>
                         Time:
-                        {this.props.sessions.time}
+                        {` ${this.props.sessions.time}`}
                         <br/>
                         Course:
-                        {this.props.sessions.subject}
+                        {` ${this.props.sessions.subject}`}
                         <br/>
                         Description:
-                        {this.props.sessions.info}
+                        {` ${this.props.sessions.info}`}
                         <br/>
                     </Card.Description>
                 </Card.Content>
