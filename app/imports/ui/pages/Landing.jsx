@@ -2,6 +2,7 @@ import React from 'react';
 import { Header, Image, Grid, Card, Button, Loader } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Redirect, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SessionCard from '../components/SessionCard';
 import { Sessions } from '../../api/session/Session';
@@ -143,7 +144,7 @@ class Landing extends React.Component {
                     <Button icon='angle right' circular style={{ height: '3.5vh', alignSelf: 'center' }} onClick={this.incIndex.bind(this, this.state.upIndex, 'upIndex')} disabled={upNext}/>
                   </Card.Group>
 
-                  <Button style={{ marginTop: '3vh' }} color='grey'>REQUEST FOR QUICK HELP SESSION</Button>
+                  <Button style={{ marginTop: '3vh' }} color='grey' as={NavLink} exact to="/createSession">REQUEST FOR QUICK HELP SESSION</Button>
                 </Grid.Column>
 
                 <Grid.Column width={4} verticalAlign='middle' textAlign='center'>
