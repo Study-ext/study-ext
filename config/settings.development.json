@@ -33,7 +33,7 @@
     },
     { "name": "Lena Holden",
       "email": "lenaholden@hawaii.edu",
-      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmdmz2-Fj6f7Ph0roNmVyy0jx_mav6xUp8fQ&usqp=CAU",
       "rank": "lenaholden@hawaii.edu",
       "currentClasses": [
         "ICS 111 ",
@@ -61,7 +61,7 @@
     },
     { "name": "Aldrey Rambayon",
       "email": "aldreyRambayon@hawaii.edu",
-      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmdmz2-Fj6f7Ph0roNmVyy0jx_mav6xUp8fQ&usqp=CAU",
       "rank": "john@foo.com",
       "currentClasses": [
         "ICS 111 "
@@ -99,7 +99,7 @@
     },
     {
       "name": "Lena Holden",
-      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmdmz2-Fj6f7Ph0roNmVyy0jx_mav6xUp8fQ&usqp=CAU",
       "rank": 1,
       "points": 20,
       "owner": "lenaholden@hawaii.edu"
@@ -113,7 +113,7 @@
     },
     {
       "name": "Aldrey Rambayon",
-      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmdmz2-Fj6f7Ph0roNmVyy0jx_mav6xUp8fQ&usqp=CAU",
       "rank": 2,
       "points": 10,
       "owner": "aldreyRambayon@hawaii.edu"

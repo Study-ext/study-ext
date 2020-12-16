@@ -11,7 +11,7 @@ import { ProfilesCurrentClasses } from '../../api/profile/ProfilesCurrentClasses
 import { ProfilesTakenClasses } from '../../api/profile/ProfilesTakenClasses';
 
 function getCurrentClassData(name) {
-  const currentClassProfiles = _.pluck(ProfilesCurrentClasses.collection.find({ currentClass: name }).fetch(), 'profile');
+  const currentClassProfiles = _.uniq(_.pluck(ProfilesCurrentClasses.collection.find({ currentClass: name }).fetch(), 'profile'));
   const currentProfilePictures = currentClassProfiles.map(profile => Profiles.collection.findOne({ email: profile }).picture);
   return _.extend({}, { name, currentClassProfiles: currentProfilePictures });
 }
@@ -36,7 +36,7 @@ MakeCurrentCard.propTypes = {
 };
 
 function getTakenClassData(name) {
-  const takenClassProfiles = _.pluck(ProfilesTakenClasses.collection.find({ takenClass: name }).fetch(), 'profile');
+  const takenClassProfiles = _.uniq(_.pluck(ProfilesTakenClasses.collection.find({ takenClass: name }).fetch(), 'profile'));
   const takenProfilePictures = takenClassProfiles.map(profile => Profiles.collection.findOne({ email: profile }).picture);
   return _.extend({}, { name, takenClassProfiles: takenProfilePictures });
 }

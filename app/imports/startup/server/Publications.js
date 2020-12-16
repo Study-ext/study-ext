@@ -62,25 +62,9 @@ Meteor.publish(ProfilesCurrentClasses.userPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish('ProfilesCurrentUser', function publishProfilesCurrentUser() {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return ProfilesCurrentClasses.collection.find({ owner: username });
-  }
-  return this.ready();
-});
-
 Meteor.publish(ProfilesTakenClasses.userPublicationName, function () {
   if (this.userId) {
     return ProfilesTakenClasses.collection.find();
-  }
-  return this.ready();
-});
-
-Meteor.publish('ProfilesTakenUser', function publishProfilesTakenUser() {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Profiles.collection.find({ owner: username });
   }
   return this.ready();
 });
