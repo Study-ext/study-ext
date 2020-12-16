@@ -20,7 +20,7 @@ class CalendarPage extends React.Component {
         <Container id='calendar-page'>
           <Header style={{ fontSize: '4vh', color: 'white', fontFamily: 'Courier' }}>CALENDAR</Header>
           <Container style={{ marginBottom: '1vh', backgroundColor: 'white' }}>
-            <Calendar style={{ backgroundColor: 'white', height: '50vh' }}/>
+            <Calendar style={{ backgroundColor: 'white', height: '50vh' }} sessions={this.props.sessions} />
           </Container>
         </Container>
     );
@@ -38,7 +38,25 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Sessions.userPublicationName);
   return {
-    sessions: Sessions.collection.find({}).fetch(),
+    sessions: Sessions.collection.find({}).fetch().map(
+        (value, index) => {
+          const months = {
+            January: '01',
+            February: '02',
+            March: '03',
+            April: '04',
+            May: '05',
+            June: '06',
+            July: '07',
+            August: '08',
+            September: '09',
+            October: '10',
+            November: '11',
+            December: '12' };
+          const day = (`0${value.day}`).slice(-2);
+          return { id: index, title: value.name, date: `${value.year}-${months[value.month]}-${day}` };
+        },
+    ),
     ready: subscription.ready(),
   };
 })(CalendarPage);

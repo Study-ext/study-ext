@@ -1,18 +1,19 @@
 import React from 'react';
 import { Table, Image, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { _ } from 'meteor/underscore';
+// import { _ } from 'meteor/underscore';
 import { withRouter, NavLink } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Leaderboard extends React.Component {
   render() {
     const userID = this.props.leaderboard.owner;
-    console.log(userID);
+    // console.log(userID);
+    const path = `/publicprofile/${userID}`;
     return (
         <Table.Row>
           <Table.Cell>
-            <Header as='h6' as={NavLink} activeClassName="active" exact to="/publicprofile/userID" image>
+            <Header as={NavLink} activeClassName="active" exact to={path} image>
               <Image
                   size='small'
                   rounded
