@@ -20,7 +20,7 @@ class Landing extends React.Component {
     if(Meteor.userId() != null) {
         const currDate = new Date();
         console.log(currDate);
-        currsessions = this.props.sessions.filter((value, index) => {
+        this.props.sessions.forEach((value, index) => {
             const months = {
                 January: '01',
                 February: '02',
@@ -40,13 +40,19 @@ class Landing extends React.Component {
             (time[3] === 'am' && parseInt(time[1]) === 12) ? (`0${parseInt(time[1])-12}`).slice(-2) : (`0${parseInt(time[1])}`).slice(-2);
             const minute = (`0${time[2]}`).slice(-2);
             const date = new Date(`${value.year}-${months[value.month]}-${day}T${hour}:${minute}:00`);
-            console.log(date);
+            date.setHours(0,0,0,0);
+            currDate.setHours(0, 0, 0, 0);
+
+            if(date.getTime() === currDate.getTime()) {
+                currsessions.push(value);
+            }
+            
             if(date > currDate) {
                 upsessions.push(value);
             }
         });
-
-        console.log(upsessions);
+        console.log(currsessions);
+        console.log('Upcoming', upsessions);
     }
 
     let sessions = [0, 1, 2];
@@ -71,17 +77,17 @@ class Landing extends React.Component {
               <Grid verticalAlign='middle' style={landingStyle}>
                 <Grid.Column width={10}>
                   <Header style={{ fontSize: '5vh', color: 'white', fontFamily: 'Courier' }}>
-                    ONGOING SESSIONS
+                    TODAY SESSIONS
                   </Header>
                   <Card.Group>
-                    {sessions.map((num, index) => <SessionCard key={index}/>)}
+                    {currsessions.map((num, index) => <SessionCard key={index}/>)}
                   </Card.Group>
 
                   <Header style={{ fontSize: '5vh', color: 'white', fontFamily: 'Courier' }}>
                     UPCOMING SESSIONS
                   </Header>
                   <Card.Group>
-                    {sessions.map((num, index) => <SessionCard key={index}/>)}
+                    {upsessions.map((num, index) => <SessionCard key={index}/>)}
                   </Card.Group>
 
                   <Button style={{ marginTop: '3vh' }} color='grey'>REQUEST FOR QUICK HELP SESSION</Button>
