@@ -35,7 +35,7 @@ class SessionCard extends React.Component {
 
 /** Require a document to be passed to this component. */
 SessionCard.propTypes = {
-    stuff: PropTypes.object,
+    sessions: PropTypes.object,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
