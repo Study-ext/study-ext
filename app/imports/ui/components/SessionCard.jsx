@@ -22,6 +22,7 @@ class SessionCard extends React.Component {
                         Course:
                         <br/>
                         Description:
+                        {this.props.sessions.info}
                         <br/>
                     </Card.Description>
                 </Card.Content>

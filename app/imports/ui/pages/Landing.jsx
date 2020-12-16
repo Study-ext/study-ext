@@ -80,14 +80,14 @@ class Landing extends React.Component {
                     TODAY SESSIONS
                   </Header>
                   <Card.Group>
-                    {currsessions.map((num, index) => <SessionCard key={index}/>)}
+                    {currsessions.map((num, index) => <SessionCard key={index} sessions={num}/>)}
                   </Card.Group>
 
                   <Header style={{ fontSize: '5vh', color: 'white', fontFamily: 'Courier' }}>
                     UPCOMING SESSIONS
                   </Header>
                   <Card.Group>
-                    {upsessions.map((num, index) => <SessionCard key={index}/>)}
+                    {upsessions.map((num, index) => <SessionCard key={index} sessions={num}/>)}
                   </Card.Group>
 
                   <Button style={{ marginTop: '3vh' }} color='grey'>REQUEST FOR QUICK HELP SESSION</Button>
