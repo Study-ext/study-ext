@@ -2,7 +2,7 @@ import React from 'react';
 import { Header, Image, Grid, Card, Button, Loader } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Redirect, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SessionCard from '../components/SessionCard';
 import { Sessions } from '../../api/session/Session';

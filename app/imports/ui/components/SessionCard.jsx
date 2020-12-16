@@ -1,7 +1,7 @@
-import React from "react";
-import { Button, Card, Modal, Header, Image } from "semantic-ui-react";
-import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import { Button, Card, Modal } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class SessionCard extends React.Component {
@@ -22,7 +22,7 @@ class SessionCard extends React.Component {
     let expand = true;
 
     if (this.props.sessions.info.length > 30) {
-      info = this.props.sessions.info.substring(0, 27) + "...";
+      info = `${this.props.sessions.info.substring(0, 27)}...`;
       expand = false;
     }
 
