@@ -36,8 +36,8 @@ class Landing extends React.Component {
                 December: '12' };
             const day = (`0${value.day}`).slice(-2);
             const time = value.time.match(/(\w+):(\w+)\s(am|pm)/);
-            const hour = (time[3] === 'pm' && parseInt(time[1]) < 12) ? (`0${(parseInt(time[1])+12)}`).slice(-2) : 
-            (time[3] === 'am' && parseInt(time[1]) === 12) ? (`0${parseInt(time[1])-12}`).slice(-2) : (`0${parseInt(time[1])}`).slice(-2);
+            const hour = (time[3] === 'pm' && parseInt(time[1], 10) < 12) ? (`0${(parseInt(time[1], 10)+12)}`).slice(-2) : 
+            (time[3] === 'am' && parseInt(time[1], 10) === 12) ? (`0${parseInt(time[1], 10)-12}`).slice(-2) : (`0${parseInt(time[1], 10)}`).slice(-2);
             const minute = (`0${time[2]}`).slice(-2);
             const date = new Date(`${value.year}-${months[value.month]}-${day}T${hour}:${minute}:00`);
             date.setHours(0,0,0,0);
