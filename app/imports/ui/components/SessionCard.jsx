@@ -13,13 +13,14 @@ class SessionCard extends React.Component {
                 </Card.Content>
                 <Card.Content>
                     <Card.Description>
-                        Date: 18, February 2021
+                        Date:
+                        {this.props.sessions.date}
                         <br/>
                         Time:
-                        <br/>
-                        Place:
+                        {this.props.sessions.time}
                         <br/>
                         Course:
+                        {this.props.sessions.subject}
                         <br/>
                         Description:
                         {this.props.sessions.info}
