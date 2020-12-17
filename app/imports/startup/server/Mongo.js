@@ -105,13 +105,13 @@ if (Sessions.collection.find().count() === 0) {
 
 Meteor.users.allow({
   remove: function (userId, doc) {
-    if (Roles.userIsInRole(this.userId, 'admin') && userId !== doc._id) {
+    console.log('Test');
+    if (Roles.userIsInRole(userId, 'admin') && userId !== doc._id) {
       console.log('Access granted. You are an administrator and you are not trying to delete your own document.');
       return true;
     }
       console.log('Access denied. You are not an administrator or you are trying to delete your own document.');
       return false;
-
   },
   fetch: [],
 });

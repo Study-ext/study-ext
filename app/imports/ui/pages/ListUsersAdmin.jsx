@@ -55,7 +55,7 @@ class ListUsersAdmin extends React.Component {
                   Profiles={Profiles}
                   Currents={ProfilesCurrentClasses}
                   Takens={ProfilesTakenClasses}
-                  Users={Meteor.users.find().fetch()}
+                  Users={this.props.Users}
                 />
               );
             })}
@@ -70,6 +70,7 @@ ListUsersAdmin.propTypes = {
   profiles: PropTypes.array.isRequired,
   current: PropTypes.array.isRequired,
   taken: PropTypes.array.isRequired,
+  Users: PropTypes.array,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -89,6 +90,7 @@ export default withTracker(() => {
     profiles: Profiles.collection.find({}, { sort: { name: +1 } }).fetch(),
     current: ProfilesCurrentClasses.collection.find({}).fetch(),
     taken: ProfilesTakenClasses.collection.find({}).fetch(),
+    Users: Meteor.users.find({}).fetch(),
     ready:
       subscription.ready() && subscription2.ready() && subscription3.ready() && subscription4.ready(),
   };

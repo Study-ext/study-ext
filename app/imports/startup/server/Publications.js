@@ -152,6 +152,13 @@ Meteor.publish(ProfilesCurrentClasses.adminPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish('userList', function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Meteor.users.find({});
+  }
+  return this.ready();
+});
+
 // alanning:roles publication
 // Recommended code to publish roles for each user.
 Meteor.publish(null, function () {

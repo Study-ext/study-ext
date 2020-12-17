@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { Table, Popup, Button, Modal, Icon, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
@@ -17,10 +18,22 @@ class ListProfileAdmin extends React.Component {
   }
 
   removeUser(docID, current, taken) {
-    this.props.Profiles.collection.remove(docID);
-    current.forEach((value) => this.props.Currents.collection.remove(value._id));
-    taken.forEach((value) => this.props.Takens.collection.remove(value._id));
-    this.setOpen(false);
+    const user = this.props.Users.find((value) => value.emails[0].address === this.props.profile.email);
+    let admin = false;
+    if (user) {
+      Meteor.users.remove({ _id: user._id }, function (error) {
+        if (error) {
+          admin = true;
+        }
+      });
+    }
+
+    if (admin === false) {
+      this.props.Profiles.collection.remove(docID);
+      current.forEach((value) => this.props.Currents.collection.remove(value._id));
+      taken.forEach((value) => this.props.Takens.collection.remove(value._id));
+      this.setOpen(false);
+    }
   }
 
   render() {
