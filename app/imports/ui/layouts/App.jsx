@@ -10,7 +10,6 @@ import Landing from '../pages/Landing';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import ListUsersAdmin from '../pages/ListUsersAdmin';
 import ListSessionsAdmin from '../pages/ListSessionsAdmin';
-import CreateProfile from '../pages/EditProfile';
 import QuickGuide from '../pages/QuickGuide';
 import UserProfile from '../pages/UserProfile';
 import PublicProfiles from '../pages/PublicProfiles';
@@ -36,7 +35,6 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
-              <ProtectedRoute path="/createprofile" component={CreateProfile}/>
               <ProtectedRoute path="/quickguide" component={QuickGuide}/>
               <ProtectedRoute path="/userprofile" component={UserProfile}/>
               <ProtectedRoute path="/publicprofile/:_id" component={PublicProfiles}/>
