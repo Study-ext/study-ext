@@ -10,7 +10,7 @@ import Landing from '../pages/Landing';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import ListUsersAdmin from '../pages/ListUsersAdmin';
 import ListSessionsAdmin from '../pages/ListSessionsAdmin';
-import CreateProfile from '../pages/CreateProfile';
+import CreateProfile from '../pages/EditProfile';
 import QuickGuide from '../pages/QuickGuide';
 import UserProfile from '../pages/UserProfile';
 import PublicProfiles from '../pages/PublicProfiles';
