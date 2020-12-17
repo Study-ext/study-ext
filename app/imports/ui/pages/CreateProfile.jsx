@@ -34,17 +34,29 @@ class CreateProfile extends React.Component {
   /** Initialize state fields. */
   constructor(props) {
     super(props);
-    this.state = { name: '', email: '', picture: '', currentClasses: '', takenClasses: '', error: '', redirectToReferer: false };
+    this.state = {
+      name: '',
+      email: '',
+      picture: '',
+      currentClasses: '',
+      takenClasses: '',
+      bio: '',
+      error: '',
+      redirectToReferer: false,
+    };
   }
 
   /** Update the form controls each time the user interacts with them. */
-  handleChange= (e, { name, value }) => {
+  handleChange = (e, { name, value }) => {
     this.setState({ [name]: value });
   }
 
   /** On submit, insert the data. */
   submit(data) {
-    Meteor.call(updateProfileMethod, data, (error) => {
+    const { name, email, picture, currentClasses, takenClasses, bio } = data;
+    const owner = Meteor.user().username;
+    Profiles.collection.insert({ name, email, picture, currentClasses, takenClasses, bio, owner },
+        (error) => {
           if (error) {
             swal('Error', error.message, 'error');
           } else {
