@@ -13,13 +13,6 @@ import { ProfilesTakenClasses } from '../../api/profile/ProfilesTakenClasses';
 /* eslint-disable no-console */
 
 /** Define a user in the Meteor accounts package. This enables login. Username is the email address. */
-// function createUser(email, role) {
-//   const userID = Accounts.createUser({ username: email, email, password: '' });
-//   if (role === 'admin') {
-//     Roles.createRole(role, { unlessExists: true });
-//     Roles.addUsersToRoles(userID, 'admin');
-//   }
-// }
 
 /** Initialize the database with a default data document. */
 function addData(data) {
@@ -70,13 +63,6 @@ if (Profiles.collection.find().count() === 0) {
     console.log('Creating default profiles.');
     Meteor.settings.defaultProfiles.map(data => addProfile(data));
   }
-
-  if ((Meteor.settings.loadAssetsFile)) {
-    const assetsFileName = 'data.json';
-    console.log(`Loading data from private/${assetsFileName}`);
-    const jsonData = JSON.parse(Assets.getText(assetsFileName));
-    jsonData.profiles.map(profile => addProfile(profile));
-  }
 }
 
 /** Initialize the DB if empty (no users defined.) */
@@ -101,6 +87,15 @@ if (Sessions.collection.find().count() === 0) {
     console.log('Creating default sessions.');
     Meteor.settings.defaultSession.map(data => addSession(data));
   }
+}
+
+if ((Meteor.settings.loadAssetsFile) && (Meteor.users.find().count() < 20)) {
+  const assetsFileName = 'data.json';
+  console.log(`Loading data from private/${assetsFileName}`);
+  const jsonData = JSON.parse(Assets.getText(assetsFileName));
+  jsonData.profiles.map(profile => addProfile(profile));
+  jsonData.leaderboard.map(data => addLeaderboard(data));
+  jsonData.session.map(data => addSession(data));
 }
 
 Meteor.users.allow({

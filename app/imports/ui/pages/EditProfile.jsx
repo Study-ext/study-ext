@@ -8,7 +8,7 @@ import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 import { insertProfileMethod, updateProfileMethod } from '../../startup/both/Methods';
 import { CurrentClasses } from '../../api/classes/CurrentClasses';
@@ -27,32 +27,33 @@ const makeSchema = (allCurrentClasses, allTakenClasses) => new SimpleSchema({
   'currentClasses.$': { type: String, allowedValues: allCurrentClasses },
   takenClasses: { type: Array, label: 'Taken Classes', optional: true },
   'takenClasses.$': { type: String, allowedValues: allTakenClasses },
+  owner: { type: String },
 });
 
 /** Renders the Page for adding a document. */
 class EditProfile extends React.Component {
   /** Initialize state fields. */
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      email: '',
-      picture: '',
-      currentClasses: '',
-      takenClasses: '',
-      error: '',
-      redirectToReferer: false,
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     name: '',
+  //     email: '',
+  //     picture: '',
+  //     currentClasses: '',
+  //     takenClasses: '',
+  //     error: '',
+  //     redirectToReferer: false,
+  //   };
+  // }
 
   /** Update the form controls each time the user interacts with them. */
-  handleChange = (e, { name, value }) => {
-    this.setState({ [name]: value });
-  }
+  // handleChange = (e, { name, value }) => {
+  //   this.setState({ [name]: value });
+  // }
 
   /** On submit, insert the data. */
   submit(data) {
-    // const email = Meteor.user().username;
+    const email = Meteor.user().username;
     // const newData = data;
     // newData.email = email;
     // newData.rank = 'john@foo.com';
@@ -63,18 +64,18 @@ class EditProfile extends React.Component {
             swal('Error', error.message, 'error');
           } else {
             swal('Success', 'Profile updated successfully', 'success');
-            this.setState({ redirectToReferer: false });
+            // this.setState({ redirectToReferer: false });
           }
         });
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/userprofile' } };
-    // if correct authentication, redirect to from: page instead of signup screen
-    if (this.state.redirectToReferer) {
-      return <Redirect to={from}/>;
-    }
+    // const { from } = this.props.location.state || { from: { pathname: '/userprofile' } };
+    // // if correct authentication, redirect to from: page instead of signup screen
+    // if (this.state.redirectToReferer) {
+    //   return <Redirect to={from}/>;
+    // }
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
@@ -96,7 +97,7 @@ class EditProfile extends React.Component {
             <Header style={{ fontSize: '5vh', color: 'white', fontFamily: 'Courier' }}>
               EDIT YOUR PROFILE
             </Header>
-            <AutoForm model={profile} schema={bridge} onSubmit={data => this.submit(data)}>
+            <AutoForm model={model} schema={bridge} onSubmit={data => this.submit(data)}>
               <Segment>
                 <Form.Group widths={'equal'}>
                   <TextField id='name' name='name' showInlineError={true} placeholder={'Your name'}/>
@@ -110,7 +111,7 @@ class EditProfile extends React.Component {
                                     placeholder={'Select classes already taken'}/>
                 </Form.Group>
                 <LongTextField id='bio' name='bio' showInlineError={true} placeholder={'A bit about you'}/>
-                <SubmitField id='create-profile-page-submit' value='Submit'/>
+                <SubmitField id='edit-profile-page-submit' value='Update'/>
               </Segment>
             </AutoForm>
           </Grid.Column>
@@ -128,9 +129,9 @@ EditProfile.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Ensure that minimongo is populated with all collections prior to running render().
-  const sub1 = Meteor.subscribe(CurrentClasses.userPublicationName);
+  const sub1 = Meteor.subscribe(Profiles.userPublicationName);
+  const sub3 = Meteor.subscribe(CurrentClasses.userPublicationName);
   const sub2 = Meteor.subscribe(TakenClasses.userPublicationName);
-  const sub3 = Meteor.subscribe(Profiles.userPublicationName);
   const sub4 = Meteor.subscribe(ProfilesCurrentClasses.userPublicationName);
   const sub5 = Meteor.subscribe(ProfilesTakenClasses.userPublicationName);
 

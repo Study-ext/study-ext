@@ -14,7 +14,6 @@ class ProfilesCollection {
       name: String,
       email: { type: String, optional: true },
       picture: String,
-      rank: String,
       bio: { type: String, optional: true },
       owner: String,
     }, { tracker: Tracker });

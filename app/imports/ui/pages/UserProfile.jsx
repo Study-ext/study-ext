@@ -3,12 +3,13 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Card, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { _ } from 'meteor/underscore';
-import Profile from '../components/Profile';
 import { Profiles } from '../../api/profile/Profiles';
 import { ProfilesCurrentClasses } from '../../api/profile/ProfilesCurrentClasses';
 import { ProfilesTakenClasses } from '../../api/profile/ProfilesTakenClasses';
 import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
+import Profile from '../components/Profile';
 
 function getData(email) {
   const data = Profiles.collection.findOne({ email });
@@ -45,7 +46,7 @@ class UserProfile extends React.Component {
 /** Require an array of Profiles documents in the props. */
 UserProfile.propTypes = {
   leaderboard: PropTypes.array.isRequired,
-  profiles: PropTypes.array.isRequired,
+  profile: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -58,7 +59,7 @@ export default withTracker(() => {
   const sub4 = Meteor.subscribe(ProfilesTakenClasses.userPublicationName);
 
   return {
-    profiles: Profiles.collection.find({}).fetch(),
+    profile: Profiles.collection.find({}).fetch(),
     leaderboard: LeaderboardData.collection.find({}).fetch(),
     ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready(),
   };
