@@ -73,8 +73,8 @@ class CreateProfile extends React.Component {
   renderPage() {
     // let fRef = null;
     const email = Meteor.user().username;
-    const allCurrentClasses = _.uniq(_.pluck(CurrentClasses.collection.find().fetch(), 'name'));
-    const allTakenClasses = _.uniq(_.pluck(TakenClasses.collection.find().fetch(), 'name'));
+    const allCurrentClasses = _.uniq(_.pluck(CurrentClasses.collection.find({}, { sort: { name: 1 } }).fetch(), 'name'));
+    const allTakenClasses = _.uniq(_.pluck(TakenClasses.collection.find({}, { sort: { name: 1 } }).fetch(), 'name'));
     const formSchema = makeSchema(allCurrentClasses, allTakenClasses);
     const bridge = new SimpleSchema2Bridge(formSchema);
     // Create the model with all the user information.
