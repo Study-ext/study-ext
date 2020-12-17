@@ -45,7 +45,7 @@ class UserProfile extends React.Component {
 /** Require an array of Profiles documents in the props. */
 UserProfile.propTypes = {
   leaderboard: PropTypes.array.isRequired,
-  // profiles: PropTypes.array.isRequired,
+  profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -54,13 +54,11 @@ export default withTracker(() => {
   // Get access to Profiles documents.
   const sub1 = Meteor.subscribe(Profiles.userPublicationName);
   const sub2 = Meteor.subscribe(LeaderboardData.userPublicationName);
-  // const sub3 = Meteor.subscribe('ProfilesCurrentUser');
-  // const sub4 = Meteor.subscribe('ProfilesTakenUser');
   const sub3 = Meteor.subscribe(ProfilesCurrentClasses.userPublicationName);
   const sub4 = Meteor.subscribe(ProfilesTakenClasses.userPublicationName);
 
   return {
-    // profiles: Profiles.collection.find({}).fetch(),
+    profiles: Profiles.collection.find({}).fetch(),
     leaderboard: LeaderboardData.collection.find({}).fetch(),
     ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready(),
   };

@@ -72,15 +72,15 @@ if (Profiles.collection.find().count() === 0) {
   }
 }
 
-// /** Initialize the DB if empty (no users defined.) */
-// if (Meteor.users.find().count() === 0) {
-//   if (Meteor.settings.defaultProfiles) {
-//     console.log('Creating default profiles');
-//     Meteor.settings.defaultProfiles.map(profile => addProfile(profile));
-//   } else {
-//     console.log('Cannot initialize the database. Please invoke meteor with a settings file.');
-//   }
-// }
+/** Initialize the DB if empty (no users defined.) */
+if (Meteor.users.find().count() === 0) {
+  if (Meteor.settings.defaultProfiles) {
+    console.log('Creating default profiles');
+    Meteor.settings.defaultProfiles.map(profile => addProfile(profile));
+  } else {
+    console.log('Cannot initialize the database. Please invoke meteor with a settings file.');
+  }
+}
 
 if (LeaderboardData.collection.find().count() === 0) {
   if (Meteor.settings.defaultLeaderboard) {
