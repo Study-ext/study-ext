@@ -48,24 +48,9 @@ Meteor.publish(TakenClasses.userPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(LeaderboardData.userPublicationName, function () {
-  if (this.userId) {
-    return LeaderboardData.collection.find();
-  }
-  return this.ready();
-});
-
 Meteor.publish(ProfilesCurrentClasses.userPublicationName, function () {
   if (this.userId) {
     return ProfilesCurrentClasses.collection.find();
-  }
-  return this.ready();
-});
-
-Meteor.publish('ProfilesCurrentUser', function publishProfilesCurrentUser() {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return ProfilesCurrentClasses.collection.find({ owner: username });
   }
   return this.ready();
 });
@@ -77,10 +62,9 @@ Meteor.publish(ProfilesTakenClasses.userPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish('ProfilesTakenUser', function publishProfilesTakenUser() {
+Meteor.publish(LeaderboardData.userPublicationName, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Profiles.collection.find({ owner: username });
+    return LeaderboardData.collection.find();
   }
   return this.ready();
 });
