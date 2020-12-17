@@ -4,6 +4,7 @@ import { Grid, Segment, Header, Form, Loader } from 'semantic-ui-react';
 import { AutoForm, TextField, LongTextField, SubmitField, ErrorsField, HiddenField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import PropTypes from 'prop-types';
+import { _ } from 'meteor/underscore';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -43,11 +44,21 @@ class EditProfile extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
+    const email = Meteor.user().username;
+    const allCurrentClasses = _.uniq(_.pluck(CurrentClasses.collection.find().fetch(), 'name'));
+    const allTakenClasses = _.uniq(_.pluck(TakenClasses.collection.find().fetch(), 'name'));
+    // const formSchema = makeSchema(allCurrentClasses, allTakenClasses);
+    // const bridge = new SimpleSchema2Bridge(formSchema);
+    // Create the model with all the user information.
+    const currentClasses = _.pluck(ProfilesCurrentClasses.collection.find({ profile: email }).fetch(), 'currentClass');
+    const takenClasses = _.pluck(ProfilesTakenClasses.collection.find({ profile: email }).fetch(), 'takenClass');
+    const profile = Profiles.collection.findOne({ email });
+    const model = _.extend({}, this.props.doc);
     return (
         <Grid container centered>
           <Grid.Column>
             <Header inverted style={{ fontSize: '4vh', fontFamily: 'Courier' }}>Edit Profile</Header>
-            <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
+            <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={model}>
               <Segment>
                 <Form.Group widths={'equal'}>
                   <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
