@@ -7,11 +7,18 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
-import AddStuff from '../pages/AddStuff';
+import ListUsersAdmin from '../pages/ListUsersAdmin';
+import ListSessionsAdmin from '../pages/ListSessionsAdmin';
+import CreateProfile from '../pages/CreateProfile';
+import QuickGuide from '../pages/QuickGuide';
+import UserProfile from '../pages/UserProfile';
+import PublicProfiles from '../pages/PublicProfiles';
+import EditProfile from '../pages/EditProfile';
 import CalendarPage from '../pages/CalendarPage';
 import CreateSession from '../pages/CreateSession';
+import ViewLeaderboard from '../pages/ViewLeaderboard';
+import ListClasses from '../pages/ListClasses';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
@@ -29,12 +36,19 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
-              <ProtectedRoute path="/list" component={ListStuff}/>
-              <ProtectedRoute path="/add" component={AddStuff}/>
+              <ProtectedRoute path="/createprofile" component={CreateProfile}/>
+              <ProtectedRoute path="/quickguide" component={QuickGuide}/>
+              <ProtectedRoute path="/userprofile" component={UserProfile}/>
+              <ProtectedRoute path="/publicprofile/:_id" component={PublicProfiles}/>
+              <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
               <ProtectedRoute path="/calendar" component={CalendarPage}/>
+              <ProtectedRoute path="/leaderboard" component={ViewLeaderboard}/>
               <ProtectedRoute path="/createSession" component={CreateSession}/>
+              <ProtectedRoute path="/listClasses" component={ListClasses}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+              <AdminProtectedRoute path="/listUsersAdmin" component={ListUsersAdmin}/>
+              <AdminProtectedRoute path="/listSessionsAdmin" component={ListSessionsAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>

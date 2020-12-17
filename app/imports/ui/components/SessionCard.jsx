@@ -1,41 +1,89 @@
 import React from 'react';
-import { Button, Card } from 'semantic-ui-react';
+import { Button, Card, Modal } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class SessionCard extends React.Component {
-    render() {
-        return (
-            <Card>
-                <Card.Content>
-                    <Card.Header>ICS 314 Help</Card.Header>
-                </Card.Content>
-                <Card.Content>
-                    <Card.Description>
-                        Date: 18, February 2021
-                        <br/>
-                        Time:
-                        <br/>
-                        Place:
-                        <br/>
-                        Course:
-                        <br/>
-                        Description:
-                        <br/>
-                    </Card.Description>
-                </Card.Content>
-                <Card.Content>
-                    <Button basic color='green'>Join</Button>
-                </Card.Content>
-            </Card>
-        );
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+    };
+  }
+
+  setOpen(value) {
+    this.setState({ open: value });
+  }
+
+  render() {
+    const date = ` ${this.props.sessions.month} ${this.props.sessions.day} ${this.props.sessions.year}`;
+    let info = this.props.sessions.info;
+    let expand = true;
+
+    if (this.props.sessions.info.length > 30) {
+      info = `${this.props.sessions.info.substring(0, 27)}...`;
+      expand = false;
     }
+
+    return (
+      <Card>
+        <Card.Content>
+          <Card.Header>{this.props.sessions.name}</Card.Header>
+        </Card.Content>
+        <Card.Content>
+          <Card.Description>
+            Date:
+            {date}
+            <br />
+            Time:
+            {` ${this.props.sessions.time}`}
+            <br />
+            Course:
+            {` ${this.props.sessions.subject}`}
+            <br />
+            Description:
+            {` ${info}`}
+            <br />
+          </Card.Description>
+        </Card.Content>
+        <Card.Content>
+          <Modal
+            onClose={() => this.setOpen(false)}
+            onOpen={() => this.setOpen(true)}
+            open={this.state.open}
+            trigger={
+              <Button disabled={expand} color={(expand === false ? 'green' : 'red')} basic>{(expand === false) ? 'Click Here to see more info' : 'There are no extra info given'}</Button>
+            }
+            closeIcon
+          >
+            <Modal.Header>{this.props.sessions.name}</Modal.Header>
+            <Modal.Content>
+              <Modal.Description>
+                Date:
+                {date}
+                <br />
+                Time:
+                {` ${this.props.sessions.time}`}
+                <br />
+                Course:
+                {` ${this.props.sessions.subject}`}
+                <br />
+                Description:
+                {` ${this.props.sessions.info}`}
+                <br />
+              </Modal.Description>
+            </Modal.Content>
+          </Modal>
+        </Card.Content>
+      </Card>
+    );
+  }
 }
 
 /** Require a document to be passed to this component. */
 SessionCard.propTypes = {
-    stuff: PropTypes.object,
+  sessions: PropTypes.object,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

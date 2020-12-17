@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, SelectField, SubmitField, TextField, DateField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -15,40 +15,44 @@ const formSchema = new SimpleSchema({
     allowedValues: ['ICS 111', 'ICS 141', 'ICS 211', 'ICS 212', 'ICS 222', 'ICS 241', 'ICS 311', 'ICS 314'],
   },
   info: String,
-  time: String,
-  month: {
-    type: String,
-    allowedValues: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'October', 'November', 'December'],
-    defaultValue: 'December',
-  },
-  day: {
-    type: String,
-    allowedValues: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18',
-      '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
-    defaultValue: '1',
-  },
-  year: {
-    type: String,
-    allowedValues: ['2020', '2021', '2022', '2023', '2024', '2025'],
-    defaultValue: '2020',
-  },
+  date: String,
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
 class CreateSession extends React.Component {
-
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, subject, info, time, month, day, year } = data;
+    const { name, subject, info, date } = data;
     const owner = Meteor.user().username;
-    Sessions.collection.insert({ name, subject, info, time, month, day, year, owner },
+
+    const time = date.getTime();
+
+    const offset = date.getTimezoneOffset() * 60 * 1000;
+
+    const newTime = time + offset;
+
+    const newDate = new Date(newTime);
+
+    let hours = newDate.getHours();
+    let minutes = newDate.getMinutes();
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    hours %= 12;
+    hours = hours || 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? `0${minutes}` : minutes;
+    const timeStr = `${hours}:${minutes} ${ampm}`;
+
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December',
+    ];
+
+    Sessions.collection.insert({ name, subject, info, time: timeStr, month: monthNames[newDate.getMonth()], day: newDate.getDate().toString(), year: newDate.getFullYear().toString(), owner },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
           } else {
-            swal('Success', 'Item added successfully', 'success');
+            swal('Success', 'Session added successfully', 'success');
             formRef.reset();
           }
         });
@@ -60,7 +64,7 @@ class CreateSession extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header style={{ fontSize: '5vh', color: 'white', fontFamily: 'Courier' }}>
+            <Header style={{ fontSize: '4vh', color: 'white', fontFamily: 'Courier' }}>
               CREATE A NEW SESSION
             </Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
@@ -68,10 +72,7 @@ class CreateSession extends React.Component {
                 <TextField name='name'/>
                 <SelectField name='subject'/>
                 <TextField name='info'/>
-                <TextField name='time'/>
-                <SelectField name='month'/>
-                <SelectField name='day'/>
-                <SelectField name='year'/>
+                <DateField name='date' />
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>

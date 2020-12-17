@@ -1,0 +1,684 @@
+{
+  "profiles": [
+    {
+      "name": "Bryanna Kemp",
+      "email": "bryannakemp@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 111"
+      ],
+      "takenClasses": [
+      ],
+      "bio": "I am new to Computer Science and I enjoy playing video games on my free time.",
+      "owner": "bryannakemp@hawaii.edu"
+    },
+    {
+      "name": "Robert Welsh",
+      "email": "robertwelsh@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "takenClasses": [
+      ],
+      "bio": "Open minded and ready to learn.",
+      "owner": "robertwelsh@hawaii.edu"
+    },
+    {
+      "name": "Sejong Takenaka",
+      "email": "sejongtakenaka@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 141"
+      ],
+      "takenClasses": [
+        "ICS 111"
+      ],
+      "bio": "New to this, but I am excited to create usable programs!",
+      "owner": "sejongtakenaka@hawaii.edu"
+    },
+    {
+      "name": "Kyle Walt",
+      "email": "kylewalt@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "takenClasses": [
+      ],
+      "bio": "Have experience in coding, looking to go into Video Game development.",
+      "owner": "kylewalt@hawaii.edu"
+    },
+    {
+      "name": "Gigi Good",
+      "email": "gigigood@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 141"
+      ],
+      "takenClasses": [
+        "ICS 111"
+      ],
+      "bio": "I enjoy graphic design and looking to go into web development. ",
+      "owner": "gigigood@hawaii.edu"
+    },
+    {
+      "name": "Nick Kim",
+      "email": "nickkim@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "takenClasses": [
+      ],
+      "bio": "Freshman in ICS. Don't know what I want to do, but I enjoy working with computers.",
+      "owner": "nickkim@hawaii.edu"
+    },
+    {
+      "name": "Jackie Cox",
+      "email": "jackiecox@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 211",
+        "ICS 241"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "bio": "Majoring in ICS, looking to go into Cyber Security.",
+      "owner": "jackiecox@hawaii.edu"
+    },
+    {
+      "name": "Jean Huff",
+      "email": "jeanhuff@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 211"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "bio": "Sophomore majoring in ICS, looking to go into web development.",
+      "owner": "jeanhuff@hawaii.edu"
+    },
+    {
+      "name": "Trixie Michelle",
+      "email": "trixiemichelle@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 211",
+        "ICS 241"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "bio": "Sophomore with in ICS with a track in Data Science.",
+      "owner": "trixiemichelle@hawaii.edu"
+    },
+    {
+      "name": "Katya Zimbo",
+      "email": "katyazimbo@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 241",
+        "ICS 212"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211"
+      ],
+      "bio": "I'm a transfer, so new to the program here.",
+      "owner": "katyazimbo@hawaii.edu"
+    },
+    {
+      "name": "Rob Zimmerman",
+      "email": "robzimmerman@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 212 "
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241"
+      ],
+      "bio": "I enjoy web design and creating useful programs.",
+      "owner": "robzimmerman@hawaii.edu"
+    },
+    {
+      "name": "Andy Cooper",
+      "email": "andycooper@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 212",
+        "ICS 222"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241"
+      ],
+      "bio": "Sophomore majoring in ICS with a track in Cyber Security.",
+      "owner": "andycooper@hawaii.edu"
+    },
+    {
+      "name": "Matty Sirois",
+      "email": "mattysirois@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 241",
+        "ICS 222"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 212"
+      ],
+      "bio": "I love coding and have been working towards working as a web developer.",
+      "owner": "mattysirois@hawaii.edu"
+    },
+    {
+      "name": "Riley Flynn",
+      "email": "rileyflynn@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 222",
+        "ICS 241"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211"
+      ],
+      "bio": "So far, I have been enjoying ICS and working towards becoming a Software Developer.",
+      "owner": "rileyflynn@hawaii.edu"
+    },
+    {
+      "name": "Garrett Waters",
+      "email": "garrettwaters@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 241"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 212"
+      ],
+      "bio": "I enjoy creating and design new and working programs.",
+      "owner": "garrettwaters@hawaii.edu"
+    },
+    {
+      "name": "Evan Keith",
+      "email": "evankeith@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 211",
+        "ICS 222"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "bio": "I am a sophomore and still figuring out what I want to do within ICS",
+      "owner": "evankeith@hawaii.edu"
+    },
+    {
+      "name": "Janice Marshall",
+      "email": "janicemarshall@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 311",
+        "ICS 314"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241",
+        "ICS 212"
+      ],
+      "bio": "Junior at UHM, working towards a BS in ICS Cyber Security.",
+      "owner": "janicemarshall@hawaii.edu"
+    },
+    {
+      "name": "Larissa Corpuz",
+      "email": "larissacorpuz@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 311",
+        "ICS 314"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241",
+        "ICS 212"
+      ],
+      "bio": "Looking to go into Cyber Security under the US military.",
+      "owner": "larissacorpuz@hawaii.edu"
+    },
+    {
+      "name": "Alana Tamashiro",
+      "email": "alanatamashiro@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 311",
+        "ICS 212"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241"
+      ],
+      "bio": "Junior in ICS, I enjoy Web and Graphic Design.",
+      "owner": "alanatamashiro@hawaii.edu"
+    },
+    {
+      "name": "Loren Weiner",
+      "email": "lorenweiner@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 311"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241",
+        "ICS 212"
+      ],
+      "bio": "I want to go into software engineering and design to be able to create web applications.",
+      "owner": "lorenweiner@hawaii.edu"
+    },
+    {
+      "name": "Hershel Evans",
+      "email": "hershelevans@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 314"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241",
+        "ICS 212",
+        "ICS 311"
+      ],
+      "bio": "I enjoy playing video games and hope to go into game developemnt.",
+      "owner": "hershelevans@hawaii.edu"
+    },
+    {
+      "name": "Charlie Duncan",
+      "email": "charlieduncan@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 314"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241",
+        "ICS 212",
+        "ICS 311"
+      ],
+      "bio": "Interested in AI development and how it can change out daily lives.",
+      "owner": "charlieduncan@hawaii.edu"
+    },
+    {
+      "name": "Peter Stump",
+      "email": "peterstump@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 311"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241",
+        "ICS 212",
+        "ICS 314"
+      ],
+      "bio": "Looking to work with web development for fashion/creative media companies.",
+      "owner": "peterstump@hawaii.edu"
+    },
+    {
+      "name": "Jaida Hall",
+      "email": "jaidahall@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 311",
+        "ICS 314"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241",
+        "ICS 212"
+      ],
+      "bio": "I want to get into teaching ICS to future generations since tech will only become more intertwined in our daily lives with time.",
+      "owner": "jaidahall@hawaii.edu"
+    },
+    {
+      "name": "Alex King",
+      "email": "alexking@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 311",
+        "ICS 314"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241",
+        "ICS 212"
+      ],
+      "bio": "Junior at UHM in ICS, I enjoy AI development and video game design.",
+      "owner": "alexking@hawaii.edu"
+    },
+    {
+      "name": "Brandon Grigorian",
+      "email": "brandongrigorian@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 314"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241",
+        "ICS 212"
+      ],
+      "bio": "I want to get in to web design to improve and create more effective web programs.",
+      "owner": "brandongrigorian@hawaii.edu"
+    },
+    {
+      "name": "Connor Austin",
+      "email": "connoraustin@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 311"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241",
+        "ICS 212"
+      ],
+      "bio": "Currently a junior in ICS, not fully decided in what I want to do, but I enjoy most aspects of ICS so far.",
+      "owner": "connoraustin@hawaii.edu"
+    },
+    {
+      "name": "Joe Wegner",
+      "email": "joeweegner@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 311",
+        "ICS 314"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241",
+        "ICS 212"
+      ],
+      "bio": "I love the creating and problem solving aspects of ICS, looking to work with smaller local businesses and brands. ",
+      "owner": "joeweegner@hawaii.edu"
+    },
+    {
+      "name": "Chris Finchum",
+      "email": "chrisfinchum@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 211",
+        "ICS 241"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141"
+      ],
+      "bio": "Sophomore in ICS, looking to work towards app development.",
+      "owner": "chrisfinchum@hawaii.edu"
+    },
+    {
+      "name": "Arnaldo Ruster",
+      "email": "arnaldoruster@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 222"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241"
+      ],
+      "bio": "Sophomore in ICS, I enjoy video games and solving problems.",
+      "owner": "warnaldoruster@hawaii.edu"
+    },
+    {
+      "name": "Benny Finn",
+      "email": "bennyfinn@hawaii.edu",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 314"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 222",
+        "ICS 241"
+      ],
+      "bio": "Junior at UHM in ICS. My goal is to work with AI development for video games and computer applications.",
+      "owner": "bennyfinn@hawaii.edu"
+    }
+  ],
+  "leaderboard": [
+    {
+      "name": "Bryanna Kemp",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": 4,
+      "points": 0,
+      "owner": "bryannakemp@hawaii.edu"
+    },
+    {
+      "name": "Robert Welsh",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": 3,
+      "points": 20,
+      "owner": "robertwelsh@hawaii.edu"
+    }
+  ],
+
+  "session": [
+    {
+      "name": "Study for ICS 111 Final",
+      "subject": "ICS 111",
+      "info": "Reviewing the last few chapters learned in class in preparation for final. ",
+      "time": "11:30 am",
+      "month": "December",
+      "day": "11",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 111 homework 13",
+      "subject": "ICS 111",
+      "info": "Group help on homework 13.",
+      "time": "9:10 am",
+      "month": "December",
+      "day": "3",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 111 final review",
+      "subject": "ICS 111",
+      "info": "Study sessions for harder general topics in ICS 111",
+      "time": "10:00 am",
+      "month": "December",
+      "day": "9",
+      "year": "2020"
+    },
+    {
+      "name": "Study for ICS 141 Final",
+      "subject": "ICS 141",
+      "info": "Go over practice problems for our final.",
+      "time": "7:00 pm",
+      "month": "December",
+      "day": "12",
+      "year": "2020"
+    },
+    {
+      "name": "Homework 9 for ICS 141",
+      "subject": "ICS 141",
+      "info": "Finished and discuss homework 9 after class",
+      "time": "2:45 pm",
+      "month": "December",
+      "day": "8",
+      "year": "2020"
+    },
+    {
+      "name": "Help on final project for ICS 211",
+      "subject": "ICS 211",
+      "info": "Work together on finishing final project.",
+      "time": "4:15 pm",
+      "month": "December",
+      "day": "13",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 211 final review",
+      "subject": "ICS 211",
+      "info": "Review data structures and sorts for final",
+      "time": "8:00 pm",
+      "month": "December",
+      "day": "12",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 211 Homework",
+      "subject": "ICS 211",
+      "info": "Having trouble implementing different sorts.",
+      "time": "5:30 pm",
+      "month": "December",
+      "day": "4",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 241 Study Session for Final",
+      "subject": "ICS 241",
+      "info": "Study for ICS 241 final",
+      "time": "5:15 pm",
+      "month": "December",
+      "day": "6",
+      "year": "2020"
+    },
+    {
+      "name": "Final Review ICS 241",
+      "subject": "ICS 241",
+      "info": "Review Harder topics in ICS 241 for final",
+      "time": "11:15 am",
+      "month": "December",
+      "day": "10",
+      "year": "2020"
+    },
+    {
+      "name": "Help on ICS 311 Homework 10",
+      "subject": "ICS 311",
+      "info": "Solving final homework problems.",
+      "time": "5:45 pm",
+      "month": "December",
+      "day": "7",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 311 Review for final",
+      "subject": "ICS 311",
+      "info": "Review for final, go over recent chapters in CLRS.",
+      "time": "6:15 pm",
+      "month": "December",
+      "day": "6",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 341 final project testing",
+      "subject": "ICS 314",
+      "info": "Check out and test other final project to find improvements",
+      "time": "5:000 pm",
+      "month": "December",
+      "day": "8",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 314 portfolio review",
+      "subject": "ICS 314",
+      "info": "Look over each others portfolios and suggest improvements.",
+      "time": "12:15 pm",
+      "month": "December",
+      "day": "6",
+      "year": "2020"
+    },
+    {
+      "name": "ICS 311 Multithreading and Parallel Programing",
+      "subject": "ICS 311",
+      "info": "Review and practice multithreading and parallel programing.",
+      "time": "1:45 pm",
+      "month": "December",
+      "day": "1",
+      "year": "2020"
+    }
+  ]
+
+}
