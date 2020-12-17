@@ -17,7 +17,18 @@ class SessionCard extends React.Component {
   }
 
   render() {
-    const date = ` ${this.props.sessions.month} ${this.props.sessions.day} ${this.props.sessions.year}`;
+    let day;
+    if ((this.props.sessions.day % 10) === 1) {
+      day = `${this.props.sessions.day}st`;
+    } else if ((this.props.sessions.day % 10) === 2) {
+      day = `${this.props.sessions.day}nd`;
+    } else if ((this.props.sessions.day % 10) === 3) {
+      day = `${this.props.sessions.day}rd`;
+    } else {
+      day = `${this.props.sessions.day}th`;
+    }
+
+    const date = ` ${this.props.sessions.month} ${day}, ${this.props.sessions.year}`;
     let info = this.props.sessions.info;
     let expand = true;
 

@@ -9,7 +9,7 @@ import { _ } from 'meteor/underscore';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
-import { updateProfileMethod } from '../../startup/both/Methods';
+import { insertProfileMethod } from '../../startup/both/Methods';
 import { CurrentClasses } from '../../api/classes/CurrentClasses';
 import { TakenClasses } from '../../api/classes/TakenClasses';
 import { Profiles } from '../../api/profile/Profiles';
@@ -43,7 +43,12 @@ class CreateProfile extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    Meteor.call(updateProfileMethod, data, (error) => {
+    const email = Meteor.user().username;
+    const newData = data;
+    newData.email = email;
+    newData.rank = 'john@foo.com';
+    newData.owner = email;
+    Meteor.call(insertProfileMethod, newData, (error) => {
           if (error) {
             swal('Error', error.message, 'error');
           } else {

@@ -1,7 +1,7 @@
-import React from "react";
-import { Table, Modal, Button, Header, Icon } from "semantic-ui-react";
-import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import { Table, Modal, Button, Header, Icon } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff (Admin) table. See pages/ListStuffAdmin.jsx. */
 class ListSessionAdmin extends React.Component {

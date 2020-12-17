@@ -43,7 +43,7 @@ class UserProfile extends React.Component {
 /** Require an array of Profiles documents in the props. */
 UserProfile.propTypes = {
   leaderboard: PropTypes.array.isRequired,
-  profile: PropTypes.object,
+  profile: PropTypes.object.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
