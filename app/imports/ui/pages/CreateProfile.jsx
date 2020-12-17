@@ -8,6 +8,7 @@ import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 import { insertProfileMethod } from '../../startup/both/Methods';
 import { CurrentClasses } from '../../api/classes/CurrentClasses';
@@ -31,15 +32,15 @@ const makeSchema = (allCurrentClasses, allTakenClasses) => new SimpleSchema({
 /** Renders the Page for adding a document. */
 class CreateProfile extends React.Component {
   /** Initialize state fields. */
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { name: '', email: '', picture: '', currentClasses: '', takenClasses: '', error: '', redirectToReferer: false };
-  // }
-  //
-  // /** Update the form controls each time the user interacts with them. */
-  // handleChange= (e, { name, value }) => {
-  //   this.setState({ [name]: value });
-  // }
+  constructor(props) {
+    super(props);
+    this.state = { name: '', email: '', picture: '', currentClasses: '', takenClasses: '', error: '', redirectToReferer: false };
+  }
+
+  /** Update the form controls each time the user interacts with them. */
+  handleChange= (e, { name, value }) => {
+    this.setState({ [name]: value });
+  }
 
   /** On submit, insert the data. */
   submit(data) {
@@ -53,18 +54,18 @@ class CreateProfile extends React.Component {
             swal('Error', error.message, 'error');
           } else {
             swal('Success', 'Profile created successfully', 'success');
-            // this.setState({ redirectToReferer: true });
+            this.setState({ redirectToReferer: true });
           }
         });
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
-    // const { from } = this.props.location.state || { from: { pathname: '/quickguide' } };
-    // // if correct authentication, redirect to from: page instead of signup screen
-    // if (this.state.redirectToReferer) {
-    //   return <Redirect to={from}/>;
-    // }
+    const { from } = this.props.location.state || { from: { pathname: '/quickguide' } };
+    // if correct authentication, redirect to from: page instead of signup screen
+    if (this.state.redirectToReferer) {
+      return <Redirect to={from}/>;
+    }
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
@@ -112,7 +113,7 @@ class CreateProfile extends React.Component {
 
 /** Ensure that the React Router location object is available in case we need to redirect. */
 CreateProfile.propTypes = {
-  // location: PropTypes.object,
+  location: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
 
