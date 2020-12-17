@@ -3,7 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Card, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '../../api/profile/Profiles';
 import { ProfilesCurrentClasses } from '../../api/profile/ProfilesCurrentClasses';
