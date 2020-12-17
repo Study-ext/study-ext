@@ -14,6 +14,23 @@
   ],
 
   "defaultProfiles": [
+    { "name": "Admin Foo",
+      "email": "admin@foo.com",
+      "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",
+      "rank": "john@foo.com",
+      "currentClasses": [
+        "ICS 311",
+        "ICS 314"
+      ],
+      "takenClasses": [
+        "ICS 111",
+        "ICS 141",
+        "ICS 211",
+        "ICS 241"
+      ],
+      "bio": "I am the admin.",
+      "owner": "admin@foo.com"
+    },
     { "name": "John Foo",
       "email": "john@foo.com",
       "picture": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg",

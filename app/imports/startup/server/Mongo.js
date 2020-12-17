@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 // import { Accounts } from 'meteor/accounts-base';
-// import { Roles } from 'meteor/alanning:roles';
+import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Profiles } from '../../api/profile/Profiles';
 import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
@@ -102,3 +102,16 @@ if (Sessions.collection.find().count() === 0) {
     Meteor.settings.defaultSession.map(data => addSession(data));
   }
 }
+
+Meteor.users.allow({
+  remove: function (userId, doc) {
+    if (Roles.userIsInRole(this.userId, 'admin') && userId !== doc._id) {
+      console.log('Access granted. You are an administrator and you are not trying to delete your own document.');
+      return true;
+    }
+      console.log('Access denied. You are not an administrator or you are trying to delete your own document.');
+      return false;
+
+  },
+  fetch: [],
+});

@@ -12,34 +12,56 @@ import { ProfilesTakenClasses } from '../../api/profile/ProfilesTakenClasses';
 class ListUsersAdmin extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+    return this.props.ready ? (
+      this.renderPage()
+    ) : (
+      <Loader active>Getting data</Loader>
+    );
   }
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
-          <Header inverted as="h2" textAlign="center">List All Users (Admin)</Header>
-          <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Email</Table.HeaderCell>
-                <Table.HeaderCell>Rank</Table.HeaderCell>
-                <Table.HeaderCell>Current Classes</Table.HeaderCell>
-                <Table.HeaderCell>Taken Classes</Table.HeaderCell>
-                <Table.HeaderCell>Bio</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {this.props.profiles.map((profile) => {
-                const current = this.props.current.filter((value) => value.profile === profile.email).map((value) => value.currentClass);
-                const taken = this.props.taken.filter((value) => value.profile === profile.email).map((value) => value.takenClass);
-                return <ListProfileAdmin key={profile._id} profile={profile} current={current} taken={taken} />;
-              })}
-            </Table.Body>
-          </Table>
-        </Container>
+      <Container>
+        <Header inverted as="h2" textAlign="center">
+          List All Users (Admin)
+        </Header>
+        <Table celled>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Name</Table.HeaderCell>
+              <Table.HeaderCell>Email</Table.HeaderCell>
+              <Table.HeaderCell>Rank</Table.HeaderCell>
+              <Table.HeaderCell>Current Classes</Table.HeaderCell>
+              <Table.HeaderCell>Taken Classes</Table.HeaderCell>
+              <Table.HeaderCell>Bio</Table.HeaderCell>
+              <Table.HeaderCell>Delete</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {this.props.profiles.map((profile) => {
+              const current = this.props.current.filter(
+                (value) => value.profile === profile.email,
+              );
+              const taken = this.props.taken.filter(
+                (value) => value.profile === profile.email,
+              );
+              return (
+                <ListProfileAdmin
+                  key={profile._id}
+                  profile={profile}
+                  current={current}
+                  taken={taken}
+                  Profiles={Profiles}
+                  Currents={ProfilesCurrentClasses}
+                  Takens={ProfilesTakenClasses}
+                  Users={Meteor.users.find().fetch()}
+                />
+              );
+            })}
+          </Table.Body>
+        </Table>
+      </Container>
     );
   }
 }
@@ -55,12 +77,19 @@ ListUsersAdmin.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Profiles.adminPublicationName);
-  const subscription2 = Meteor.subscribe(ProfilesCurrentClasses.adminPublicationName);
-  const subscription3 = Meteor.subscribe(ProfilesTakenClasses.adminPublicationName);
+  const subscription2 = Meteor.subscribe(
+    ProfilesCurrentClasses.adminPublicationName,
+  );
+  const subscription3 = Meteor.subscribe(
+    ProfilesTakenClasses.adminPublicationName,
+  );
+    const subscription4 = Meteor.subscribe('userList');
+
   return {
     profiles: Profiles.collection.find({}, { sort: { name: +1 } }).fetch(),
     current: ProfilesCurrentClasses.collection.find({}).fetch(),
     taken: ProfilesTakenClasses.collection.find({}).fetch(),
-    ready: subscription.ready() && subscription2.ready() && subscription3.ready(),
+    ready:
+      subscription.ready() && subscription2.ready() && subscription3.ready() && subscription4.ready(),
   };
 })(ListUsersAdmin);
