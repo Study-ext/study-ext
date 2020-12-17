@@ -18,20 +18,19 @@ class ListSessionsAdmin extends React.Component {
     return (
         <Container>
           <Header inverted as="h2" textAlign="center">List All Sessions (Admin)</Header>
-          <Table>
+          <Table celled>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Name</Table.HeaderCell>
                 <Table.HeaderCell>Subject</Table.HeaderCell>
                 <Table.HeaderCell>Info</Table.HeaderCell>
                 <Table.HeaderCell>Time</Table.HeaderCell>
-                <Table.HeaderCell>Month</Table.HeaderCell>
-                <Table.HeaderCell>Day</Table.HeaderCell>
-                <Table.HeaderCell>Year</Table.HeaderCell>
+                <Table.HeaderCell>Date</Table.HeaderCell>
+                <Table.HeaderCell>Delete</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {this.props.sessions.map((session) => <ListSessionAdmin key={session._id} session={session} />)}
+              {this.props.sessions.map((session) => <ListSessionAdmin key={session._id} session={session} Sessions={Sessions} />)}
             </Table.Body>
           </Table>
         </Container>
