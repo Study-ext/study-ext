@@ -33,9 +33,9 @@ class Profile extends React.Component {
             {_.map(this.props.profile.takenClasses, (takenClass, index) => <Label key={index} size='tiny'
                                                                                   color='teal'>{takenClass}</Label>)}
           </Card.Content>
-          {/* <Card.Content extra> */}
-          {/*  <Link to={`/editprofile/${this.props.profile._id}`}>Edit Profile</Link> */}
-          {/* </Card.Content> */}
+          {/* <Card.Content extra>
+           <Link to={`/editprofile/${this.props.profile._id}`}>Edit Profile</Link>
+          </Card.Content> */}
         </Card>
     );
   }

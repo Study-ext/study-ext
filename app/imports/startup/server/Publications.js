@@ -138,6 +138,20 @@ Meteor.publish(Sessions.adminPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish(ProfilesTakenClasses.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return ProfilesTakenClasses.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(ProfilesCurrentClasses.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return ProfilesCurrentClasses.collection.find();
+  }
+  return this.ready();
+});
+
 // alanning:roles publication
 // Recommended code to publish roles for each user.
 Meteor.publish(null, function () {
