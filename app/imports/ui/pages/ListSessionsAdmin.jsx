@@ -18,7 +18,7 @@ class ListSessionsAdmin extends React.Component {
     return (
         <Container>
           <Header inverted as="h2" textAlign="center">List All Sessions (Admin)</Header>
-          <Table basic='very'>
+          <Table color="white">
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Name</Table.HeaderCell>
