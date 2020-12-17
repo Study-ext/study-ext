@@ -13,13 +13,6 @@ import { ProfilesTakenClasses } from '../../api/profile/ProfilesTakenClasses';
 /* eslint-disable no-console */
 
 /** Define a user in the Meteor accounts package. This enables login. Username is the email address. */
-// function createUser(email, role) {
-//   const userID = Accounts.createUser({ username: email, email, password: '' });
-//   if (role === 'admin') {
-//     Roles.createRole(role, { unlessExists: true });
-//     Roles.addUsersToRoles(userID, 'admin');
-//   }
-// }
 
 /** Initialize the database with a default data document. */
 function addData(data) {
@@ -46,7 +39,6 @@ function addTakenClass(takenClass) {
 
 function addProfile({ name, email, picture, rank, currentClasses, takenClasses, bio, owner }) {
   console.log(`Defining profile ${email}`);
-  // createUser(email, role);
   Profiles.collection.insert({ name, email, picture, rank, bio, owner });
   // Add classes
   currentClasses.map(currentClass => ProfilesCurrentClasses.collection.insert({ profile: email, currentClass }));

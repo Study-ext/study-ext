@@ -10,7 +10,6 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
-import { updateProfileMethod } from '../../startup/both/Methods';
 import { CurrentClasses } from '../../api/classes/CurrentClasses';
 import { TakenClasses } from '../../api/classes/TakenClasses';
 import { Profiles } from '../../api/profile/Profiles';

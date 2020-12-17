@@ -40,7 +40,7 @@ class App extends React.Component {
               <ProtectedRoute path="/quickguide" component={QuickGuide}/>
               <ProtectedRoute path="/userprofile" component={UserProfile}/>
               <ProtectedRoute path="/publicprofile/:_id" component={PublicProfiles}/>
-              <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
+              <ProtectedRoute path="/editprofile" component={EditProfile}/>
               <ProtectedRoute path="/calendar" component={CalendarPage}/>
               <ProtectedRoute path="/leaderboard" component={ViewLeaderboard}/>
               <ProtectedRoute path="/createSession" component={CreateSession}/>

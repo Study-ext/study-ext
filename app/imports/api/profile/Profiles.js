@@ -15,6 +15,8 @@ class ProfilesCollection {
       email: { type: String, optional: true },
       picture: String,
       rank: { type: String, optional: true },
+      // currentClasses: { type: String, optional: true },
+      // takenClasses: { type: String, optional: true },
       bio: { type: String, optional: true },
       owner: String,
     }, { tracker: Tracker });
