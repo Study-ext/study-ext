@@ -3,6 +3,7 @@ import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
 import { calendarPage } from './calendarpage.page';
+import { leaderboardPage } from './leaderboardpage.page';
 
 /* global fixture:false, test:false */
 
@@ -29,4 +30,11 @@ test('Test that Calendar page shows up', async (testController) => {
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoCalendarPage(testController);
   await calendarPage.isDisplayed(testController);
+});
+
+test('Test that Leaderboard page shows up', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoLeaderboardPage(testController);
+  await leaderboardPage.isDisplayed(testController);
 });

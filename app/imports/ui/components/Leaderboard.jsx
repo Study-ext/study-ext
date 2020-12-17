@@ -8,7 +8,7 @@ class Leaderboard extends React.Component {
   render() {
 
     return (
-        <Table.Row>
+        <Table.Row id='leaderboard-page'>
           <Table.Cell>
             <Image
                 size='mini'
