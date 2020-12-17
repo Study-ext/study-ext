@@ -9,6 +9,10 @@ import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 import { Profiles } from '../../api/profile/Profiles';
+import { CurrentClasses } from '../../api/classes/CurrentClasses';
+import { TakenClasses } from '../../api/classes/TakenClasses';
+import { ProfilesCurrentClasses } from '../../api/profile/ProfilesCurrentClasses';
+import { ProfilesTakenClasses } from '../../api/profile/ProfilesTakenClasses';
 
 const bridge = new SimpleSchema2Bridge(Profiles.schema);
 
@@ -77,9 +81,13 @@ EditProfile.propTypes = {
 export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Request Profiles docs. Won't be locally available until ready() returns true.
-  const profilesSubscription = Meteor.subscribe('UserProfiles');
+  const sub1 = Meteor.subscribe(CurrentClasses.userPublicationName);
+  const sub2 = Meteor.subscribe(TakenClasses.userPublicationName);
+  const sub3 = Meteor.subscribe(Profiles.userPublicationName);
+  const sub4 = Meteor.subscribe(ProfilesCurrentClasses.userPublicationName);
+  const sub5 = Meteor.subscribe(ProfilesTakenClasses.userPublicationName);
   return {
     doc: Profiles.collection.findOne(documentId),
-    ready: profilesSubscription.ready(),
+    ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready(),
   };
 })(EditProfile);

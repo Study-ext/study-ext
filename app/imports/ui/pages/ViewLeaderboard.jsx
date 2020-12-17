@@ -29,9 +29,8 @@ class ViewLeaderboard extends React.Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {this.props.leaderboarddata.map((leaderboard) => <Leaderboard key={leaderboard._id}
+                {this.props.leaderboarddata.map((leaderboard) => <Leaderboard key={leaderboard._id}
                                                                             leaderboard={leaderboard}/>)}
-
             </Table.Body>
           </Table>
         </Container>
@@ -42,7 +41,6 @@ class ViewLeaderboard extends React.Component {
 /** Require an array of Stuff documents in the props. */
 ViewLeaderboard.propTypes = {
   leaderboarddata: PropTypes.array.isRequired,
-  profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 

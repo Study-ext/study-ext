@@ -1,12 +1,21 @@
 import React from 'react';
 import { Table, Image, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-// import { _ } from 'meteor/underscore';
+import { _ } from 'meteor/underscore';
 import { withRouter } from 'react-router-dom';
+import { LeaderboardData } from '../../api/leaderboardData/LeaderboardData';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single row in the Leaderboard table. See pages/ListStuff.jsx. */
 class Leaderboard extends React.Component {
   render() {
+    // const userPoints = _.pluck(LeaderboardData.collection.find().fetch(), 'points');
+    // const sortedPoints = userPoints.slice().sort(function (a, b) {
+    //   return b - a;
+    // });
+    // const ranks = userPoints.map(function (v) {
+    //   return sortedPoints.indexOf(v) + 1;
+    // });
+
     return (
         <Table.Row>
           <Table.Cell>
@@ -35,7 +44,6 @@ class Leaderboard extends React.Component {
 /** Require a document to be passed to this component. */
 Leaderboard.propTypes = {
   leaderboard: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
