@@ -165,12 +165,6 @@ Landing.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Sessions documents.
-  if (Meteor.userId() === null) {
-      return {
-          ready: true,
-      };
-  }
-
     const subscription = Meteor.subscribe(Sessions.userPublicationName);
     return {
         sessions: Sessions.collection.find({}).fetch(),

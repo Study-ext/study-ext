@@ -63,6 +63,12 @@ if (Profiles.collection.find().count() === 0) {
     console.log('Creating default profiles.');
     Meteor.settings.defaultProfiles.map(data => addProfile(data));
   }
+  const assetsFileName = 'data.json';
+  console.log(`Loading data from private/${assetsFileName}`);
+  const jsonData = JSON.parse(Assets.getText(assetsFileName));
+  jsonData.profiles.map(profile => addProfile(profile));
+  jsonData.leaderboard.map(data => addLeaderboard(data));
+  jsonData.session.map(data => addSession(data));
 }
 
 /** Initialize the DB if empty (no users defined.) */
@@ -87,15 +93,6 @@ if (Sessions.collection.find().count() === 0) {
     console.log('Creating default sessions.');
     Meteor.settings.defaultSession.map(data => addSession(data));
   }
-}
-
-if ((Meteor.settings.loadAssetsFile) && (Meteor.users.find().count() < 20)) {
-  const assetsFileName = 'data.json';
-  console.log(`Loading data from private/${assetsFileName}`);
-  const jsonData = JSON.parse(Assets.getText(assetsFileName));
-  jsonData.profiles.map(profile => addProfile(profile));
-  jsonData.leaderboard.map(data => addLeaderboard(data));
-  jsonData.session.map(data => addSession(data));
 }
 
 Meteor.users.allow({

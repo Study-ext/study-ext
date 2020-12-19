@@ -47,9 +47,8 @@ ListSessionsAdmin.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Sessions.adminPublicationName);
-  const subscription1 = Meteor.subscribe('allUsers');
   return {
     sessions: Sessions.collection.find({}, { sort: { subject: +1, day: +1 } }).fetch(),
-    ready: subscription.ready() && subscription1.ready(),
+    ready: subscription.ready(),
   };
 })(ListSessionsAdmin);
